@@ -1,5 +1,3 @@
-# BS CS ePortfolio
-
 <p align="center">
   <img src="moises.jpg" width="190">
 </p>
