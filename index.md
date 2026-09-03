@@ -1,5 +1,5 @@
-<p align="center" style="margin-top: -80px; margin-bottom: 10px;">
-  <img src="moises.jpg" width="180" style="border:5px solid white; box-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+<p align="center" style="margin-top: -100px; margin-bottom: 10px;">
+  <img src="moises.jpg" width="210">
 </p>
 
 ## Introduction
