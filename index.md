@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="moises.jpg" width="190">
+  <img src="moises.jpg" width="210">
 </p>
 
 ## Introduction
