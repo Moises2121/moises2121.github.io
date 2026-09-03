@@ -1,5 +1,8 @@
 # BS CS ePortfolio
-![Moises SancheZ](moises.jpg)
+
+<p align="center">
+  <img src="moises.jpg" width="130">
+</p>
 
 ## Introduction
 Welcome to my CS499 ePortfolio. Here I showcase my skills obtained throught the BS in CS degree in a professional and descriptive manner, along with the obstacles encountered and the steps taken to remediate them. More specifically, discuss and review improved artifacts for the enhancement of a weight tracking application.
