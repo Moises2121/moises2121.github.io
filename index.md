@@ -10,7 +10,20 @@ The main goal is building a reliable and maintainable application with a profess
 
 First, I deliver a code review for the artifact. This video will outline the current structure of the application and its services, then it will show the functionality of each module. In this code review, the areas of weaknesses will be pointed out, using a developer's checklist for best practices. Then, the three enhancements will be discussed along with the steps that I would take in order to fulfill the enhanced version. At the end, this strategy gives us (developers) an opportunity to find vulnerabilites before launching the final product.
 
-<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/e355902f-a374-4b14-b1c0-42cf4b9c4ba4" />
+<p align="center">
+    <a href="https://www.youtube.com/watch?v=Oq3PpwUhlgc" target="_blank">
+        <img
+            src="https://github.com/user-attachments/assets/e355902f-a374-4b14-b1c0-42cf4b9c4ba4"
+            alt="Initial Code Review"
+            width="500">
+    </a>
+</p>
+
+<p align="center">
+    <a href="https://www.youtube.com/watch?v=Oq3PpwUhlgc" target="_blank">
+        Watch the initial code review here
+    </a>
+</p>
 
 ### Software Design & Engineering
 Under construction...
