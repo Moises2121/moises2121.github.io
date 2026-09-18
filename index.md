@@ -13,11 +13,9 @@ First, I deliver a code review for the artifact. This video will outline the cur
 <p align="center">
   <a href="https://www.youtube.com/watch?v=Oq3PpwUhlgc" target="_blank">
     <img src="https://i.ytimg.com/vi/Oq3PpwUhlgc/hqdefault.jpg" >
-</p>
-
 <p align="center">
     <a href="https://www.youtube.com/watch?v=Oq3PpwUhlgc" target="_blank">
-        Watch the initial code review here
+        Watch my initial code review
     </a>
 </p>
 
