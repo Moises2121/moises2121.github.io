@@ -18,15 +18,15 @@ First, I deliver a code review for the artifact. This video will outline the cur
         Watch my initial code review
     </a>
 </p>
----
+<br>
 ### Software Design & Engineering
 Under construction...
----
+<br>
 ### Algorithms & Data Structures
 Under construction...
----
+<br>
 ### Databases
 Under construction...
----
+<br>
 ## Contact:
 moises.sanchez1@snhu.edu
