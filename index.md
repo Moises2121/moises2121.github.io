@@ -1,5 +1,5 @@
 <div align="center" style="line-height: 0;">
-  <img src="moises.jpg" alt="Moises Sanchez" width="200" style="display:block; margin-top: -60px; margin-bottom: 0px;">
+  <img src="moises.jpg" alt="Moises Sanchez" width="200" style="display:block; margin-top: -60px; margin-bottom: 0px; border: 3px solid #003366; border-radius: 8px;">
   <img src="snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
 </div>
 
