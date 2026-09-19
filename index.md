@@ -18,7 +18,7 @@ First, I deliver a code review for the artifact. This video will outline the cur
 
 <p align="center">
   <a href="https://youtu.be/efCo_He-T5c" target="_blank">
-    <img src="https://i.ytimg.com/vi/Oq3PpwUhlgc/hqdefault.jpg" >
+    <img src="https://i.ytimg.com/vi/efCo_He-T5c/hqdefault.jpg">
   </a>
 </p>
 <p align="center">
