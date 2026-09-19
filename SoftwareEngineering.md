@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Software Design & Engineering Enhancement
+title: Software Design & Engineering
 ---
 # Artifact's Origin
 
