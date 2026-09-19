@@ -48,7 +48,7 @@ I will use my skills in Software Design & Engineering, Algorithms & Data Structu
 Under construction...
 
 <p align="left">
-  <a href="SoftwareEngineering.html" target="_blank" class="btn">Enhancement One</a>
+  <a href="./SoftwareEngineering.html" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Enhancement One →</a>
 </p>
 
 ### Algorithms & Data Structures
