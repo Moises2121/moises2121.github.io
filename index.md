@@ -6,8 +6,8 @@
 ## Introduction
 <div style="text-align: justify;">
   <p>
-Welcome to my CS499 ePortfolio. Here, I showcase my skills obtained throught the BS in CS degree in a professional and descriptive manner, along with mitgation steps for the challenges encountered. More specifically, I will discuss and review improved elements for the enhancement of my <b>Weight Tracking Application</b>.
-The main goal is building a reliable and maintainable application with a professional architecture foundation that follows industry's best practices. This page will include a self assesment, video code review and the before and after artifact with its respective narratives.
+Welcome to my CS499 ePortfolio. Here, I showcase my skills obtained throught the BS in CS degree in a professional and descriptive manner, along with mitgation steps for the challenges encountered. I will discuss and review improved elements for the enhancement of my <b>Weight Tracking Application</b>.
+I’m aiming to develop a fully functional application that follows best practices and enhances user experience, as well as ensuring database is properly handled. More specifically, ensuring the code is readable and sustainable, the UI and UX elements are adequate for the desired audience and using ROOM to handle database components. This page will include a self assesment, video code review and the before and after artifact with its respective narratives.
   </p>
 </div>
 
