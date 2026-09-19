@@ -35,6 +35,13 @@ First, my developer's code review. This video outlines the current structure of 
         Narrated code review
     </a>
 </p>
+<p align="center">
+    <a href="https://github.com/Moises2121/moises2121.github.io/tree/originalartifact/app/src/main/java/com/example/weighttracker" target="_blank">
+        Original Code (version 1.0)
+    </a>
+</p>
+
+ 
 
 <div style="text-align: justify;">
   <p>
