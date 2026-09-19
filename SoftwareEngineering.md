@@ -1,3 +1,8 @@
+---
+layout: default
+title: Software Design & Engineering Enhancement
+---
+
 # Software Design & Engineering
 
 Introduction...
