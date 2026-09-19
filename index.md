@@ -10,12 +10,14 @@ Welcome to my CS499 ePortfolio. Here, I showcase my skills obtained throught the
 The main goal is building a reliable and maintainable application with a professional architecture foundation that follows industry's best practices. This page will include a self assesment, video code review and the before and after artifact with its respective narratives.
   </p>
 </div>
+
 ## Self Assesment
 <div style="text-align: justify;">
   <p>
 Under development...
   </p>
 </div>
+
 ## Overview
 <div style="text-align: justify;">
   <p>
