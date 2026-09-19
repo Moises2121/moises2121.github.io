@@ -1,5 +1,5 @@
 <p align="center" style="margin-bottom: 5px;"> 
-  <img src="snhulogo.png" width="30">
+  <img src="snhulogo.png" width="100">
 </p>
 
 <p align="center" style="margin-top: -80px; margin-bottom: 10px;">
