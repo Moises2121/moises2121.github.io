@@ -2,7 +2,7 @@
 
 <p align="center" style="margin-top: -80px; margin-bottom: 10px;">
   <img src="moises.jpg" width="220">
-</p>
+
 
 ## Introduction
 Welcome to my CS499 ePortfolio. Here I showcase my skills obtained throught the BS in CS degree in a professional and descriptive manner, along with the obstacles encountered and the steps taken to remediate them. More specifically, discuss and review improved elements for the enhancement of a weight tracking application.
