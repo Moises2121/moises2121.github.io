@@ -4,7 +4,12 @@ title: Software Design & Engineering
 ---
 # Artifact's Origin
 
-<p>Artifact's origin...</p>
+<p>Artifact : CS360 final project “Weight Tracking App” (Kotlin, XML, SQLite)
+Developed on August 2026 for Mobile Architecture and Programming at SNHU
+</p>
+<p>
+The application was developed as part of a project that required Android Studio environment. It’s original goal was to design a friendly user interface that follows Android’s design foundations and best practices. The application’s requirements were to provide CRUD operations and a trusted database, either local or online, where user’s data such as weight, username and passwords can be stored.
+</p>
 ---
 # Justification
 
