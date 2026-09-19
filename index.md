@@ -1,4 +1,4 @@
-<p align="center" style="margin-top: -200px; margin-bottom: 10px;">
+<p align="center" style="margin-top: -380px; margin-bottom: 10px;">
   <img src="snhulogo.png" width="100" alt="SNHU Logo">
 </p>
 <p align="center" style="margin-bottom: 10px;">
