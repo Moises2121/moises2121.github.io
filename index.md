@@ -31,8 +31,8 @@ First, I deliver a code review for the artifact. This video will outline the cur
 Under construction...
 
 <p align="center">
-  <SofwareEngineering.html
-    <button>Software Design & Engineering</button>
+  SoftwareEngineering.html
+    Software Design & Engineering
   </a>
 </p>
 
