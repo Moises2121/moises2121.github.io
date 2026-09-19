@@ -17,12 +17,12 @@ First, I deliver a code review for the artifact. This video will outline the cur
 </div>
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=Oq3PpwUhlgc" target="_blank">
+  <a href="https://youtu.be/efCo_He-T5c" target="_blank">
     <img src="https://i.ytimg.com/vi/Oq3PpwUhlgc/hqdefault.jpg" >
   </a>
 </p>
 <p align="center">
-    <a href="https://www.youtube.com/watch?v=Oq3PpwUhlgc" target="_blank">
+    <a href="https://youtu.be/efCo_He-T5c" target="_blank">
         Watch my initial code review
     </a>
 </p>
