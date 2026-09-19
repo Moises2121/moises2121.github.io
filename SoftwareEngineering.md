@@ -21,18 +21,19 @@ In this artifact, the CRUD operations must work properly without causing memory 
 </div>
 ---
 # Enhancement Steps
-<h3 style="color:#0969da;">Fixing the data layer by updating DAO queries</h2>
+<h3 style="color:#0969da;">Fixing the data layer by updating DAO queries</h3>
 <div style="text-align: justify;">
-<p>The data layer needed to be corrected first. By creating data/local package and implementing WeightEntry as the entity, WeightDao for SQL queries , an AppDB for the database, I established a great foundation. After introducing WeightRepository and UserRepository as the single source of truth  - the UI of the application already improved as it was easier to maintain with a clear separation of my concerns for the data layer.</p>
+<p>The data layer needed to be corrected first. By creating data/local package and implementing WeightEntry as the entity, WeightDao for SQL queries , an AppDB for the database, I established a great foundation. After introducing WeightRepository and UserRepository as the single source of truth the UI of the application already improved as it was easier to maintain with a clear separation of my concerns for the data layer.</p>
 <br>
   
 </div>
-<h3 style="color:#0969da;">Creating a source of truth by creating a WeightRepository class</h2>
+<h3 style="color:#0969da;">Creating a source of truth by creating a WeightRepository class</h3>
 <p>Do...</p>
-<h3 style="color:#0969da;">Fixing the ViewModel layer</h2>
+<h3 style="color:#0969da;">Fixing the ViewModel layer</h3>
 <p>Do...</p>
-<h3 style="color:#0969da;">Updating the UI layer by refactoring the activities dashboard</h2>
+<h3 style="color:#0969da;">Updating the UI layer by refactoring the activities dashboard</h3>
 <p>Do...</p>
+</div>
 ---
 # Challenges
 <div style="text-align: justify;">
@@ -42,11 +43,13 @@ In this artifact, the CRUD operations must work properly without causing memory 
   <br>
 <p><b>III. Syntax errors.</b> Some errors were encountered such as forgetting pointers and semicolons in this Kotlin logic, such as incorrect layout_height values that should have been wrap_content instead, and missing attributes such as contentDescription for accessibility.</p>
   <br>
-<p><b>IV. Nulls and crashes.</b> I had the harcoded “test” username in version 1.0 of this application to test against the database. Once I removed it, I forgot to pass the USERNAME extra on all my navigations, therefore, intent.getStringExtra(“USERNAME”) returned null. After tracing back to the intent, I added the username to every intent that opens another screen, with a null check with finish() at the beginning of onCreate. At the end, the history screen stopped crashing and I was able to see the correct loaded data by unique username.</p>
+<p><b>IV. Nulls and crashes.</b> I had the harcoded “test” username in version 1.0 of this application to test against the database. Once I removed it, I forgot to pass the USERNAME extra on all my navigations, therefore, intent.getStringExtra(“USERNAME”) returned null. After tracing back to the intent, I added the username to every intent that opens another screen, with a null check with <i>finish()</i> at the beginning of onCreate. At the end, the history screen stopped crashing and I was able to see the correct loaded data by unique username.</p>
   <br>
 <p><b>V. Adding more modules.</b> The first version was simple and effective, but not functional for a full-stack application. I was challenged to untangle old database calls and wiring new dependencies. I mitigated this by working one step at a time, structure migrating and verifying each screen loads correctly. This helped me strengthen my abilities to deliver proper separation, test and align with industry standards.</p>
+</div>
 ---
 # Outcomes
+<div style="text-align: justify;">
 <p>I am confident that the outcomes came out as expected. The enhanced version will now evaluate computing solution and managed trade-offs between architectural layers by demonstrating abilities to use skills and tools for the purpose of implementing a solution to accomplish future industry goals. It also implements industry tools such as Room, LiveData and repository pattern to build a maintainable architecture,which outline the outcome on delivering a professional and coherent application to our weight tracking audience. Finally, it fixes collaborative failures where a different user might see the first user’s personal data due to having <i>test</i> user hardcoded in the application, which mitigates design flaws and ensures privacy and enhanced security of personal data.</p>
   
 <p>Overall, this enhancement helped the functionality and reliability of the application’s usage. It does not break the overall architecture and core foundation, it simply improves the areas that needed more coverage from the first release.</p>
