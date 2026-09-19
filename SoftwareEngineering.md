@@ -2,7 +2,7 @@
 layout: default
 title: Software Design & Engineering
 ---
-# Artifact's Origin
+## Artifact's Origin
 
 <p> Artifact: CS360- Final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i><br>
 Developed on August 2026 for Mobile Architecture and Programming at SNHU
@@ -13,14 +13,14 @@ The application was developed as part of a project that required Android Studio 
 </p>
 </div>
 ---
-# Justification
+## Justification
 <div style="text-align: justify;">
 <p>The original version of this submission implemented an unstructured SQLite helper that verifies the user’s authentications but violates single responsibility principle. The DashboardActivity module handles most of the operations for the application’s functionalities but hardcoded <i>test</i> username breaks the multi-user support, which does not follow best practices.
 In this artifact, the CRUD operations must work properly without causing memory leaks, or accidentally exposing another user’s personal data. The modules currently don’t follow a structured architecture that can be used for improvements, so the enhancement includes refactoring the tree’s architecture in a professional manner, as well as adding accurate documentation with in-line comments to improve the application’s sustainability and readability. 
 </p>
 </div>
 ---
-# Enhancement Steps
+## Enhancement Steps
 <h3 style="color:#0969da;">Fixing the data layer by updating DAO queries</h3>
 <div style="text-align: justify;">
 <p>The data layer needed to be corrected first. By creating data/local package and implementing WeightEntry as the entity, WeightDao for SQL queries, AppDB for the database, I established a great foundation. Introducing WeightRepository and UserRepository as the single source of truth the UI of the application already improved as it was easier to maintain with a clear separation of my concerns for the data layer:</p>
@@ -173,7 +173,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
         }
 ```
 ---
-# Challenges
+## Challenges
 <div style="text-align: justify;">
 <p><b>I. Unknown references.</b> Some challenges included manifest errors when migrating all the activities modules to the ui folder. Android could not find the references at first because the mapping was modified. To mitigate this, I renamed the modules in manifest and fixed the imports in the Kotlin files.</p>
   <br>
@@ -186,7 +186,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 <p><b>V. Adding more modules.</b> The first version was simple and effective, but not functional for a full-stack application. I was challenged to untangle old database calls and wiring new dependencies. I mitigated this by working one step at a time, structure migrating and verifying each screen loads correctly. This helped me strengthen my abilities to deliver proper separation, test and align with industry standards.</p>
 </div>
 ---
-# Outcomes
+## Outcomes
 <div style="text-align: justify;">
 <p>I am confident that the outcomes came out as expected. The enhanced version will now evaluate computing solutions and manage trade-offs between architectural layers, by demonstrating abilities to use skills and tools for the purpose of implementing a solution to accomplish industry goals. It also implements industry tools such as Room, LiveData and repository pattern to build a maintainable architecture,which outline the outcome on delivering a professional and coherent application to our weight tracking audience. Finally, it fixes collaborative failures where a different user might see the first user’s personal data due to having <i>test</i> user hardcoded in the application, which mitigates design flaws and ensures privacy and enhanced security of personal data.</p>
   
