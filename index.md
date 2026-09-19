@@ -1,10 +1,8 @@
-<p align="center" style="margin-top: 0px margin-bottom: 4px;">
-  <img src="moises.jpg" alt="Moises Sanchez" width="200">
-</p>
+<div align="center" style="line-height: 0;">
+  <img src="moises.jpg" alt="Moises Sanchez" width="200" style="display:block; margin-bottom: 4px;">
+  <img src="snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
 
-<p align="center" style="margin-top: 0;">
-  <img src="snhulogo.png" alt="SNHU Logo" width="130">
-</p>
+</div>
 
 ## Introduction
 <div style="text-align: justify;">
