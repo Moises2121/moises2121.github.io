@@ -10,7 +10,7 @@ Welcome to my CS499 ePortfolio. Here, I showcase my skills obtained throught the
 I’m aiming to develop a fully functional application that follows best practices and enhances user experience, as well as ensuring database is properly handled. More specifically, ensuring the code is readable and sustainable, the UI and UX elements are adequate for the desired audience and using ROOM to handle database components. This page will include a self assesment, video code review and the before and after artifact with its respective narratives.
   </p>
 </div>
-
+--
 ## Self Assesment
 <div style="text-align: justify;">
   <p>
@@ -18,7 +18,7 @@ Under development...
   </p>
 </div>
 
-## Overview
+## Code Review
 <div style="text-align: justify;">
   <p>
 First, I deliver code review for the artifact. This video outlines the current structure of the application and its services, then it shows the functionality of each module. In this code review, the areas of weaknesses are pointed out, using a developer's checklist for best practices. Then, the three enhancements will be discussed along with the steps that I must take in order to fulfill the enhanced version. At the end, this strategy gives us (developers) an opportunity to find vulnerabilites before launching the final product.
