@@ -32,28 +32,56 @@ In this artifact, the CRUD operations must work properly without causing memory 
     <em>Figure 1: Updated DAO structure</em>
 </p>
 <br>
-<p></p>WeightDao is now the only place that handles SQL**, enforcing separation of concerns. The ViewModel no longer executes queries directly:</p>
+<p>WeightDao is now the only place that handles SQL, which enforce my separation concerns. Aditionally, the ViewModel no longer executes queries directly:</p>
 
 ```kotlin
 @Dao
 interface WeightDao {
-    // Retrieves full weight history for a specific user, newest first
+    // Reads current user's weight history ordered newest to oldest
     @Query("SELECT * FROM weights WHERE username = :username ORDER BY id DESC")
     suspend fun getHistory(username: String): List<WeightEntry>
 
-    // Deletes a single entry by ID
+    // Deletes the weight selected by the current user using the weight's ID
     @Query("DELETE FROM weights WHERE id = :id")
     suspend fun deleteWeight(id: Int)
 
-    // Inserts a new weight entry
+    // Creates (Inserts) new weight into the database
     @Insert
     suspend fun insert(entry: WeightEntry)
 
-    // Gets the most recent goal weight for goal persistence
+    // Gets latest goal weight from current user
     @Query("SELECT goalWeight FROM weights WHERE username = :username ORDER BY id DESC LIMIT 1")
     suspend fun getLastTarget(username: String): Double?
 }
 ```
+<p>No more harcoded <i>test</i> username, UserRepository has login and register and carry USERNAME via intent , so now each DAO query can filter by real username. Previously, the username was harcoded so the current’s user information was not carried between screens via Intent. This enforces user isolation and multi-user functionality, where the applation now sees the real session rather than the generic test user</p>
+
+```kotlin
+class DashboardActivity : AppCompatActivity() {
+
+    private lateinit var username: String
+    private var currentWeight = 180.0
+    private var goalWeight = 220.0
+    private lateinit var viewModel: DashboardViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.screen_dashboard)
+
+        // Gets username from login
+        username = intent.getStringExtra("USERNAME")?: run {
+            Toast.makeText(this, "Please login", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            return
+        }
+
+        // Personalized greeting at the top to display current user
+        findViewById<TextView>(R.id.tvWelcome).text = "Welcome, $username"
+
+        val repository = WeightRepository(applicationContext)
+```
+
 <h3 style="color:#0969da;">Creating a source of truth by creating a WeightRepository class</h3>
 <p>Do...</p>
 <h3 style="color:#0969da;">Fixing the ViewModel layer</h3>
