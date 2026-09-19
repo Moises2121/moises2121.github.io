@@ -2,7 +2,7 @@
   <img src="moises.jpg" alt="Moises Sanchez" width="200">
 </p>
 <p align="center">
-  <img src="snhulogo.png" alt="SNHU Logo" width="60">
+  <img src="snhulogo.png" alt="SNHU Logo" width="100">
 </p>
 
 ## Introduction
