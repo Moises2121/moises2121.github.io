@@ -62,7 +62,7 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
   <a href="./Algorithms.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement Two</a>
 </p>
 ---
-##Databases
+## Databases
 <div style="text-align: justify;">
 <i>Under construction...</i>
 </div>
