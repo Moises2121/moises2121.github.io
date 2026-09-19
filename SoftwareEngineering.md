@@ -25,7 +25,11 @@ In this artifact, the CRUD operations must work properly without causing memory 
 <div style="text-align: justify;">
 <p>The data layer needed to be corrected first. By creating data/local package and implementing WeightEntry as the entity, WeightDao for SQL queries , an AppDB for the database, I established a great foundation. After introducing WeightRepository and UserRepository as the single source of truth the UI of the application already improved as it was easier to maintain with a clear separation of my concerns for the data layer.</p>
 <br>
+<p align="center">
   <img width="620" height="324" alt="image" src="https://github.com/user-attachments/assets/c7dc833a-0823-454a-b1ff-bb8648e3d8db" />
+  <br>
+    <em>Figure 1: Updated DAO structure</em>
+</p>
 
 </div>
 <h3 style="color:#0969da;">Creating a source of truth by creating a WeightRepository class</h3>
