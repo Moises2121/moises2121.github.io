@@ -1,5 +1,5 @@
 <div align="center" style="line-height: 0;">
-  <img src="moises.jpg" alt="Moises Sanchez" width="200" style="display:block; margin-top: -80px; margin-bottom: 0px; border: 3px solid #003366; border-radius: 8px;">
+  <img src="moises.jpg" alt="Moises Sanchez" width="200" style="display:block; margin-top: -90px; margin-bottom: 0px; border: 3px solid #003366; border-radius: 8px;">
   <img src="snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
 </div>
 ---
@@ -21,7 +21,7 @@ I’m aiming to develop a fully functional application that follows best practic
 ## Code Review
 <div style="text-align: justify;">
   <p>
-First, I deliver code review for the artifact. This video outlines the current structure of the application and its services, then it shows the functionality of each module. In this code review, the areas of weaknesses are pointed out, using a developer's checklist for best practices. Then, the three enhancements will be discussed along with the steps that I must take in order to fulfill the enhanced version. At the end, this strategy gives us (developers) an opportunity to find vulnerabilites before launching the final product.
+First, my developer's code review. This video outlines the current structure of the application and its services, then it shows the functionality of each module. In this code review, the areas of weaknesses are pointed out, using a developer's checklist for best practices. Then, the three enhancements will be discussed along with the steps that I must take in order to fulfill the enhanced version. At the end, this strategy gives us (developers) an opportunity to find vulnerabilites before launching the final product.
 </p>
 </div>
 
