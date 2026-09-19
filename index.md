@@ -1,8 +1,17 @@
-<p align="center" style="margin-bottom: 10px;">
-  <img src="moises.jpg" width="220" alt="Moises Sanchez">
-</p>
-<div class="snhulogo">
-  <img src="snhulogo.png" alt="SNHU Logo" style="width:30%; display:block;">
+<style>
+.profile-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 40px auto;
+}
+</style>
+
+<div class="profile-row">
+  <img src="snhulogo.png" alt="SNHU Logo" width="180">
+  <img src="moises.jpg" alt="Moises Sanchez" width="200">
+  <div style="width:180px;"></div>
 </div>
 
 ## Introduction
