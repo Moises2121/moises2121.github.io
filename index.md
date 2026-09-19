@@ -30,7 +30,7 @@ First, I deliver a code review for the artifact. This video will outline the cur
 ### Software Design & Engineering
 Under construction...
 
-<p align="center">
+<p align="left">
   <a href="SoftwareEngineering.html" class="btn">Enhancement 1</a>
 </p>
 
