@@ -14,7 +14,7 @@ I’m aiming to develop a fully functional application that follows best practic
 ## Self Assesment
 <div style="text-align: justify;">
   <p>
-Under development...
+<i>Under construction...</i>
   </p>
 </div>
 
@@ -45,21 +45,21 @@ I will use my skills in Software Design & Engineering, Algorithms & Data Structu
 </div>
 ---
 ### Software Design & Engineering
-Under construction...
+The first version of my Weight Tracking Application contains sever security concerns that must be addressed prior to production release. While it was a great project for the Mobile Architecture course, it lacked multi-user functionality and fundamentals of a more complex data layer. I did not have enough time to cover those vulnerabilites during that course, however, after continuing my student career at SNHU, I was able to identify and mitigate these issues.
 
 <p align="left">
   <a href="./SoftwareEngineering.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement One</a>
 </p>
 ---
 ### Algorithms & Data Structures
-Under construction...
+<i>Under construction...</i>
 
 <p align="left">
   <a href="./Algorithms.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement Two</a>
 </p>
 ---
 ### Databases
-Under construction...
+<i>Under construction...</i>
 
 <p align="left">
   <a href="./Databases.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement Three</a>
