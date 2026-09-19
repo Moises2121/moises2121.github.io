@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Root layout, vertical alignment, centered -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+        <!-- App logo -->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="140dp"
+            android:src="@drawable/baseline_run_circle_24" />
+
+        <!--Welcome message-->
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Screen header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NOTIFICATION CENTER"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="50dp"/>
+
+        <!-- text for SMS feature -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="136dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:text="Enable SMS to receive automated notification when you reach your goal"
+            android:textSize="16sp" />
+
+        <!-- Shows feature status -->
+        <TextView
+            android:id="@+id/tvSmsStatus"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@android:drawable/editbox_background"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Status: Disabled"
+
+            android:textSize="13sp" />
+
+        <!-- Toggle SMS feature -->
+        <Button
+            android:id="@+id/btnEnableSms"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:text="ENABLE SMS "
+            android:textColor="#000000"
+            android:backgroundTint="#90C4F0"/>
+
+
+        <!-- Navigation back to Home -->
+        <Button
+            android:id="@+id/btnHome"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:text="HOME"
+            android:textColor="#000000"
+            android:backgroundTint="#90C4F0"/>
+
+        <!-- Version Text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:layout_marginBottom="-20dp"
+            android:gravity="right"
+            android:text="v2.0 (beta)"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>

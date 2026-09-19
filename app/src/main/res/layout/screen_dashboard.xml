@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Root layout, vertical alignment, centered -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+        <!-- App logo -->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/baseline_run_circle_24" />
+
+        <!--Welcome message-->
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <!-- Screen header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvGoalDisplay"
+            android:text="GOAL: 145 lbs."
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- progress bar -->
+        <LinearLayout
+            android:id="@+id/progressContainer"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="-80dp"
+            android:background="@android:drawable/editbox_background"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvProgressPercent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.67"
+                android:background="#90C4F0"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33" />
+        </LinearLayout>
+
+        <!-- Current Weight progress -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:layout_marginTop="60dp"
+            android:id="@+id/tvCurrentDisplay"
+            android:text="Current Weight:  175 lbs."
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnAddEdit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:text="UPDATE WEIGHT ⚖️"
+            android:textColor="#000000"
+            android:backgroundTint="#90C4F0"/>
+
+        <!-- Navigation buttons -->
+        <Button
+            android:id="@+id/btnSetGoal"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="SET GOAL 🎯"
+            android:textColor="#000000"
+            android:backgroundTint="#90C4F0"/>
+
+        <Button
+            android:id="@+id/btnViewHistory"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:text="VIEW HISTORY 📈"
+            android:textColor="#000000"
+            android:backgroundTint="#90C4F0"/>
+
+        <Button
+            android:id="@+id/btnNotifications"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:text="SMS NOTIFICATIONS 🔔"
+            android:textColor="#000000"
+            android:backgroundTint="#90C4F0"/>
+
+        <Button
+            android:id="@+id/btnHome"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:text="LOG OUT 👋"
+            android:textColor="#000000"
+            android:backgroundTint="#90C4F0"/>
+
+        <!-- Version Text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
+            android:text="v2.0 (beta)"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>

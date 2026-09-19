@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="app icon"
+        android:src="@drawable/baseline_run_circle_24" />
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:text="Welcome"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="HISTORY WEIGHT LOG"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnAddData"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#90C4F0"
+        android:text="ADD"
+        android:textColor="#000000" />
+
+    <!-- header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="Date" android:textStyle="bold"/>
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="Weight" android:textStyle="bold"/>
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="Action" android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- row1 -->
+    <LinearLayout android:id="@+id/row1" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="8dp" android:background="@android:drawable/editbox_background" android:gravity="center_vertical" android:orientation="horizontal" android:padding="8dp">
+        <TextView android:id="@+id/tvDate1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="-"/>
+        <TextView android:id="@+id/tvWeight1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="-"/>
+        <Button android:id="@+id/btnDelete1" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:backgroundTint="#90C4F0" android:text="Delete" android:textColor="#000000"/>
+    </LinearLayout>
+    <!-- row2 -->
+    <LinearLayout android:id="@+id/row2" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="8dp" android:background="@android:drawable/editbox_background" android:gravity="center_vertical" android:orientation="horizontal" android:padding="8dp">
+        <TextView android:id="@+id/tvDate2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="-"/>
+        <TextView android:id="@+id/tvWeight2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="-"/>
+        <Button android:id="@+id/btnDelete2" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:backgroundTint="#90C4F0" android:text="Delete" android:textColor="#000000"/>
+    </LinearLayout>
+    <!-- row3 -->
+    <LinearLayout android:id="@+id/row3" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="8dp" android:background="@android:drawable/editbox_background" android:gravity="center_vertical" android:orientation="horizontal" android:padding="8dp">
+        <TextView android:id="@+id/tvDate3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="-"/>
+        <TextView android:id="@+id/tvWeight3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="-"/>
+        <Button android:id="@+id/btnDelete3" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:backgroundTint="#90C4F0" android:text="Delete" android:textColor="#000000"/>
+    </LinearLayout>
+    <!-- row4 -->
+    <LinearLayout android:id="@+id/row4" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="8dp" android:background="@android:drawable/editbox_background" android:gravity="center_vertical" android:orientation="horizontal" android:padding="8dp">
+        <TextView android:id="@+id/tvDate4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="-"/>
+        <TextView android:id="@+id/tvWeight4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="-"/>
+        <Button android:id="@+id/btnDelete4" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:backgroundTint="#90C4F0" android:text="Delete" android:textColor="#000000"/>
+    </LinearLayout>
+    <!-- row5 -->
+    <LinearLayout android:id="@+id/row5" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="8dp" android:background="@android:drawable/editbox_background" android:gravity="center_vertical" android:orientation="horizontal" android:padding="8dp">
+        <TextView android:id="@+id/tvDate5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="-"/>
+        <TextView android:id="@+id/tvWeight5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:text="-"/>
+        <Button android:id="@+id/btnDelete5" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:backgroundTint="#90C4F0" android:text="Delete" android:textColor="#000000"/>
+    </LinearLayout>
+
+    <Button android:id="@+id/btnHome" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="32dp" android:backgroundTint="#90C4F0" android:text="HOME" android:textColor="#000000"/>
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:gravity="end" android:text="v2.0 (beta)" android:textSize="15sp" android:textStyle="bold"/>
+</LinearLayout>
