@@ -21,8 +21,10 @@ In this artifact, the CRUD operations must work properly without causing memory 
 </div>
 ---
 # Enhancement Steps
-## Step One
-<p>Do...</p>
+## Fixing the data layer by updating DAO queries
+<div style="text-align: justify;">
+<p>The data layer needed to be corrected first. By creating data/local package and implementing WeightEntry as the entity, WeightDao for SQL queries , an AppDB for the database, I established a great foundation. After introducing WeightRepository and UserRepository as the single source of truth  - the UI of the application already improved as it was easier to maintain with a clear separation of my concerns for the data layer.</p>
+  
 ## Step Two
 <p>Do...</p>
 ## Step Three
