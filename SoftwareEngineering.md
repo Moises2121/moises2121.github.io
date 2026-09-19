@@ -4,7 +4,7 @@ title: Software Design & Engineering
 ---
 # Artifact's Origin
 
-<p> Artifact: CS360- final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i>
+<p> Artifact: CS360- final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i><br>
 Developed on August 2026 for Mobile Architecture and Programming at SNHU
 </p>
 <div style="text-align: justify;">
