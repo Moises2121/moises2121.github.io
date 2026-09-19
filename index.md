@@ -17,7 +17,7 @@ I’m aiming to develop a fully functional application that follows best practic
 <i>Under construction...</i>
   </p>
 </div>
-
+---
 ## Code Review
 <div style="text-align: justify;">
   <p>
@@ -44,7 +44,7 @@ I will use my skills in Software Design & Engineering, Algorithms & Data Structu
 </p>
 </div>
 ---
-### Software Design & Engineering
+## Software Design & Engineering
 <div style="text-align: justify;">
 The first version of my <b>Weight Tracking Application</b> contains severe security concerns that must be addressed prior to production release. While it was a great project for the Mobile Architecture course, it lacked multi-user functionality and fundamentals of a more complex data-layer. I did not have enough time to cover those vulnerabilites during that course, however, after continuing my student career at SNHU, I was able to identify and mitigate these issues.
 </div>
@@ -53,7 +53,7 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
   <a href="./SoftwareEngineering.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement One</a>
 </p>
 ---
-### Algorithms & Data Structures
+## Algorithms & Data Structures
 <div style="text-align: justify;">
 <i>Under construction...</i>
 </div>
@@ -62,7 +62,7 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
   <a href="./Algorithms.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement Two</a>
 </p>
 ---
-### Databases
+##Databases
 <div style="text-align: justify;">
 <i>Under construction...</i>
 </div>
@@ -71,7 +71,7 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
   <a href="./Databases.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement Three</a>
 </p>
 ---
-#### Contact:
+### Contact:
 <br>
 <b>Email:</b> moises.sanchez1@snhu.edu
 <br>
