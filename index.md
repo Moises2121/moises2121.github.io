@@ -1,7 +1,8 @@
-<p align="center">
+<p align="center" style="margin-bottom: 8px;">
   <img src="moises.jpg" alt="Moises Sanchez" width="200">
 </p>
-<p align="center">
+
+<p align="center" style="margin-top: 0;">
   <img src="snhulogo.png" alt="SNHU Logo" width="100">
 </p>
 
