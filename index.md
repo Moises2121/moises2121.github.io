@@ -1,4 +1,4 @@
-<p align="center" style="margin-top: 10px margin-bottom: 8px;">
+<p align="center" style="margin-top: 0px margin-bottom: 4px;">
   <img src="moises.jpg" alt="Moises Sanchez" width="200">
 </p>
 
