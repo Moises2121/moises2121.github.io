@@ -118,7 +118,34 @@ class WeightRepository(context: Context) {
 }
 ```
 <h3 style="color:#0969da;">Fixing the ViewModel layer</h3>
-<p>Do...</p>
+<p>I did not have a viewmodel layer on my first release, therefore all states of current weight and goal weights resided within the Activity modules, and if the screen was rotated the information got cleared. By adding a DashboardViewModel module, the state is held regardless of screen rotation with LiveData.</p>
+
+```kotlin
+class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
+    private val _history = MutableLiveData<List<WeightEntry>>()
+    // Read only version visible for the User Interface to display progress bar
+    val history: LiveData<List<WeightEntry>> = _history
+    // Holds goal to prefill the input field
+    private val _goal = MutableLiveData<Double>()
+    val goal: LiveData<Double> = _goal
+
+    // Load user's data by fetching their history and goal (For version 2.0 the default is 220.0)
+    fun load(username: String) {
+        viewModelScope.launch {
+            _history.value = repo.getHistory(username)
+            _goal.value = repo.getLastTarget(username) ?: 220.0
+        }
+    }
+
+    // Saves weight entry and reloads the data so the progress bar gets updated
+    fun addWeight(username: String, weight: Double, goal: Double) {
+        viewModelScope.launch {
+            repo.addWeight(username, weight, goal)
+            load(username)
+        }
+    }
+}
+```
 <h3 style="color:#0969da;">Updating the UI layer by refactoring the activities dashboard</h3>
 <p>Do...</p>
 ---
