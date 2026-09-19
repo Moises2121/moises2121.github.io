@@ -16,7 +16,7 @@ First, I deliver code review for the artifact. This video outlines the current s
 
 <p align="center">
   <a href="https://youtu.be/efCo_He-T5c" target="_blank">
-    <img src="https://i.ytimg.com/vi/efCo_He-T5c/hqdefault.jpg">
+    <img src="Thumbnail2.jpg" alt="Watch my initial code review" width="400">
   </a>
 </p>
 <p align="center">
