@@ -48,14 +48,22 @@ I will use my skills in Software Design & Engineering, Algorithms & Data Structu
 Under construction...
 
 <p align="left">
-  <a href="./SoftwareEngineering.html" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Enhancement One →</a>
+  <a href="./SoftwareEngineering.html" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement One</a>
 </p>
 ---
 ### Algorithms & Data Structures
 Under construction...
+
+<p align="left">
+  <a href="./Algorithms.html" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement Two</a>
+</p>
 ---
 ### Databases
 Under construction...
 
-## Contact:
+<p align="left">
+  <a href="./Databases.html" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement Three</a>
+</p>
+---
+#### Contact:
 moises.sanchez1@snhu.edu
