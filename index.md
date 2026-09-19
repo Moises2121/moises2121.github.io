@@ -1,4 +1,4 @@
-<div class="profile-row">
+<div style="display:flex; align-items:center; justify-content:space-between; max-width:800px; margin: 0 auto;">
   <img src="snhulogo.png" alt="SNHU Logo" width="180">
   <img src="moises.jpg" alt="Moises Sanchez" width="200">
   <div style="width:180px;"></div>
