@@ -6,17 +6,17 @@ title: Software Design & Engineering Enhancement
 # Software Design & Engineering
 
 Introduction...
-
+---
 ## Artifact's Origin
 
 Artifact's origin...
-
+---
 ## Enhancement
 
 Enhancement Description and Challenges...
 
 ### Challenges
-
+---
 ## Reflection
 
 Undergoing...
