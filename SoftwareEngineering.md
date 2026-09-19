@@ -7,7 +7,7 @@ title: Software Design & Engineering Enhancement
 
 Introduction...
 
-## Artifact
+## Artifact's Origin
 
 Artifact's origin...
 
@@ -15,6 +15,14 @@ Artifact's origin...
 
 Enhancement Description and Challenges...
 
+### Challenges
+
 ## Reflection
 
 Undergoing...
+
+<br>
+<hr>
+<p align="left">
+  <a href="./index.html" style="display:inline-block; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">← Home</a>
+</p>
