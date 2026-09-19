@@ -1,4 +1,4 @@
-<p align="center"> images/snhu_logo.png
+<p align="center"> images/snhulogo.png
 </p>
 
 <p align="center" style="margin-top: -80px; margin-bottom: 10px;">
