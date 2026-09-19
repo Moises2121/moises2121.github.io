@@ -1,13 +1,3 @@
-<style>
-.profile-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 800px;
-  margin: 40px auto;
-}
-</style>
-
 <div class="profile-row">
   <img src="snhulogo.png" alt="SNHU Logo" width="180">
   <img src="moises.jpg" alt="Moises Sanchez" width="200">
