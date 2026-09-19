@@ -10,7 +10,7 @@ Welcome to my CS499 ePortfolio. Here, I showcase my skills obtained throught the
 I’m aiming to develop a fully functional application that follows best practices and enhances user experience, as well as ensuring database is properly handled. More specifically, ensuring the code is readable and sustainable, the UI and UX elements are adequate for the desired audience and using ROOM to handle database components. This page will include a self assesment, video code review and the before and after artifact with its respective narratives.
   </p>
 </div>
---
+---
 ## Self Assesment
 <div style="text-align: justify;">
   <p>
@@ -50,10 +50,10 @@ Under construction...
 <p align="left">
   <a href="./SoftwareEngineering.html" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Enhancement One →</a>
 </p>
-
+---
 ### Algorithms & Data Structures
 Under construction...
-
+---
 ### Databases
 Under construction...
 
