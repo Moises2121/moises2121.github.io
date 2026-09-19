@@ -48,7 +48,7 @@ I will use my skills in Software Design & Engineering, Algorithms & Data Structu
 Under construction...
 
 <p align="left">
-  <a href="SoftwareEngineering.md" class="btn">Enhancement 1</a>
+  <a href="SoftwareEngineering.html" target="_blank" class="btn">Enhancement One</a>
 </p>
 
 ### Algorithms & Data Structures
