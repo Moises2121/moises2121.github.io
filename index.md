@@ -1,3 +1,26 @@
+<style>
+  .page-header {
+    position: relative;
+  }
+  .snhu-logo {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    width: 75px;
+    background: white;
+    border-radius: 8px;
+    padding: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  @media (max-width: 600px) {
+    .snhu-logo { width: 50px; top: 15px; left: 15px; }
+  }
+</style>
+
+<div class="snhulogo">
+  <img src="snhulogo.png" alt="SNHU Logo" style="width:100%; display:block;">
+</div>
+
 <p align="center" style="margin-bottom: 10px;">
   <img src="moises.jpg" width="220" alt="Moises Sanchez">
 </p>
