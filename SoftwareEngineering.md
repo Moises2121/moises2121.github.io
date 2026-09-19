@@ -147,7 +147,31 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 }
 ```
 <h3 style="color:#0969da;">Updating the UI layer by refactoring the activities dashboard</h3>
-<p>Do...</p>
+<p>DashboardActivity module opened the database, queried the history as O of n (everything), calculated the user’s progress and updated the TextViews. This violated single responsibility principle as it had multiple functions with mixed data and UI logic. After the enhancement, DashboardActivity is now only responsible for observing the ViewModel and rendering the progress bar. </p>
+
+```kotlin
+        // Sets up viewmodel which handles the data logic
+        viewModel = ViewModelProvider(this, object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return DashboardViewModel(repository) as T
+            }
+        })[DashboardViewModel::class.java]
+
+        // Once history changes, the current weight and progress bar get updated
+        viewModel.history.observe(this) { history ->
+            if (history.isNotEmpty()) {
+                currentWeight = history[0].weight
+            }
+            updateProgressBar()
+        }
+
+        // Once goal changes, the progress bar gets updated
+        viewModel.goal.observe(this) { savedGoal ->
+            goalWeight = savedGoal
+            updateProgressBar()
+        }
+```
 ---
 # Challenges
 <div style="text-align: justify;">
