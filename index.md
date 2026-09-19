@@ -1,5 +1,6 @@
-<p align="center"> <img src="snhulogo.png">
-</p>
+<p align="center" style="margin-bottom: 5px;"> 
+  <img src="snhulogo.png"
+</p
 
 <p align="center" style="margin-top: -80px; margin-bottom: 10px;">
   <img src="moises.jpg" width="220">
