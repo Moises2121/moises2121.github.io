@@ -3,7 +3,7 @@
 </p>
 
 <p align="center" style="margin-top: 0;">
-  <img src="snhulogo.png" alt="SNHU Logo" width="100">
+  <img src="snhulogo.png" alt="SNHU Logo" width="130">
 </p>
 
 ## Introduction
