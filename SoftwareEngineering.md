@@ -15,7 +15,7 @@ The application was developed as part of a project that required Android Studio 
 ---
 # Justification
 <div style="text-align: justify;">
-<p>The original version of this submission implemented an unstructured SQLite helper that verifies the user’s authentications but violates single responsibility principle. The DashboardActivity module handles most of the operations for the application’s functionalities but hardcoded “test” username breaks the multi-user support, which does not follow best practices.
+<p>The original version of this submission implemented an unstructured SQLite helper that verifies the user’s authentications but violates single responsibility principle. The DashboardActivity module handles most of the operations for the application’s functionalities but hardcoded <i>test</i> username breaks the multi-user support, which does not follow best practices.
 In this artifact, the CRUD operations must work properly without causing memory leaks, or accidentally exposing another user’s personal data. The modules currently don’t follow a structured architecture that can be used for improvements, so the enhancement includes refactoring the tree’s architecture in a professional manner, as well as adding accurate documentation with in-line comments to improve the application’s sustainability and readability. 
 </p>
 </div>
@@ -23,7 +23,7 @@ In this artifact, the CRUD operations must work properly without causing memory 
 # Enhancement Steps
 <h3 style="color:#0969da;">Fixing the data layer by updating DAO queries</h3>
 <div style="text-align: justify;">
-<p>The data layer needed to be corrected first. By creating data/local package and implementing WeightEntry as the entity, WeightDao for SQL queries , an AppDB for the database, I established a great foundation. After introducing WeightRepository and UserRepository as the single source of truth the UI of the application already improved as it was easier to maintain with a clear separation of my concerns for the data layer.</p>
+<p>The data layer needed to be corrected first. By creating data/local package and implementing WeightEntry as the entity, WeightDao for SQL queries, AppDB for the database, I established a great foundation. Introducing WeightRepository and UserRepository as the single source of truth the UI of the application already improved as it was easier to maintain with a clear separation of my concerns for the data layer:</p>
 <br>
 </div>
 <p align="center">
@@ -54,7 +54,7 @@ interface WeightDao {
     suspend fun getLastTarget(username: String): Double?
 }
 ```
-<p>No more harcoded <i>test</i> username, UserRepository has login and register and carry USERNAME via intent , so now each DAO query can filter by real username. Previously, the username was harcoded so the current’s user information was not carried between screens via Intent. This enforces user isolation and multi-user functionality, where the application now sees the real session rather than the generic test user:</p>
+<p>No more harcoded <i>test</i> username, UserRepository has login and register and carry USERNAME via intent , so now each DAO query can filter by real username. Previously, the username was harcoded so the current’s user information was not carried between screens via Intent. This fix enforces user isolation and multi-user functionality, where the application now sees the real session rather than the generic test user:</p>
 
 ```kotlin
 class DashboardActivity : AppCompatActivity() {
@@ -147,7 +147,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 }
 ```
 <h3 style="color:#0969da;">Updating the UI layer by refactoring the activities dashboard</h3>
-<p>DashboardActivity module opened the database, queried the history as O of n (everything), calculated the user’s progress and updated the TextViews. This violated single responsibility principle as it had multiple functions with mixed data and UI logic. After the enhancement, DashboardActivity is now only responsible for observing the ViewModel and rendering the progress bar. </p>
+<p>DashboardActivity module opened the database, queried the history as <i>O of n</i> (everything), calculated the user’s progress and updated the TextViews. This violated single responsibility principle as it had multiple functions with mixed data and UI logic. After the enhancement, DashboardActivity is now only responsible for observing the ViewModel and rendering the progress bar. </p>
 
 ```kotlin
         // Sets up viewmodel which handles the data logic
