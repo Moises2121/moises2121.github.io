@@ -1,10 +1,9 @@
-<div class="snhulogo">
-  <img src="snhulogo.png" alt="SNHU Logo" style="width:30%; display:block;">
-</div>
-
 <p align="center" style="margin-bottom: 10px;">
   <img src="moises.jpg" width="220" alt="Moises Sanchez">
 </p>
+<div class="snhulogo">
+  <img src="snhulogo.png" alt="SNHU Logo" style="width:30%; display:block;">
+</div>
 
 ## Introduction
 <div style="text-align: justify;">
