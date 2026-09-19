@@ -1,5 +1,5 @@
 <div class="snhulogo">
-  <img src="snhulogo.png" alt="SNHU Logo" style="width:100%; display:block;">
+  <img src="snhulogo.png" alt="SNHU Logo" style="width:30%; display:block;">
 </div>
 
 <p align="center" style="margin-bottom: 10px;">
