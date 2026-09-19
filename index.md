@@ -31,11 +31,8 @@ First, I deliver a code review for the artifact. This video will outline the cur
 Under construction...
 
 <p align="center">
-  SoftwareEngineering.html
-    <button>Enhancement 1</button>
-  </a>
+  <a href="SoftwareEngineering.html" class="btn">Enhancement 1</a>
 </p>
-
 
 ### Algorithms & Data Structures
 Under construction...
