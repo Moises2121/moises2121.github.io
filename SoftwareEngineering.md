@@ -54,7 +54,7 @@ interface WeightDao {
     suspend fun getLastTarget(username: String): Double?
 }
 ```
-<p>No more harcoded <i>test</i> username, UserRepository has login and register and carry USERNAME via intent , so now each DAO query can filter by real username. Previously, the username was harcoded so the current’s user information was not carried between screens via Intent. This enforces user isolation and multi-user functionality, where the applation now sees the real session rather than the generic test user</p>
+<p>No more harcoded <i>test</i> username, UserRepository has login and register and carry USERNAME via intent , so now each DAO query can filter by real username. Previously, the username was harcoded so the current’s user information was not carried between screens via Intent. This enforces user isolation and multi-user functionality, where the application now sees the real session rather than the generic test user:</p>
 
 ```kotlin
 class DashboardActivity : AppCompatActivity() {
@@ -81,9 +81,42 @@ class DashboardActivity : AppCompatActivity() {
 
         val repository = WeightRepository(applicationContext)
 ```
-
 <h3 style="color:#0969da;">Creating a source of truth by creating a WeightRepository class</h3>
-<p>Do...</p>
+<p>The first release of the application did not have a repository, therefore Activities called DatabaseHelper directly. There was no single place where all data was securely stored. By adding a WeightRepository as the single source of truth, both the viewmodel and UI don’t know where the data comes from, instead they just ask the repository.</p>
+
+```kotlin
+class WeightRepository(context: Context) {
+    private val dao = AppDB.getDatabase(context).weightDao()
+
+    // Gets full history of current user
+    suspend fun getHistory(username: String): List<WeightEntry> {
+        return withContext(Dispatchers.IO) {
+            dao.getHistory(username)
+        }
+    }
+
+    // Gets latest saved goal
+    suspend fun getLastTarget(username: String): Double? {
+        return withContext(Dispatchers.IO) {
+            dao.getLastTarget(username)
+        }
+    }
+
+    // Deletes single weight entry by ID
+    suspend fun deleteWeight(id: Int) {
+        withContext(Dispatchers.IO) {
+            dao.deleteWeight(id)
+        }
+    }
+
+    // Creates new weight entry for logged-in user
+    suspend fun addWeight(username: String, weight: Double, goal: Double) {
+        withContext(Dispatchers.IO) {
+            dao.insert(WeightEntry(username = username, weight = weight, goalWeight = goal))
+        }
+    }
+}
+```
 <h3 style="color:#0969da;">Fixing the ViewModel layer</h3>
 <p>Do...</p>
 <h3 style="color:#0969da;">Updating the UI layer by refactoring the activities dashboard</h3>
