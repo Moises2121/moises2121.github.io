@@ -1,6 +1,3 @@
-<p align="center" style="margin-top: -340px; margin-bottom: 180px;">
-  <img src="snhulogo.png" width="100" alt="SNHU Logo">
-</p>
 <p align="center" style="margin-bottom: 10px;">
   <img src="moises.jpg" width="220" alt="Moises Sanchez">
 </p>
