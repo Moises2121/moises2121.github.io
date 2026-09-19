@@ -73,9 +73,9 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
 ---
 #### Contact:
 <br>
-<b>Student email:</b> moises.sanchez1@snhu.edu
+<b>Email:</b> moises.sanchez1@snhu.edu
 <br>
-<b>Github:</b> <a href="https://github.com/Moises2121"> Moises2121 </a>
+<b>Github:</b> <a href="https://github.com/Moises2121" target="_blank"> Moises2121 </a>
 <br>
-<b>LinkedIn:</b> <a href="www.linkedin.com/in/moises-sanchez-9ab510361"> Moises-Sanchez </a>
+<b>LinkedIn:</b> <a href="https://www.linkedin.com/in/moises-sanchez-9ab510361/" target="_blank"> Moises-Sanchez </a>
 
