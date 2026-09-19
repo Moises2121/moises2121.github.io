@@ -45,25 +45,34 @@ I will use my skills in Software Design & Engineering, Algorithms & Data Structu
 </div>
 ---
 ### Software Design & Engineering
+<div style="text-align: justify;">
 The first version of my <b>Weight Tracking Application</b> contains severe security concerns that must be addressed prior to production release. While it was a great project for the Mobile Architecture course, it lacked multi-user functionality and fundamentals of a more complex data-layer. I did not have enough time to cover those vulnerabilites during that course, however, after continuing my student career at SNHU, I was able to identify and mitigate these issues.
+</div>
 
 <p align="left">
   <a href="./SoftwareEngineering.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement One</a>
 </p>
 ---
 ### Algorithms & Data Structures
+<div style="text-align: justify;">
 <i>Under construction...</i>
+</div>
 
 <p align="left">
   <a href="./Algorithms.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement Two</a>
 </p>
 ---
 ### Databases
+<div style="text-align: justify;">
 <i>Under construction...</i>
+</div>
 
 <p align="left">
   <a href="./Databases.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement Three</a>
 </p>
 ---
 #### Contact:
-moises.sanchez1@snhu.edu
+Student email: moises.sanchez1@snhu.edu
+Github: 
+LinkedIn: <a href="www.linkedin.com/in/moises-sanchez-9ab510361"> Moises-Sanchez </a>
+
