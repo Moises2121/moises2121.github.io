@@ -1,5 +1,5 @@
 <div align="center" style="line-height: 0;">
-  <img src="moises.jpg" alt="Moises Sanchez" width="210" style="display:block; margin-top: -90px; margin-bottom: 0px; border: 4px solid #4B2E1A; border-radius: 8px;">
+  <img src="moises.jpg" alt="Moises Sanchez" width="210" style="display:block; margin-top: -90px; margin-bottom: 0px; border: 4px solid #003366; border-radius: 8px;">
   <img src="snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
 </div>
 ---
@@ -30,16 +30,16 @@ First, my developer's code review. This video outlines the current structure of 
     <img src="thumbnailYT.png" alt="Watch my initial code review" width="400">
   </a>
 </p>
-<p align="center">
+<h4 align="center">
     <a href="CodeReview_transcript.srt" download>
         Click to Download Transcript
     </a>
-</p>
-<p align="center">
+</h4>
+<h4 align="center">
     <a href="https://github.com/Moises2121/moises2121.github.io/tree/originalartifact/app/src/main/java/com/example/weighttracker" target="_blank">
         Original Code (version 1.0)
     </a>
-</p>
+</h4>
 
  
 
