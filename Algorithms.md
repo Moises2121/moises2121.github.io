@@ -9,6 +9,11 @@ title: Algorithms & Data Structures
 > <b>Build Info</b>
 > <p>Built with Kotlin 1.9.22 • compileSdk 34 • minSdk 26 • targetSdk 34 • Room 2.6.1</p>
 
+<p>
+  Build Info 
+  <span class="editor-note" style="color: gray; font-style: italic;">[Note: Built with Kotlin 1.9.22 • compileSdk 34 • minSdk 26 • targetSdk 34 • Room 2.6.1.]</span>
+</p>
+
 ---
 ## Artifact's Origin
 <p> Artifact: CS360- Final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i><br>
