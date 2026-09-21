@@ -79,10 +79,9 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
 </p>
 ---
 ### Contact:
-<br>
 <b>Email:</b> moises.sanchez1@snhu.edu
   <div style="margin-bottom:10px;">
-    <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#24292f;">
+    <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2;">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="25" height="25" style="margin-right:8px;" />
       Follow me on GitHub
     </a>
@@ -93,5 +92,4 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
       Follow me on LinkedIn
     </a>
   </div>
-</div>
 
