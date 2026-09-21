@@ -6,7 +6,7 @@ title: Algorithms & Data Structures
   <a href="./index.html" style="display:inline-block; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">← Home</a>
 </p>
 
-<div class="note-box" style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 10px 0;">
+<div class="note-box" style="background-color: #e3f2fd; border-left: 5px solid #ffc107; padding: 15px; margin: 10px 0;">
   <strong>Note:</strong> Built with Kotlin 1.9.22 • compileSdk 34 • minSdk 26 • targetSdk 34 • Room 2.6.1.
 </div>
 
