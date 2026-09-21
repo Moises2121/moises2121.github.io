@@ -36,7 +36,7 @@ First, my developer's code review. This video outlines the current structure of 
 
 <p align="center">
   <a href="https://youtu.be/efCo_He-T5c" target="_blank">
-    <img src="thumbnailYT.png" alt="Watch my initial code review" width="400">
+    <img src="thumbnailYT.png" alt="Watch my initial code review" width="400" style="display:block; border: 4px solid #D32F2F; border-radius: 8px;">
   </a>
 </p>
 
