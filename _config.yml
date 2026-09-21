@@ -1,3 +1,10 @@
 title: Moises Sanchez, A.S
 description: CS499 ePortfolio | Southern New Hampshire University
 theme: jekyll-theme-cayman
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  toc:
+    auto_id: true
+  auto_ids: true
