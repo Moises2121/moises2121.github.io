@@ -28,7 +28,7 @@ In this artifact, the CRUD operations must work properly without causing memory 
 </div>
 ---
 ## Enhancement Steps
-<h3 style="color:#0969da;"><u>Fixing the data layer by updating DAO queries</u></h3>
+<h3><u>Fixing the data layer by updating DAO queries</u></h3>
 <div style="text-align: justify;">
 <p>The data layer needed to be corrected first. By creating data/local package and implementing WeightEntry as the entity, WeightDao for SQL queries, AppDB for the database, I established a great foundation. Introducing WeightRepository and UserRepository as the single source of truth the UI of the application already improved as it was easier to maintain with a clear separation of my concerns for the data layer:</p>
 <br>
@@ -88,7 +88,7 @@ class DashboardActivity : AppCompatActivity() {
 
         val repository = WeightRepository(applicationContext)
 ```
-<h3 style="color:#0969da;"><h3><u>Creating a source of truth by creating a WeightRepository class</u></h3>
+<h3><u>Creating a source of truth by creating a WeightRepository class</u></h3>
 <p>The first release of the application did not have a repository, therefore Activities called DatabaseHelper directly. There was no single place where all data was securely stored. By adding a WeightRepository as the single source of truth, both the viewmodel and UI don’t know where the data comes from, instead they just ask the repository.</p>
 
 ```kotlin
@@ -124,7 +124,7 @@ class WeightRepository(context: Context) {
     }
 }
 ```
-<h3 style="color:#0969da;"><u>Fixing the ViewModel layer</u></h3>
+<h3><u>Fixing the ViewModel layer</u></h3>
 <p>I did not have a viewmodel layer on my first release, therefore all states of current weight and goal weights resided within the Activity modules, and if the screen was rotated the information got cleared. By adding a DashboardViewModel module, the state is held regardless of screen rotation with LiveData.</p>
 
 ```kotlin
@@ -153,7 +153,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
     }
 }
 ```
-<h3 style="color:#0969da;"><u>Updating the UI layer by refactoring the activities dashboard</u></h3>
+<h3><u>Updating the UI layer by refactoring the activities dashboard</u></h3>
 <p>DashboardActivity module opened the database, queried the history as <i>O of n</i> (everything), calculated the user’s progress and updated the TextViews. This violated single responsibility principle as it had multiple functions with mixed data and UI logic. After the enhancement, DashboardActivity is now only responsible for observing the ViewModel and rendering the progress bar. </p>
 
 ```kotlin
