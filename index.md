@@ -43,7 +43,7 @@ First, my developer's code review. This video outlines the current structure of 
 <h4 align="center">
   <img src="Login.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
       <br>
-        <i>Figure 1 - Login Screen</i>
+        <em style="color:gray;"> Figure 1: Login / Registration Screen </em>
 </h4> 
 
 <div style="text-align: justify;">
