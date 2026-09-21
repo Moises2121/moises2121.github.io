@@ -2,11 +2,6 @@
   <img src="moises.jpg" alt="Moises Sanchez" width="200" style="display:block; margin-top: -90px; margin-bottom: 0px; border: 3px solid #003366; border-radius: 8px;">
   <img src="snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
 </div>
-
-<h2 style="color:#2ea043;">Introduction</h2>
-
-<h2 style="color:#2ea043;">Introduction</h2>
-
 ---
 ## Introduction
 <div style="text-align: justify;">
@@ -86,20 +81,15 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
 ### Contact:
 <br>
 <b>Email:</b> moises.sanchez1@snhu.edu
-
-<div style="display:flex; align-items:center; gap:8px; margin:20px 0 10px 0;">
-  <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#24292f;">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="28" height="28" style="margin-right:8px;" />
-    Follow me on GitHub
-  </a>
-  <a href="https://github.com/moises2121" target="_blank">
-    <img src="https://img.shields.io/github/followers/moises2121?label=Follow&style=social" alt="GitHub Follow" />
-  </a>
-</div>
-
+  <div style="margin-bottom:10px;">
+    <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#24292f;">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="25" height="25" style="margin-right:8px;" />
+      Follow me on GitHub
+    </a>
+  </div>
   <div>
     <a href="https://www.linkedin.com/in/moises-sanchez-9ab510361/" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2;">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" width="26" height="26" style="margin-right:8px;" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" width="25" height="25" style="margin-right:8px;" />
       Follow me on LinkedIn
     </a>
   </div>
