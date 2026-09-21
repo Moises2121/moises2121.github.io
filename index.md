@@ -40,11 +40,6 @@ First, my developer's code review. This video outlines the current structure of 
         See Original Code (version 1.0)
     </a>
 </h4>
-<h4 align="center">
-  <img src="Demo.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
-      <br>
-        <em style="color:gray;"> Figure 1: Login / Registration Screen </em>
-</h4> 
 
 <div style="text-align: justify;">
   <p>
