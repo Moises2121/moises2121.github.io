@@ -6,6 +6,8 @@ title: Software Design & Engineering
   <a href="./index.html" style="display:inline-block; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">← Home</a>
 </p>
 ---
+> [!NOTE]
+> **Weight Tracker — App Info:** Built with Kotlin 1.9.22 · AGP 8.2.2 · KSP 1.9.22-1.0.17 · compileSdk 34 / minSdk 26 / targetSdk 34 · Java 17 (JVM 17) · Room 2.6.1 · Coroutines 1.7.3 · Lifecycle 2.7.0 · v1.0
 ## Artifact's Origin
 
 <p> Artifact: CS360- Final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i><br>
