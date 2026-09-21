@@ -200,8 +200,9 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
   </div>
 </div>
 
->Note
-> My original appliacation relied on harcoded `test` displaying the same data for all users. The enhanced version uses Room database with DAO to effectively show the current user's weight data.
+><b>Note</b>
+>My original appliacation relied on harcoded `test` displaying the same data for all users. The enhanced version uses Room database with DAO to effectively show the current user's weight data.
+
 ---
 ## Challenges
 <div style="text-align: justify;">
