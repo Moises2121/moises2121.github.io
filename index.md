@@ -31,8 +31,8 @@ First, my developer's code review. This video outlines the current structure of 
   </a>
 </p>
 <p align="center">
-    <a href="https://youtu.be/efCo_He-T5c" target="_blank">
-        Narrated code review
+    <a href="CodeReview_transcript.srt" target="_blank">
+        Download Transcript
     </a>
 </p>
 <p align="center">
