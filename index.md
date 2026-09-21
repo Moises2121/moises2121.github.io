@@ -32,12 +32,12 @@ First, my developer's code review. This video outlines the current structure of 
 </p>
 <h4 align="center">
     <a href="CodeReview_transcript.srt" download>
-        Click to Download Transcript
+        Click to Download Video Transcript
     </a>
 </h4>
 <h4 align="center">
     <a href="https://github.com/Moises2121/moises2121.github.io/tree/originalartifact/app/src/main/java/com/example/weighttracker" target="_blank">
-        Original Code (version 1.0)
+        See Original Code (version 1.0)
     </a>
 </h4>
 
