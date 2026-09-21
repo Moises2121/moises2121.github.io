@@ -36,7 +36,7 @@ In this artifact, the CRUD operations must work properly without causing memory 
 <p align="center">
   <img width="620" height="324" alt="image" src="https://github.com/user-attachments/assets/c7dc833a-0823-454a-b1ff-bb8648e3d8db" />
   <br>
-    <em>Figure 1: Updated DAO structure</em>
+    <em>Figure 2: Updated DAO structure</em>
 </p>
 <br>
 <p>WeightDao is now the only place that handles SQL, which enforce my separation concerns. Aditionally, the ViewModel no longer executes queries directly:</p>
