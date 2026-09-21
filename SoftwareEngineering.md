@@ -22,8 +22,8 @@ The application was developed as part of a project that required Android Studio 
 ---
 ## Justification
 <div style="text-align: justify;">
-<p>The original version of this submission implemented an unstructured SQLite helper that verifies the user’s authentications but violates single responsibility principle. The DashboardActivity module handles most of the operations for the application’s functionalities but hardcoded <i>test</i> username breaks the multi-user support, which does not follow best practices.
-In this artifact, the CRUD operations must work properly without causing memory leaks, or accidentally exposing another user’s personal data. The modules currently don’t follow a structured architecture that can be used for improvements, so the enhancement includes refactoring the tree’s architecture in a professional manner, as well as adding accurate documentation with in-line comments to improve the application’s sustainability and readability. 
+<p>The original version of this submission implemented an unstructured SQLite helper that verifies the user’s authentications but violates single responsibility principle. The DashboardActivity module handles most of the operations for the application’s functionalities and hardcoded <i>test</i> username breaks the multi-user support, which does not follow best practices.
+In the initial version of this artifact, the CRUD operations don't work properly without causing memory leaks, or accidentally exposing another user’s personal data. The modules don’t follow a structured architecture that can be used for improvements. Therefore, the enhancement includes refactoring the tree’s architecture in a professional manner, as well as adding accurate documentation with in-line comments to improve the application’s sustainability and readability. 
 </p>
 </div>
 ---
