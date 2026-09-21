@@ -41,7 +41,7 @@ First, my developer's code review. This video outlines the current structure of 
     </a>
 </h4>
 <h4 align="center">
-  <img src="Login.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
+  <img src="Demo.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
       <br>
         <em style="color:gray;"> Figure 1: Login / Registration Screen </em>
 </h4> 
