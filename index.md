@@ -3,15 +3,7 @@
   <img src="snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
 </div>
 
-<div style="display:flex; align-items:center; gap:8px; margin:20px 0 10px 0;">
-  <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#24292f;">
-    <img src="githublogo.png" width="28" height="28" style="margin-right:8px;"/>
-    Follow me on GitHub
-  </a>
-  <a href="https://github.com/moises2121" target="_blank">
-    <img src="https://img.shields.io/github/followers/moises2121?label=Follow&style=social" alt="GitHub Follow" />
-  </a>
-</div>
+<h2 style="color:#2ea043;">Introduction</h2>
 
 <h2 style="color:#2ea043;">Introduction</h2>
 
@@ -94,8 +86,22 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
 ### Contact:
 <br>
 <b>Email:</b> moises.sanchez1@snhu.edu
-<br>
-<b>Github:</b> <a href="https://github.com/Moises2121" target="_blank"> Moises2121 </a>
-<br>
-<b>LinkedIn:</b> <a href="https://www.linkedin.com/in/moises-sanchez-9ab510361/" target="_blank"> Moises-Sanchez </a>
+
+<div style="display:flex; align-items:center; gap:8px; margin:20px 0 10px 0;">
+  <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#24292f;">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="28" height="28" style="margin-right:8px;" />
+    Follow me on GitHub
+  </a>
+  <a href="https://github.com/moises2121" target="_blank">
+    <img src="https://img.shields.io/github/followers/moises2121?label=Follow&style=social" alt="GitHub Follow" />
+  </a>
+</div>
+
+  <div>
+    <a href="https://www.linkedin.com/in/moises-sanchez-9ab510361/" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2;">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" width="26" height="26" style="margin-right:8px;" />
+      Follow me on LinkedIn
+    </a>
+  </div>
+</div>
 
