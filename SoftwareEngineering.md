@@ -6,7 +6,6 @@ title: Software Design & Engineering
   <a href="./index.html" style="display:inline-block; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">← Home</a>
 </p>
 
-> [!NOTE]
 > **App Info**
 > <p>Built with Kotlin 1.9.22 · compileSdk 34 · minSdk 26 · targetSdk 34</p>
 
