@@ -14,7 +14,7 @@ I’m aiming to develop a fully functional application that follows best practic
 ## Self Assesment
 <div style="text-align: justify;">
   <p>
-<i>Under construction...</i>
+<i>Under construction (Completion ETA 10.16.26)...</i>
   </p>
 </div>
 ---
@@ -62,7 +62,7 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
 ---
 ## Algorithms & Data Structures
 <div style="text-align: justify;">
-<i>Under construction...</i>
+<i>Under construction (Completion ETA 09.27.26)...</i>
 </div>
 
 <p align="left">
@@ -71,7 +71,7 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
 ---
 ## Databases
 <div style="text-align: justify;">
-<i>Under construction...</i>
+<i>Under construction (Completion ETA 10.04.26)...</i>
 </div>
 
 <p align="left">
