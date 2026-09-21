@@ -7,7 +7,7 @@ title: Software Design & Engineering
 </p>
 
 > **App Info**
-> <p>Built with Kotlin 1.9.22 - compileSdk 34 - minSdk 26 - targetSdk 34 - ROOM 2.6.1</p>
+> <p>Built with Kotlin 1.9.22 • compileSdk 34 • minSdk 26 • targetSdk 34 • Room 2.6.1</p>
 
 ---
 ## Artifact's Origin
