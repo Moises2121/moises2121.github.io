@@ -88,7 +88,7 @@ class DashboardActivity : AppCompatActivity() {
 
         val repository = WeightRepository(applicationContext)
 ```
-<h3 style="color:#0969da;"></h3><u>Creating a source of truth by creating a WeightRepository class</u></h3>
+<h3 style="color:#0969da;"><h3><u>Creating a source of truth by creating a WeightRepository class</u></h3>
 <p>The first release of the application did not have a repository, therefore Activities called DatabaseHelper directly. There was no single place where all data was securely stored. By adding a WeightRepository as the single source of truth, both the viewmodel and UI don’t know where the data comes from, instead they just ask the repository.</p>
 
 ```kotlin
