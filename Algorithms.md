@@ -55,3 +55,9 @@ title: Algorithms & Data Structures
       Follow me on LinkedIn
     </a>
   </div>
+  <div style="margin-top:10px;">
+    <a href="https://www.youtube.com/@moisesgsg" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#FF0000;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="25" height="25" style="margin-right:8px;" />
+      Follow me on YouTube
+    </a>
+  </div>
