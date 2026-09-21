@@ -7,7 +7,7 @@ title: Algorithms & Data Structures
 </p>
 
 <div class="note-box" style="background-color: #D6EFFF; border-left: 5px solid #2196F3; padding: 15px; margin: 10px 0;">
-  <strong>Note:</strong> Built with Kotlin 1.9.22 • compileSdk 34 • minSdk 26 • targetSdk 34 • Room 2.6.1.
+  <strong>Info:</strong> Built with Kotlin 1.9.22 • compileSdk 34 • minSdk 26 • targetSdk 34 • Room 2.6.1.
 </div>
 
 ---
