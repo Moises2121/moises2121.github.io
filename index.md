@@ -11,6 +11,13 @@ I’m aiming to develop a fully functional application that follows best practic
   </p>
 </div>
 ---
+<div style="background:#f6f8fa; border:1px solid #d0d7de; border-radius:6px; padding:10px 20px;">
+  
+## Table of Contents
+{:toc}
+
+</div>
+---
 ## Self Assesment
 <div style="text-align: justify;">
   <p>
