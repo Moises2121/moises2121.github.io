@@ -182,7 +182,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 ---
 <p align="center">
     <a href="https://github.com/Moises2121/moises2121.github.io/tree/enhancementOneartifact/app/src/main/java/com/example/weighttracker" target="_blank">
-        Enhancement One Code
+        View my Enhancement One Code on Github
     </a>
 </p>
 
@@ -201,7 +201,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 </div>
 
 ><b>Note</b>
-><p>My original appliacation relied on harcoded `test` displaying the same data for all users. The enhanced version uses Room database with DAO to effectively show the current user's weight data.</p>
+><p>My original appliacation relied on harcoded <i>test</i> displaying the same data for all users. The enhanced version uses Room database with DAO to effectively show the current user's weight data.</p>
 
 ---
 ## Challenges
