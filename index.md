@@ -15,6 +15,7 @@ I’m aiming to develop a fully functional application that follows best practic
 
 ## Table of Contents
 * TOC
+* 
 {:toc}
 
 </div>
