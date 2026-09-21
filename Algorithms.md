@@ -10,9 +10,15 @@ title: Algorithms & Data Structures
 > <p>Built with Kotlin 1.9.22 • compileSdk 34 • minSdk 26 • targetSdk 34 • Room 2.6.1</p>
 
 ---
-# Artifact's Origin
-
-<p>Artifact's origin...</p>
+## Artifact's Origin
+<p> Artifact: CS360- Final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i><br>
+Developed on August 2026 for Mobile Architecture and Programming at SNHU
+</p>
+<div style="text-align: justify;">
+<p>
+The application was developed as part of a project that required Android Studio environment. It’s original goal was to design an application that follows Android’s design foundations and best practices. The application’s core requirements were to provide CRUD operations and a trusted database, either local or online, where user data such as weight, username and passwords can be stored.
+</p>
+</div>
 ---
 # Justification
 
