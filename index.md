@@ -5,7 +5,7 @@
 
 <div style="display:flex; align-items:center; gap:8px; margin:20px 0 10px 0;">
   <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#24292f;">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="28" height="28" style="margin-right:8px;" />
+    <img src="githublogo.png" width="28" height="28" style="margin-right:8px;"/>
     Follow me on GitHub
   </a>
   <a href="https://github.com/moises2121" target="_blank">
