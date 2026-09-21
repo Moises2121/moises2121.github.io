@@ -179,6 +179,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
             updateProgressBar()
         }
 ```
+---
 <p align="center">
     <a href="https://github.com/Moises2121/moises2121.github.io/tree/enhancementOneartifact/app/src/main/java/com/example/weighttracker" target="_blank">
         Enhancement One Code
@@ -198,6 +199,9 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
     <em style="color:gray;">Figure 3: Enhanced - Login / Registration</em>
   </div>
 </div>
+
+> [!Note]
+> Original appliacation relied on harcoded `test` displaying the same data for all users. The enhancement version uses Room database with DAO to properly show the current user's weight data.
 ---
 ## Challenges
 <div style="text-align: justify;">
