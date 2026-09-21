@@ -208,7 +208,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 <div style="text-align: justify;">
 <p><b>I. Unknown references.</b> Some challenges included manifest errors when migrating all the activities modules to the ui folder. Android could not find the references at first because the mapping was modified. To mitigate this, I renamed the modules in manifest and fixed the imports in the Kotlin files.</p>
 
-<p><b>II. Exception errors.</b> I added a “Welcome, User” on every screen, however the build started failing with a <i>NullPointerException</i> at parseDebugLocalResources. After further debugging, found out that I had some illegal folders inside my mipmap. Deleting the entire folder and creating a new one via New then Image Asset created the correct mipmap-hdpi.</p>
+<p><b>II. Exception errors.</b> I added a “Welcome, <i>User</i>” on every screen, however the build started failing with a <i>NullPointerException</i> at parseDebugLocalResources. After further debugging, found out that I had some illegal folders inside my mipmap. Deleting the entire folder and creating a new one via New then Image Asset created the correct mipmap-hdpi.</p>
 
 <p><b>III. Syntax errors.</b> Some errors were encountered such as forgetting pointers and semicolons in this Kotlin logic, such as incorrect layout_height values that should have been wrap_content instead, and missing attributes such as contentDescription for accessibility.</p>
 
@@ -219,7 +219,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 ---
 ## Outcomes
 <div style="text-align: justify;">
-<p>I am confident that the outcomes came out as expected. The enhanced version will now evaluate computing solutions and manage trade-offs between architectural layers, by demonstrating abilities to use skills and tools for the purpose of implementing a solution to accomplish industry goals. It also implements industry tools such as ROOM, LiveData and repository to build a maintainable architecture, outlining the outcome on delivering a professional and coherent application to our weight tracking audience. Finally, it fixes collaborative failures where a different user might see the first user’s personal data due to having <i>test</i> user hardcoded in the application, which mitigates design flaws and ensures privacy and enhanced security of personal data.</p>
+<p>I am confident that the outcomes came out as expected. The enhanced version will now evaluate computing solutions and manage trade-offs between architectural layers, by demonstrating abilities to use skills and tools for the purpose of implementing a solution to accomplish industry goals. It also implements industry tools such as Room, LiveData and repository to build a maintainable architecture, outlining the outcome on delivering a professional and coherent application to our weight tracking audience. Finally, it fixes collaborative failures where a different user might see the first user’s personal data due to having <i>test</i> user hardcoded in the application, which mitigates design flaws and ensures privacy and enhanced security of personal data.</p>
   
 <p>Overall, this enhancement helped the functionality and reliability of the application’s usage. It does not break the overall architecture and core requirements, it simply improves the areas that needed more coverage from the first release.</p>
 
