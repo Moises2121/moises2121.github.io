@@ -207,13 +207,13 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 ## Challenges
 <div style="text-align: justify;">
 <p><b>I. Unknown references.</b> Some challenges included manifest errors when migrating all the activities modules to the ui folder. Android could not find the references at first because the mapping was modified. To mitigate this, I renamed the modules in manifest and fixed the imports in the Kotlin files.</p>
-  <br>
+
 <p><b>II. Exception errors.</b> I added a “Welcome, User” on every screen, however the build started failing with a <i>NullPointerException</i> at parseDebugLocalResources. After further debugging, found out that I had some illegal folders inside my mipmap. Deleting the entire folder and creating a new one via New then Image Asset created the correct mipmap-hdpi.</p>
-  <br>
+
 <p><b>III. Syntax errors.</b> Some errors were encountered such as forgetting pointers and semicolons in this Kotlin logic, such as incorrect layout_height values that should have been wrap_content instead, and missing attributes such as contentDescription for accessibility.</p>
-  <br>
+
 <p><b>IV. Nulls and crashes.</b> I had the harcoded <i>test</i> username in version 1.0 of this application to test against the database. Once I removed it, I forgot to pass the USERNAME extra on all my navigations, therefore, intent.getStringExtra(“USERNAME”) returned null. After tracing back to the intent, I added the username to every intent that opens another screen, with a null check with <i>finish()</i> at the beginning of onCreate. At the end, the history screen stopped crashing and I was able to see the correct loaded data by unique username.</p>
-  <br>
+
 <p><b>V. Adding more modules.</b> The first version was simple and effective, but not functional for a full-stack application. I was challenged to untangle old database calls and wiring new dependencies. I mitigated this by working one step at a time, structure migrating and verifying each screen loads correctly. This helped me strengthen my abilities to deliver proper separation, test and align with industry standards.</p>
 </div>
 ---
