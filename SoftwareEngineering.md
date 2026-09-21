@@ -179,10 +179,16 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
             updateProgressBar()
         }
 ```
-<h4 align="center">
+<h4 align="left">
+  <img src="Demo_Original.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
+      <br>
+        <em style="color:gray;"> Figure 2: Original: Login / Registration Screen </em>
+</h4> 
+
+<h4 align="right">
   <img src="Demo.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
       <br>
-        <em style="color:gray;"> Figure 2: Login / Registration Screen </em>
+        <em style="color:gray;"> Figure 3: Enhanced: Login / Registration Screen </em>
 </h4> 
 ---
 ## Challenges
