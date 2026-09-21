@@ -86,7 +86,7 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
   <a href="./Databases.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement Three</a>
 </p>
 ---
-## Contact:
+## Contact Me
 <b>Email:</b> moises.sanchez1@snhu.edu
   <div style="margin-bottom:10px;">
     <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2;">
