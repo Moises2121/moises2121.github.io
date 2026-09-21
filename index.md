@@ -27,7 +27,7 @@ First, my developer's code review. This video outlines the current structure of 
 
 <p align="center">
   <a href="https://youtu.be/efCo_He-T5c" target="_blank">
-    <img src="Thumbnail2.jpg" alt="Watch my initial code review" width="400">
+    <img src="thumbnailYT.png" alt="Watch my initial code review" width="400">
   </a>
 </p>
 <p align="center">
