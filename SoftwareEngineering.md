@@ -179,6 +179,12 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
             updateProgressBar()
         }
 ```
+<p align="center">
+    <a href="https://github.com/Moises2121/moises2121.github.io/tree/enhancementOneartifact/app/src/main/java/com/example/weighttracker" target="_blank">
+        Enhancement One Code
+    </a>
+</p>
+
 <div style="display:flex; justify-content:center; gap:40px; text-align:center; flex-wrap:wrap;">
   <div>
     <img src="Demo_Original.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
@@ -214,12 +220,6 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 
 </div>
 <br>
-
-<p align="center">
-    <a href="https://github.com/Moises2121/moises2121.github.io/tree/enhancementOneartifact/app/src/main/java/com/example/weighttracker" target="_blank">
-        Enhancement One Code
-    </a>
-</p>
 
 <hr>
 <p align="left">
