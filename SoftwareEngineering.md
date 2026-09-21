@@ -2,6 +2,10 @@
 layout: default
 title: Software Design & Engineering
 ---
+<p align="left">
+  <a href="./index.html" style="display:inline-block; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">← Home</a>
+</p>
+---
 ## Artifact's Origin
 
 <p> Artifact: CS360- Final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i><br>
