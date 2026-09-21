@@ -36,7 +36,7 @@ In this artifact, the CRUD operations must work properly without causing memory 
 <p align="center">
   <img width="620" height="324" alt="image" src="https://github.com/user-attachments/assets/c7dc833a-0823-454a-b1ff-bb8648e3d8db" />
   <br>
-    <em style="color:gray;"> Figure 2: Updated DAO structure </em>
+    <em style="color:gray;"> Figure 1: Updated DAO structure </em>
 </p>
 <br>
 <p>WeightDao is now the only place that handles SQL, which enforce my separation concerns. Aditionally, the ViewModel no longer executes queries directly:</p>
@@ -179,6 +179,11 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
             updateProgressBar()
         }
 ```
+<h4 align="center">
+  <img src="Demo.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
+      <br>
+        <em style="color:gray;"> Figure 2: Login / Registration Screen </em>
+</h4> 
 ---
 ## Challenges
 <div style="text-align: justify;">
@@ -212,6 +217,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 <p align="left">
   <a href="./index.html" style="display:inline-block; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">← Home</a>
 </p>
+
 ---
 ### Contact:
 <b>Email:</b> moises.sanchez1@snhu.edu
