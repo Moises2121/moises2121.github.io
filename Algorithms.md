@@ -37,8 +37,9 @@ title: Algorithms & Data Structures
 <br>
 
 <hr>
-<p align="left">
+<p>
   <a href="./index.html" style="display:inline-block; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">← Home</a>
+  <a href="./Databases.html" style="display:inline-block; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold; float:right;">Next→</a>
 </p>
 ---
 ### Contact:
