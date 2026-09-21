@@ -30,16 +30,15 @@ First, my developer's code review. This video outlines the current structure of 
     <img src="thumbnailYT.png" alt="Watch my initial code review" width="400">
   </a>
 </p>
-<h4 align="center">
-    <a href="CodeReview_transcript.srt" download>
-        Click to Download Video Transcript
-    </a>
-</h4>
-<h4 align="center">
-    <a href="https://github.com/Moises2121/moises2121.github.io/tree/originalartifact/app/src/main/java/com/example/weighttracker" target="_blank">
-        See Original Code (version 1.0)
-    </a>
-</h4>
+
+<div align="center" style="line-height:1.2;">
+  <h4 style="margin:2px;">
+    <a href="CodeReview_transcript.srt" download>Click to Download the Video Transcript</a>
+  </h4>
+  <h4 style="margin:2px;">
+    <a href="https://github.com/Moises2121/moises2121.github.io/tree/originalartifact/app/src/main/java/com/example/weighttracker" target="_blank">See Original Code (version 1.0)</a>
+  </h4>
+</div>
 
 <div style="text-align: justify;">
   <p>
