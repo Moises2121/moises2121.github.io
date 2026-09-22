@@ -3,6 +3,8 @@
   <img src="snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
 </div>
 ---
+<div style="text-align: center; color: #808080;""><i>"If there's nothing left to improve, you didn't build enough. If there's too much to improve, you built too much." -Moises</i> </div>
+---
 ## Introduction
 <div style="text-align: justify;">
   <p>
