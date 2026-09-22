@@ -40,7 +40,7 @@ In the initial version of this artifact, the CRUD operations don't work properly
     <em style="color:gray;"> Figure 1: Updated DAO structure </em>
 </p>
 <br>
-<p>WeightDao is now the only place that handles SQL, which enforce my separation concerns. Aditionally, the ViewModel no longer executes queries directly:</p>
+<p><code class="language-plaintext highlighter-rouge">WeightDao</code> is now the only place that handles SQL, which enforce my separation concerns. Aditionally, the <code class="language-plaintext highlighter-rouge">ViewModel</code> no longer executes queries directly:</p>
 
 ```kotlin
 @Dao
