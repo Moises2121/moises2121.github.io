@@ -14,10 +14,20 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
     private val _goal = MutableLiveData<Double>()
     val goal: LiveData<Double> = _goal
 
+    // New LiveData for calculated values using BST
+    private val _weightDiff = MutableLiveData<Float>()
+
     // Load user's data by fetching their history and goal (For version 2.0 the default is 220.0)
     fun load(username: String) {
         viewModelScope.launch {
-            _history.value = repo.getHistory(username)
+
+            // O(log n + k) for dashboard chart, not a full scan
+            _history.value = repo.getLastNDaysHistory(username,30)
+
+            // O(log n) for access to last entry
+            _weightDiff.value = repo.getWeightDifference(username)
+
+            // O(log n) to get latest goal from BST, defaulting to 220 when null
             _goal.value = repo.getLastTarget(username) ?: 220.0
         }
     }

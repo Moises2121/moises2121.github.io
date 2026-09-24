@@ -20,6 +20,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Goodbye Message when user logs out
+        val goodbye = intent.getStringExtra("GOODBYE_MSG")
+        if (goodbye != null) {
+            Toast.makeText(this, goodbye, Toast.LENGTH_SHORT).show()
+        }
+
         userRepository = UserRepository(this)
 
         // Login fields

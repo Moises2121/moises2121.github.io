@@ -15,5 +15,5 @@ data class WeightEntry(
     // Goal weight that serves to track progress and display history
     val goalWeight: Double,
     // Generate the date for the entry, used to be displayed in history
-    val date: String = java.text.SimpleDateFormat("mm/dd/yyyy", java.util.Locale.US).format(java.util.Date())
+    val date: String = java.text.SimpleDateFormat("MM/dd/yyyy", java.util.Locale.US).format(java.util.Date())
 )
