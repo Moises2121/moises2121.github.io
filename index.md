@@ -13,7 +13,7 @@ I’m aiming to develop a fully functional application that follows best practic
   </p>
 </div>
 ---
-<div style="background:#f6f8fa; border:1px solid #d0d7de; border-radius:6px; padding:10px 20px;" markdown="1">
+<div style="background:#f1f8e9; border:1px solid #dcedc8; border-radius:10px; padding:10px 20px;" markdown="1">
 
 ## Table of Contents
 * TOC
