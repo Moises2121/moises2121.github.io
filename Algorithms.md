@@ -182,7 +182,7 @@ if (lastEntry != null) {
 <h3><u>Additional features that apply Industry’s best practices</u></h3>
 <p>Some other features were based on eliminating the application’s warnings from string concatenations such as <code class="language-plaintext highlighter-rouge">“Welcome, $username”</code> , since format crashes when using percentages for a Double.
 <br>
-By applying best practices, all the UI text has been located under my <code class="language-plaintext highlighter-rouge">strings.xml</code> by using placeholders <code class="language-plaintext highlighter-rouge">%1$s</code> and <code class="language-plaintext highlighter-rouge">%1$.0f</code> being accessed via <code class="language-plaintext highlighter-rouge">getString(R.string.welcome, username)</code> for example. This removed the <i>`SetText`</i> warnings from the environment and enable a more structured architecture.
+By applying best practices, all the UI text has been located under my <code class="language-plaintext highlighter-rouge">strings.xml</code> by using placeholders <code class="language-plaintext highlighter-rouge">%1$s</code> and <code class="language-plaintext highlighter-rouge">%1$.0f</code> being accessed via <code class="language-plaintext highlighter-rouge">getString(R.string.welcome, username)</code> for example. This removed the <i>`SetText`</i> warnings from the environment and enable a more structured architecture.</p>
 
 </div>
 <p align="center">
