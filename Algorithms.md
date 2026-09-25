@@ -186,9 +186,9 @@ By applying best practices, all the UI text has been located under my <code clas
 
 </div>
 <p align="center">
-  <img width="620" height="324" alt="image" src="https://github.com/user-attachments/assets/c7dc833a-0823-454a-b1ff-bb8648e3d8db" />
+  <img width="620" height="324" alt="image" src="/xml.jpg">
   <br>
-    <em style="color:gray;"> Figure 1: Updated DAO structure </em>
+    <em style="color:gray;"> Figure 4: string.xml </em>
 </p>
 <br>
   
