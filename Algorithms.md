@@ -124,7 +124,7 @@ fun getWeightDifference(): Float {
     return lastWeight - firstWeight
 }
 ```
-<p>Refactored <code class="language-plaintext highlighter-rouge">showGoalReachedIfNeeded()<? to accept <code class="language-plaintext highlighter-rouge">WeightEntry</code> instead of a list by using <code class="language-plaintext highlighter-rouge">lastEntry.Weight</code> to get the most recent weight</p>
+<p>Refactored <code class="language-plaintext highlighter-rouge">showGoalReachedIfNeeded()</code> to accept <code class="language-plaintext highlighter-rouge">WeightEntry</code> instead of a list by using <code class="language-plaintext highlighter-rouge">lastEntry.Weight</code> to get the most recent weight</p>
 
 ```kotlin
 // Now it takes BST instead of list for last entry check
