@@ -1,3 +1,47 @@
 <resources>
-    <string name="app_name">Weight Tracker</string>
+    <string name="app_name">WeightTracker</string>
+
+    <!-- Greetings -->
+    <string name="welcome">Welcome, %1$s</string>
+    <string name="goodbye">Goodbye, %1$s</string>
+
+    <!-- Goals text -->
+    <string name="goal_is_set">Your goal is set to %1$.0f lbs!</string>
+    <string name="enter_goal">Enter your Goal</string>
+    <string name="goal_saved">Goal saved!</string>
+    <string name="current_goal">CURRENT GOAL: %1$.0f lbs</string>
+    <string name="current_weight">Current Weight: %1$.0f lbs</string>
+    <string name="progress">%1$d%%</string>
+    <string name="goal_reached">GOAL REACHED!</string>
+    <string name="settings">Settings</string>
+
+    <!-- Notifications -->
+    <string name="notif_on">Notifications: ON - We\'ll notify when you\'ve reached your goal</string>
+    <string name="notif_off">Notifications: OFF</string>
+    <string name="enable">ENABLE</string>
+    <string name="disable">DISABLE</string>
+    <string name="goal_reached_title">Goal Reached!</string>
+    <string name="goal_reached_body">You reached %1$.0f lbs! Goal was %2$d lbs</string>
+
+    <!-- Logins -->
+    <string name="please_login">Please login</string>
+    <string name="already_logged">You already logged your weight today (%1$s). Come back tomorrow!</string>
+    <string name="session_expired">Session expired, please Log In</string>
+    <string name="fill_out">Please fill out all fields</string>
+    <string name="registered">Registration Successful</string>
+    <string name="username_taken">Username is already taken</string>
+    <string name="wrong_credentials">Wrong Credentials</string>
+    <string name="success">Success!</string>
+
+    <!-- Messages -->
+    <string name="oops">Oops!</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_record">Delete Record</string>
+    <string name="are_you_sure">Are you sure you want to delete?</string>
+    <string name="current_weight_lbs">Current Weight (lbs)</string>
+
 </resources>

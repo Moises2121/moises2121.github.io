@@ -6,6 +6,7 @@ import android.content.Context
 import androidx.core.app.NotificationCompat
 //Import weightBST as part of enhancement two
 import com.example.weighttracker.data.local.WeightEntry
+import com.example.weighttracker.R
 
 // Notification's Helper object for showing notifications once user reaches the goal
 object NotificationHelper {
@@ -42,8 +43,8 @@ object NotificationHelper {
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(android.R.drawable.ic_dialog_info)
-            .setContentTitle("Goal Reached!")
-            .setContentText("You reached $current lbs! Goal was $goal lbs")
+            .setContentTitle(context.getString(R.string.goal_reached_title))
+            .setContentText(context.getString(R.string.goal_reached_body, current, goal))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setDefaults(NotificationCompat.DEFAULT_ALL)
             .setAutoCancel(true)

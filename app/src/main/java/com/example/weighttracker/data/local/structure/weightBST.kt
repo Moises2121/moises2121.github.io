@@ -5,7 +5,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.TreeMap
 
-// This class implements BST and replaces list sorting as part of my second enhancement
+// This class implements custom data structure using Treemap, replacing list sorting as part of my second enhancement
 class WeightBST {
     // Binary search tree sorted by date
     private val tree = TreeMap<LocalDate, WeightEntry>()

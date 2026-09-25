@@ -24,8 +24,8 @@ import android.os.Build
 class DashboardActivity : AppCompatActivity() {
 
     private lateinit var username: String
-    private var currentWeight = 180.0
-    private var goalWeight = 220.0
+    private var currentWeight = 0.0
+    private var goalWeight = 0.0
     private lateinit var viewModel: DashboardViewModel
     private lateinit var repository: WeightRepository
 
@@ -38,14 +38,14 @@ class DashboardActivity : AppCompatActivity() {
 
         // Gets username from login
         username = intent.getStringExtra("USERNAME") ?: run {
-            Toast.makeText(this, "Please login", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.please_login), Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, MainActivity::class.java))
             finish()
             return
         }
 
         // Personalized greeting at the top to display current user
-        findViewById<TextView>(R.id.tvWelcome).text = "Welcome, $username"
+        findViewById<TextView>(R.id.tvWelcome).text = getString(R.string.welcome, username)
 
         repository = WeightRepository(applicationContext)
 
@@ -104,7 +104,7 @@ class DashboardActivity : AppCompatActivity() {
         // Logout button, to end current user's session + Goodbye Message for current user
         findViewById<Button>(R.id.btnHome).setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("GOODBYE_MSG", "Goodbye $username!")
+            intent.putExtra("GOODBYE_MSG", getString(R.string.goodbye, username))
             startActivity(intent)
             finish()
         }
@@ -116,13 +116,12 @@ class DashboardActivity : AppCompatActivity() {
             val today = SimpleDateFormat("MM/dd/yyyy", Locale.US).format(Date())
             val lastEntry = repository.getLastEntry(username)
 
-
             // Restrict multiple entries on the same day
             if (lastEntry?.date == today) {
                 AlertDialog.Builder(this@DashboardActivity)
-                    .setTitle("Oops!")
-                    .setMessage("You already logged your weight today ($today). Come back tomorrow!")
-                    .setPositiveButton("OK", null)
+                    .setTitle(getString(R.string.oops))
+                    .setMessage(getString(R.string.already_logged, today))
+                    .setPositiveButton(getString(R.string.ok), null)
                     .show()
                 return@launch
             }
@@ -130,16 +129,16 @@ class DashboardActivity : AppCompatActivity() {
             input.inputType =
                 android.text.InputType.TYPE_CLASS_NUMBER or android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
                 AlertDialog.Builder(this@DashboardActivity)
-                .setTitle("Current Weight (lbs)")
+                .setTitle(getString(R.string.current_weight_lbs))
                 .setView(input)
-                .setPositiveButton("Save") { _, _ ->
+                .setPositiveButton(getString(R.string.save)) { _, _ ->
                     val text = input.text.toString()
                     if (text.isNotEmpty()) {
                         val newWeight = text.toDouble()
                         currentWeight = newWeight
                         viewModel.addWeight(username, newWeight, goalWeight)
 
-                        // Use public wrapper, not private getHistoryAsBST
+                        // Create entry for the notification check
                         val newEntry = com.example.weighttracker.data.local.WeightEntry(
                             username = username,
                             weight = newWeight,
@@ -147,8 +146,9 @@ class DashboardActivity : AppCompatActivity() {
                             goalWeight = goalWeight
                         )
                         val prefs = getSharedPreferences("settings", MODE_PRIVATE)
-                        if (prefs.getBoolean("notifications_enabled", true)) {
-                            // NotificationHelper gets WeightEntry directly as O(log n)
+                        prefs.getBoolean("notifications_enabled", true)
+                        if (prefs.getBoolean(getString(R.string.notif_on), true)) {
+                            // Check if goal has been reached to trigger notification
                             NotificationHelper.showGoalReachedIfNeeded(
                                 this@DashboardActivity,
                                 newEntry,
@@ -157,7 +157,7 @@ class DashboardActivity : AppCompatActivity() {
                         }
                     }
                 }
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(getString(R.string.cancel), null)
                 .show()
         }
     }
@@ -169,18 +169,22 @@ class DashboardActivity : AppCompatActivity() {
             val tvPercent = findViewById<TextView>(R.id.tvProgressPercent)
             val container = findViewById<LinearLayout>(R.id.progressContainer)
 
-            tvGoal.text = "CURRENT GOAL: ${goalWeight} lbs"
-            tvCurrent.text = "Current Weight: ${currentWeight} lbs"
+            tvGoal.text = getString(R.string.current_goal, goalWeight)
+            tvCurrent.text = getString(R.string.current_weight, currentWeight)
 
             // Calculation to get the percentage on the progress bar
-            var progress = ((currentWeight / goalWeight) * 100).toInt()
+            var progress = if (goalWeight > 0) {
+                ((currentWeight / goalWeight) * 100).toInt()
+            } else {
+                0
+            }
             if (progress >= 100) {
                 progress = 100
-                tvPercent.text = "GOAL REACHED!"
+                tvPercent.text = getString(R.string.goal_reached)
                 tvPercent.setTextColor(android.graphics.Color.WHITE)
             } else {
                 if (progress < 0) progress = 0
-                tvPercent.text = "$progress %"
+                tvPercent.text = getString(R.string.progress, progress)
             }
             // Adjusts the progress bar's color using Layout_weight
             val barParams = tvPercent.layoutParams as LinearLayout.LayoutParams

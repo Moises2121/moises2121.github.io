@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 // Goal Screen where users view and update the weight's goal
 class GoalActivity : AppCompatActivity() {
 
-    //Fixed the hardcoded username = "test" in this version 2.0 to accurately display current user's data
+    //Fixed the hardcoded username = "test" in this version 2 to accurately display current user's data
     private lateinit var username: String
     private lateinit var viewModel: DashboardViewModel
 
@@ -24,15 +24,14 @@ class GoalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.screen_goal)
 
-        // Get username, upon failure, the session expires and sends back to login screen
+        // Get username, upon failure, the session expires and sends back to log in screen
         username = intent.getStringExtra("USERNAME") ?: run {
-            Toast.makeText(this, "Session expired, please login", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.session_expired), Toast.LENGTH_SHORT).show()
             finish()
             return
         }
-
         // Personalized greeting at the top to display current user
-        findViewById<TextView>(R.id.tvWelcome).text = "Welcome, $username"
+        findViewById<TextView>(R.id.tvWelcome).text = getString(R.string.welcome, username)
 
         // Viewmodel with repository that access the database
         val repo = WeightRepository(applicationContext)
@@ -49,39 +48,36 @@ class GoalActivity : AppCompatActivity() {
         val tvConfirmation = findViewById<TextView>(R.id.tvGoalConfirmation)
         // Save button to save goal into database
         val btnSave = findViewById<Button>(R.id.btnSaveGoal)
-        // Dashboard (back) button
-        val btnBack = findViewById<Button>(R.id.btnBackGoal)
 
         viewModel.goal.observe(this) { lastGoal ->
             if (lastGoal > 0) {
-                tvConfirmation.text = "Your goal is set to ${lastGoal} lbs!"
+                tvConfirmation.text = getString(R.string.goal_is_set, lastGoal)
             }
         }
 
         // Loads user from database upon success
         viewModel.load(username)
 
-        // Button to save new goal and reuse current weight to fix it from disapearing
+        // Button to save new goal and reuse current weight to fix it from disappearing
         btnSave.setOnClickListener {
             val goalText = etGoal.text.toString()
             if (goalText.isEmpty()) {
-                Toast.makeText(this, "Enter your Goal", Toast.LENGTH_SHORT).show()
-            } else {
+                Toast.makeText(this, getString(R.string.enter_goal), Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
                 val newGoal = goalText.toDouble()
                 lifecycleScope.launch {
-                    val history = repo.getHistory(username)
-                    val currentWeight = history.firstOrNull()?.weight ?: 140.0
+                    val currentWeight = repo.getLastEntry(username)?.weight ?: 0.0
                     viewModel.addWeight(username, currentWeight, newGoal)
-                    runOnUiThread {
-                        // Confirmation upon adding new goal
-                        tvConfirmation.text = "Your goal is Set to ${newGoal} lbs!"
-                        etGoal.text.clear()
-                        Toast.makeText(this@GoalActivity, "Goal saved!", Toast.LENGTH_SHORT).show()
-                    }
+
+                    // Confirmation upon adding new goal
+                    tvConfirmation.text = getString(R.string.goal_is_set, newGoal)
+                    etGoal.text.clear()
+                    Toast.makeText(this@GoalActivity, getString(R.string.goal_saved), Toast.LENGTH_SHORT).show()
                 }
             }
+        findViewById<Button>(R.id.btnBackGoal)?.setOnClickListener {
+            finish() // go back to Dashboard
         }
-        // Send current user to the previous screen which is the main dashboard
-        btnBack.setOnClickListener { finish() }
     }
 }

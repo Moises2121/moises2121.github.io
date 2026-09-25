@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         // New user registration fields
         val editRegUser = findViewById<EditText>(R.id.editRegUser)
         val editRegPass = findViewById<EditText>(R.id.editRegPass)
-        // Login and Register buttons
+        // Login and Register fields
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val btnRegister = findViewById<Button>(R.id.btnRegister)
 
@@ -44,20 +44,18 @@ class MainActivity : AppCompatActivity() {
             val password = editRegPass.text.toString()
             // Validates if fields are empty
             if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please fill out username and password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.please_login), Toast.LENGTH_SHORT).show()
             } else {
                 lifecycleScope.launch {
                     val success = userRepository.registerUser(username, password)
-                    runOnUiThread {
                         if (success) {
-                            Toast.makeText(this@MainActivity, "Registered! You can login now", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity, getString(R.string.registered), Toast.LENGTH_SHORT).show()
                             // Clear fields upon registration
                             editRegUser.text.clear()
                             editRegPass.text.clear()
                         } else {
-                            Toast.makeText(this@MainActivity, "Username already exists", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity, getString(R.string.username_taken), Toast.LENGTH_SHORT).show()
                         }
-                    }
                 }
             }
         }
@@ -68,21 +66,19 @@ class MainActivity : AppCompatActivity() {
             val password = editLoginPass.text.toString().trim()
             // Checks if the login fields are empty
             if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please enter valid username and password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.wrong_credentials), Toast.LENGTH_SHORT).show()
             } else {
                 lifecycleScope.launch {
                     val isCorrect = userRepository.loginUser(username, password)
-                    runOnUiThread {
                         if (isCorrect) {
-                            Toast.makeText(this@MainActivity, "Login success!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity, getString(R.string.success), Toast.LENGTH_SHORT).show()
                             // Allows users to the next screens upon login success
                             val intent = Intent(this@MainActivity, DashboardActivity::class.java)
                             intent.putExtra("USERNAME", username)
                             startActivity(intent)
                         } else {
-                            Toast.makeText(this@MainActivity, "Wrong Credentials", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity, getString(R.string.wrong_credentials), Toast.LENGTH_SHORT).show()
                         }
-                    }
                 }
             }
         }

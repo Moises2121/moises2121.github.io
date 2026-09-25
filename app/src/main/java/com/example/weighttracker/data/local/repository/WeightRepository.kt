@@ -12,12 +12,6 @@ import com.example.weighttracker.data.local.structure.WeightBST
 class WeightRepository(context: Context) {
     private val dao = AppDB.getDatabase(context).weightDao()
 
-    // Gets full history of current user
-    suspend fun getHistory(username: String): List<WeightEntry> {
-        return withContext(Dispatchers.IO) {
-            dao.getHistory(username)
-        }
-    }
 
     // Gets latest saved goal
     suspend fun getLastTarget(username: String): Double? {
@@ -58,6 +52,7 @@ class WeightRepository(context: Context) {
         }
     }
 
+    // Get recent weight entry via BST
     suspend fun getLastEntry(username: String): WeightEntry? {
         return withContext(Dispatchers.IO) {
             val bst = getHistoryAsBST(username)
@@ -65,10 +60,13 @@ class WeightRepository(context: Context) {
         }
     }
 
+    // Weight change calculation using BST structure
     suspend fun getWeightDifference(username: String): Float {
         return withContext(Dispatchers.IO) {
             getHistoryAsBST(username).getWeightDifference()
         }
     }
+
+
 
 }
