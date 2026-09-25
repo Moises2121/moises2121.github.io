@@ -72,7 +72,7 @@ The first version of my <b>Weight Tracking Application</b> contains severe secur
 ---
 ## Algorithms & Data Structures
 <div style="text-align: justify;">
-<i>Under construction (Completion ETA 09.27.26)...</i>
+Initially, I developed the application using an arrayList that scans the entire weights database to collect the latest five entries. While it was good for an initial application, it's important to keep in mind the audience and collected data can grow over time. I apply techniques learned from CS300 to implement a binary search tree (BST) that supports faster lookups, improving peformance and allowing scalability.
 </div>
 
 <p align="left">
