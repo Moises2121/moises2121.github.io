@@ -200,14 +200,14 @@ I removed the <code class="language-plaintext highlighter-rouge">showAddWeightDi
   </div>
 
   <div>
-    <img src="History.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
+    <img src="HistoryNew.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
     <br>
     <em style="color:gray;">Figure 6: Enhanced - History Screen</em>
   </div>
 </div>
 
 ><b>Note</b>
-><p>My original application allowed multiple weight entries for the same day, used O(n) lookups to search history, and allowed accidental entry deletions. Using a more structured BST and following best practices, the enhanced version offers faster load times, thus handling user data in a more secure manner.</p>
+><p>My original application allowed multiple weight entries for the same day, used O(n) lookups to search history, and allowed accidental entry deletions. Using a more structured BST and following best practices, the enhanced version offers faster load times and uses safety checks, thus handling user data securely.</p>
 
 ---
 ## Challenges
@@ -241,9 +241,11 @@ I removed the <code class="language-plaintext highlighter-rouge">showAddWeightDi
   <a href="./index.html" style="display:inline-block; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">← Home</a>
   <a href="./Algorithms.html" style="display:inline-block; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold; float:right;">Next→</a>
 </p>
+</hr>
 
 ---
-### Contact:
+
+## Contact:
 <b>Email:</b> moises.sanchez1@snhu.edu
   <div style="margin-bottom:10px;">
     <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2;">
