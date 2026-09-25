@@ -157,7 +157,7 @@ fun load(username: String) {
 ```
 
 <h3><u>Updating the UI layer to display new records more efficiently</u></h3>
-<p>For this step, I updated the UI layer while maintaining my original five record layout. In my initial version <code class="language-plaintext highlighter-rouge">HistoryActivity<? relied on the <code class="language-plaintext highlighter-rouge">repository.getHistory()</code> which caused the app to load the entire history list assuming the last entry was history[0] resulting in a full scan. After refactoring to use <code class="language-plaintext highlighter-rouge">WeightBST</code> structure, I can now use <code class="language-plaintext highlighter-rouge">getLastNDays(username, 5)</code> with O(log n + k) lookup to get only those five records that I want to display. At the end, I was able to optimize the <code class="language-plaintext highlighter-rouge">refreshHistory</code> method while maintaining my original layout.
+<p>For this step, I updated the UI layer while maintaining my original five record layout. In my initial version <code class="language-plaintext highlighter-rouge">HistoryActivity</code> relied on the <code class="language-plaintext highlighter-rouge">repository.getHistory()</code> which caused the app to load the entire history list assuming the last entry was history[0] resulting in a full scan. After refactoring to use <code class="language-plaintext highlighter-rouge">WeightBST</code> structure, I can now use <code class="language-plaintext highlighter-rouge">getLastNDays(username, 5)</code> with O(log n + k) lookup to get only those five records that I want to display. At the end, I was able to optimize the <code class="language-plaintext highlighter-rouge">refreshHistory</code> method while maintaining my original layout.
 <br>
 Now using BST for efficient record display and safe techniques for memory use</p>
 
@@ -194,15 +194,15 @@ I removed the <code class="language-plaintext highlighter-rouge">showAddWeightDi
 
 <div style="display:flex; justify-content:center; gap:40px; text-align:center; flex-wrap:wrap;">
   <div>
-    <img src="Demo_Original.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
+    <img src="HistoryOld.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
     <br>
-    <em style="color:gray;">Figure 2: Original - Login / Registration</em>
+    <em style="color:gray;">Figure 5: Original - History Screen</em>
   </div>
 
   <div>
-    <img src="Demo_Enhanced1.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
+    <img src="History.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
     <br>
-    <em style="color:gray;">Figure 3: Enhanced - Login / Registration</em>
+    <em style="color:gray;">Figure 6: Enhanced - History Screen</em>
   </div>
 </div>
 
