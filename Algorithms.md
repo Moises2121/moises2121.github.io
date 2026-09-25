@@ -159,7 +159,7 @@ fun load(username: String) {
 ```
 
 <h3><u>Updating the UI layer to display new records more efficiently</u></h3>
-<p>For this step, I updated the UI layer while maintaining my original five record layout. In my initial version <code class="language-plaintext highlighter-rouge">HistoryActivity</code> relied on the <code class="language-plaintext highlighter-rouge">repository.getHistory()</code> which caused the app to load the entire history list assuming the last entry was history[0] resulting in a full scan. After refactoring to use <code class="language-plaintext highlighter-rouge">WeightBST</code> structure, I can now use <code class="language-plaintext highlighter-rouge">getLastNDays(username, 5)</code> with O(log n + k) lookup to get only those five records that I want to display. At the end, I was able to optimize the <code class="language-plaintext highlighter-rouge">refreshHistory</code> method while maintaining my original layout.
+<p>For this step, I updated the UI layer while maintaining my original five record layout. In my initial version <code class="language-plaintext highlighter-rouge">HistoryActivity</code> relied on the <code class="language-plaintext highlighter-rouge">repository.getHistory()</code> which caused the app to load the entire history list assuming the last entry was history[0] resulting in a full scan. After refactoring to use <code class="language-plaintext highlighter-rouge">WeightBST</code> structure, I can now use <code class="language-plaintext highlighter-rouge">getLastNDays(username, 5)</code> with O(log n + k) lookup to get only those five records that I want to display. At the end, I was able to optimize the <code class="language-plaintext highlighter-rouge">refreshHistory</code> method while maintaining my original layout.</p>
 <br>
   
 <p>Now using BST for efficient record display and safe techniques for memory use</p>
@@ -173,6 +173,7 @@ private fun refreshHistory() {
         val lastEntry = last5.lastOrNull()
         val lastTarget = repository.getLastTarget(username)
 ```
+
 <p>O(log n) lookups gets newest entry directly from the BST via <code class="language-plaintext highlighter-rouge">getLastEntry()</code> without checking the full list.</p>
 
 ```kotlin
