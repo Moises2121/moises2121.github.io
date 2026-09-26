@@ -111,4 +111,4 @@ Initially, I developed the application using an arrayList that scans the entire 
     </a>
   </div>
 
-  <%include darkmode.html %>
+  <% include darkmode.html %>
