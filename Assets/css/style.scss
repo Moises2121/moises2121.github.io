@@ -1,1 +1,28 @@
-
+// Floating menu on right side for faster accessibility
+.floating-menu {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.float-btn {
+  width: 56px;
+  height: 56px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  text-decoration: none;
+  font-size: 22px;
+  transition: all 0.5s ease;
+  border: 1px solid #eee;
+}
+.float-btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
