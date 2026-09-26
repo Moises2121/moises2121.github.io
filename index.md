@@ -1,6 +1,6 @@
 <div align="center" style="line-height: 0;">
   <img src="Assets/moises.jpg" alt="Moises Sanchez" width="210" style="display:block; margin-top: -90px; margin-bottom: 0px; border: 4px solid #003366; border-radius: 8px;">
-  <img src="snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
+  <img src="Assets/snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
 </div>
 ---
 <div style="text-align: center; color: #808080;"><i>"Good code can be improved. Great code taught me how" <br> -Moises</i> </div>
