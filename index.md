@@ -126,6 +126,12 @@ Initially, I developed the application using an arrayList that scans the entire 
     </a>
   </div>
 
+<!-- Floating menu for easier access -->
+  <div class="floating-menu">
+    <a href="./SoftwareEngineering.html" class="float-btn" title="Software Design">S</a>
+    <a href="./Algorithms.html" class="float-btn" title="Algorithms">A</a>
+    <a href="./Databases.html" class="float-btn" title="Databases">D</a>
+  </div>
   <!-- Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License -->
   <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
   <script>
