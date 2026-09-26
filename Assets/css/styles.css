@@ -1,1 +1,21 @@
+.darkmode--activated p, 
+.darkmode--activated li,
+.darkmode--activated div,
+.darkmode--activated h2, 
+.darkmode--activated h3 {
+  color: #000;
+}
+.darkmode-layer, .darkmode-toggle {
+  z-index: 500;
+}
+.darkmode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Your buttons stay green */
+.darkmode--activated a[style*="background-color:#238636"] {
+  color: white !important;
+}
+
 
