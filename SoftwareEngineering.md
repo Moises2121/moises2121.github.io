@@ -189,7 +189,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 
 <div style="display:flex; justify-content:center; gap:40px; text-align:center; flex-wrap:wrap;">
   <div>
-    <img src="Demo_Original.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
+    <img src="Assets/Demo_Original.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
     <br>
     <em style="color:gray;">Figure 2: Original - Login / Registration</em>
   </div>
