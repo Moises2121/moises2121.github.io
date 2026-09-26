@@ -57,9 +57,9 @@
         <img src="Assets/moises.jpg" alt="Moises Sanchez" width="100%" style="display:block; height:100%; object-fit:cover; border-radius:4px;">
       </div>
  <div style="display:flex; align-items:center; gap:6px;">
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
-    <span>Moises Sanchez</span>
-        <div><b>Age:</b> 28 </div>
+  <div class="flip-card-back">
+        <div><b>Name:</b> Moises Sanchez</div><br>
+        <div><b>Age:</b> 28 </div><br>
         <div><b>Role:</b> CS Student / Process Engineer </div>
       </div>
     </div>
