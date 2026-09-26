@@ -1,5 +1,4 @@
 ---
-layout: default
 ---
 <div align="center" style="line-height: 0;">
   <img src="Assets/moises.jpg" alt="Moises Sanchez" width="210" style="display:block; margin-top: -90px; margin-bottom: 0px; border: 4px solid #003366; border-radius: 8px;">
@@ -111,3 +110,25 @@ Initially, I developed the application using an arrayList that scans the entire 
       Follow me on YouTube
     </a>
   </div>
+
+    <!-- Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License -->
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+  <script>
+    function addDarkmodeWidget() {
+      new Darkmode({
+        bottom: '32px',
+        right: '32px',
+        time: '0.5s',
+        mixColor: '#fff',
+        backgroundColor: '#fff',
+        buttonColorDark: '#100f2c',
+        buttonColorLight: '#fff',
+        saveInCookies: true,
+        label: '🌓',
+        autoMatchOsTheme: true
+      }).showWidget();
+    }
+    window.addEventListener('load', addDarkmodeWidget);
+  </script>
+</body>
+</html>
