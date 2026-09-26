@@ -254,3 +254,5 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
       Follow me on YouTube
     </a>
   </div>
+
+{% include darkmode.html %}
