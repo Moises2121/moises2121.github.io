@@ -205,13 +205,13 @@ I removed the <code class="language-plaintext highlighter-rouge">showAddWeightDi
 
 <div style="display:flex; justify-content:center; gap:40px; text-align:center; flex-wrap:wrap;">
   <div>
-    <img src="HistoryOld.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
+    <img src="Assets/HistoryOld.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
     <br>
     <em style="color:gray;">Figure 5: Original - History Screen</em>
   </div>
 
   <div>
-    <img src="HistoryNew.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
+    <img src="Assets/HistoryNew.gif" width="200" style="border:3px solid #003366; border-radius:8px;">
     <br>
     <em style="color:gray;">Figure 6: Enhanced - History Screen</em>
   </div>
