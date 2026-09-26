@@ -109,3 +109,9 @@ Initially, I developed the application using an arrayList that scans the entire 
     </a>
   </div>
 
+  <!-- Darkmode feature -->
+
+<link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script src="{{ '/assets/js/darkmode.js' | relative_url }}"></script>
+
