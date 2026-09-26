@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title | default: site.title }}</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
-  <style>
-    .markdown-body { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-    .darkmode--activated .markdown-body { background: #fff; }
-  </style>
-</head>
-<body>
-  <div class="markdown-body">
-    {{ content }}
-  </div>
+{{ content }}
   <!-- Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License -->
   <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
   <script>
