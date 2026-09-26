@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Algorithms & Data Structures
 ---
 <p align="left">
