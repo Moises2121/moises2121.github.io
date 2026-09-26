@@ -1,8 +1,63 @@
 ---
 ---
-<div align="center" style="line-height: 0;">
-  <img src="Assets/moises.jpg" alt="Moises Sanchez" width="210" style="display:block; margin-top: -90px; margin-bottom: 0px; border: 4px solid #003366; border-radius: 8px;">
-  <img src="Assets/snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
+<!-- Profile Pic Flip -->
+<style>
+.flip-card {
+  background: transparent;
+  width: 210px;
+  height: 260px;
+  perspective: 1000px;
+  margin: -90px auto 0px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 4px solid #003366;
+  border-radius: 8px;
+}
+.flip-card-front {
+  background: #fff;
+}
+.flip-card-back {
+  background: #003366;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+</style>
+
+<div align="center" style="line-height:0;">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="Assets/moises.jpg" alt="Moises Sanchez" width="100%" style="display:block; height:100%; object-fit:cover; border-radius:4px;">
+      </div>
+      <div class="flip-card-back">
+        <div><b>Name:</b> Moises Sanchez</div>
+        <div><b>Age:</b> 28 </div>
+        <div><b>Role:</b> CS Student / Process Engineer </div>
+      </div>
+    </div>
+  </div>
+  <img src="Assets/snhulogo.png" alt="SNHU Logo" width="110" style="display:block; margin-top:10px;">
 </div>
 ---
 <div style="text-align: center; color: #808080;"><i>"Good code can be improved. Great code taught me how" <br> -Moises</i> </div>
