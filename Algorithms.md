@@ -187,7 +187,7 @@ if (lastEntry != null) {
 By applying best practices, all the UI text has been located under my <code class="language-plaintext highlighter-rouge">strings.xml</code> by using placeholders <code class="language-plaintext highlighter-rouge">%1$s</code> and <code class="language-plaintext highlighter-rouge">%1$.0f</code> being accessed via <code class="language-plaintext highlighter-rouge">getString(R.string.welcome, username)</code> for example. This removed the <i>`SetText`</i> warnings from the environment and enable a more structured architecture.</p>
 
 <p align="center">
-  <img width="620" height="324" alt="image" src="/xml.jpg">
+  <img width="620" height="324" alt="image" src="Assets/xml.jpg">
   <br>
     <em style="color:gray;"> Figure 4: string.xml </em>
 </p>
