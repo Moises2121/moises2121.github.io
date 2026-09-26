@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Software Design & Engineering
 ---
 <p align="left">
