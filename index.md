@@ -38,9 +38,24 @@ First, my developer's code review. This video outlines the current structure of 
 </p>
 </div>
 
+<style>
+.image-popup {
+  width: 400px;
+  display: block;
+  border: 4px solid #D32F2F;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.image-popup:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+}
+</style>
+
 <p align="center">
   <a href="https://youtu.be/efCo_He-T5c" target="_blank">
-    <img src="Assets/thumbnailYT.png" alt="Watch my initial code review" width="400" style="display:block; border: 4px solid #D32F2F; border-radius: 8px;">
+    <img src="Assets/thumbnailYT.png" alt="Watch my initial code review" class="image-popup">
   </a>
 </p>
 
