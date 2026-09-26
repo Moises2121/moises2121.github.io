@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Databases
 ---
 <p align="left">
@@ -69,7 +68,7 @@ The application was developed as part of a project that required Android Studio 
     </a>
   </div>
 
-    <!-- Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License -->
+  <!-- Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License -->
   <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
   <script>
     function addDarkmodeWidget() {
