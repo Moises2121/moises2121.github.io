@@ -139,7 +139,7 @@ Initially, I developed the application using an arrayList that scans the entire 
         buttonColorDark: '#100f2c',
         buttonColorLight: '#fff',
         saveInCookies: true,
-        label: '🌓',
+        label: '💡',
         autoMatchOsTheme: true
       }).showWidget();
     }
