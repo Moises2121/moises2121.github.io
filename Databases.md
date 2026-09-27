@@ -67,3 +67,5 @@ The application was developed as part of a project that required Android Studio 
       Follow me on YouTube
     </a>
   </div>
+
+{% include floating-menu.html %}
