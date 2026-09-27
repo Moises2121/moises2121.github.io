@@ -1,8 +1,4 @@
----
----
-
-@import "{{ site.theme }}";
-
+// Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License 
 function addDarkmodeWidget() {
   new Darkmode({
     bottom: '32px',
@@ -13,7 +9,7 @@ function addDarkmodeWidget() {
     buttonColorDark: '#100f2c',
     buttonColorLight: '#fff',
     saveInCookies: true,
-    label: '🌓',
+    label: '💡',
     autoMatchOsTheme: true
   }).showWidget();
 }
