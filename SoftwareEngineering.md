@@ -2,9 +2,9 @@
 title: Software Design & Engineering
 ---
 <p align="left">
-<a href="{{ '/' | relative_url }}" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:50%; border:1px solid #d0d7de;">
-  <span class="material-symbols-outlined">home</span>
-</a>
+  <a href="{{ '/' | relative_url }}" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">
+    <span class="material-symbols-outlined" style="font-size:20px;">home</span> Home
+  </a>
 </p>
 
 <div class="note-box" style="background-color: #D6EFFF; border-left: 5px solid #2196F3; padding: 15px; margin: 10px 0;">
