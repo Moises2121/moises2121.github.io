@@ -125,3 +125,5 @@ Initially, I developed the application using an arrayList that scans the entire 
       Follow me on YouTube
     </a>
   </div>
+
+  {% include floating-menu.html %}
