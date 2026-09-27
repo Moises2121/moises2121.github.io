@@ -39,3 +39,9 @@
 .darkmode-toggle {
   z-index: 1000 !important;
 }
+.float-btn.active {
+  background: #159957;
+  color: white;
+  border-color: #159957;
+  box-shadow: 0 4px 14px rgba(21,153,87,0.5);
+}
