@@ -1,8 +1,27 @@
 <!-- Floating menu for easier access -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
   <div class="floating-menu">
-    <a href="./SoftwareEngineering.html" class="float-btn" title="Software Design">💻</a>
-    <a href="./Algorithms.html" class="float-btn" title="Algorithms">🌱</a>
-    <a href="./Databases.html" class="float-btn" title="Databases">📋</a>
+    
+     <a href="{{ '/SoftwareEngineering.html' | relative_url }}" class="float-btn">
+    <span class="material-symbols-outlined">engineering</span>
+     </a>
+    
+    <a href="{{ '/Algorithms.html' | relative_url }}" class="float-btn">
+    <span class="material-symbols-outlined">account_tree</span>
+    </a>
+    
+    <a href="{{ '/Databases.html' | relative_url }}" class="float-btn">
+    <span class="material-symbols-outlined">database</span>
+    </a>
+
+    <a href="{{ '/' | relative_url }}" class="float-btn">
+    <span class="material-symbols-outlined">home</span>
+    </a>
+    
+    <a href="javascript:void(0)" onclick="toggleDarkmode()" class="float-btn">
+    <span class="material-symbols-outlined">dark_mode</span>
+    </a>
+    
   </div>
 <!-- Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License -->
 <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
