@@ -9,7 +9,7 @@ function addDarkmodeWidget() {
     buttonColorDark: '#100f2c',
     buttonColorLight: '#fff',
     saveInCookies: true,
-    label: '💡',
+    label: '<span class="material-symbols-outlined">lightbulb_2</span>',
     autoMatchOsTheme: true
   }).showWidget();
 }
