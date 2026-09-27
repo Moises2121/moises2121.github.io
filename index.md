@@ -128,26 +128,10 @@ Initially, I developed the application using an arrayList that scans the entire 
 
 <!-- Floating menu for easier access -->
   <div class="floating-menu">
-    <a href="./SoftwareEngineering.html" class="float-btn" title="Software Design">💡</a>
-    <a href="./Algorithms.html" class="float-btn" title="Algorithms">💡</a>
-    <a href="./Databases.html" class="float-btn" title="Databases">💡</a>
+    <a href="./SoftwareEngineering.html" class="float-btn" title="Software Design">💻</a>
+    <a href="./Algorithms.html" class="float-btn" title="Algorithms">🌱</a>
+    <a href="./Databases.html" class="float-btn" title="Databases">📋</a>
   </div>
-  <!-- Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License -->
-  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-  <script>
-    function addDarkmodeWidget() {
-      new Darkmode({
-        bottom: '32px',
-        right: '32px',
-        time: '0.5s',
-        mixColor: '#fff',
-        backgroundColor: '#fff',
-        buttonColorDark: '#100f2c',
-        buttonColorLight: '#fff',
-        saveInCookies: true,
-        label: '💡',
-        autoMatchOsTheme: true
-      }).showWidget();
-    }
-    window.addEventListener('load', addDarkmodeWidget);
-  </script>
+<!-- Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License -->
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script src="{{ '/assets/js/darkmode.js' | relative_url }}"></script>
