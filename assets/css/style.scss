@@ -4,14 +4,15 @@
 @import "{{ site.theme }}";
 .floating-menu {
   position: fixed;
-  bottom: 32px;
-  left: 32px;
-  z-index: 998;
+  bottom: 100px;
+  right: 32px;
+  z-index: 999;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 .float-btn {
+  position: relative;
   width: 56px;
   height: 56px;
   background: white;
