@@ -1,4 +1,7 @@
+---
+---
 // Floating menu on right side for faster accessibility
+@import "{{ site.theme }}";
 .floating-menu {
   position: fixed;
   bottom: 32px;
