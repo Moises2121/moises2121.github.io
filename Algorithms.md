@@ -272,3 +272,5 @@ I removed the <code class="language-plaintext highlighter-rouge">showAddWeightDi
       Follow me on YouTube
     </a>
   </div>
+
+  {% include floating-menu.html %}
