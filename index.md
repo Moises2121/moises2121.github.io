@@ -110,13 +110,13 @@ Initially, I developed the application using an arrayList that scans the entire 
 ## Contact Me
 <b>Email:</b> moises.sanchez1@snhu.edu
   <div style="margin-bottom:10px;">
-    <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2;">
+    <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#ff9f1c;">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="25" height="25" style="margin-right:8px;" />
       Follow me on GitHub
     </a>
   </div>
   <div>
-    <a href="https://www.linkedin.com/in/moises-sanchez-9ab510361/" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2;">
+    <a href="https://www.linkedin.com/in/moises-sanchez-9ab510361/" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#4ea7ff;">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" width="25" height="25" style="margin-right:8px;" />
       Follow me on LinkedIn
     </a>
