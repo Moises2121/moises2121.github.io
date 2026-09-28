@@ -23,11 +23,29 @@
 <!-- active button highlighted on currentPage -->
 <script>
   const currentPage = window.location.pathname.split('/').pop();
-  document.querySelectorAll('.float-btn').forEach(btn => {
+  document.querySelectorAll('.floating-menu a.float-btn').forEach(btn => {
     if (btn.href.includes(currentPage) && currentPage !== '') {
       btn.classList.add('active');
     }
   });
+
+  const dmBtn = document.getElementById('darkmode-btn');
+  const dmIcon = document.getElementById('darkmode-icon');
+  
+  function updateIcon() {
+    dmIcon.textContent = darkmode.isActivated() ? 'light_mode' : 'dark_mode';
+  }
+
+  dmBtn.addEventListener('click', () => {
+    window.darkmode.toggle();
+    updateIcon();
+  });
+
+  // set correct icon on load
+  updateIcon();
+  
 </script>
+
+
 
 
