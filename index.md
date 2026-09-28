@@ -39,7 +39,7 @@ First, my developer's code review. This video outlines the current structure of 
 </div>
 
 <style>
-.image-popup {
+.ytimage-popup {
   width: 400px;
   display: block;
   border: 4px solid #D32F2F;
@@ -47,7 +47,7 @@ First, my developer's code review. This video outlines the current structure of 
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-.image-popup:hover {
+.ytimage-popup:hover {
   transform: scale(1.05) translateY(-5px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.3);
 }
@@ -55,16 +55,22 @@ First, my developer's code review. This video outlines the current structure of 
 
 <p align="center">
   <a href="https://youtu.be/efCo_He-T5c" target="_blank">
-    <img src="Assets/thumbnailYT.png" alt="Watch my initial code review" class="image-popup">
+    <img src="Assets/thumbnailYT.png" alt="Watch my initial code review" class="ytimage-popup">
   </a>
 </p>
 
 <div align="center" style="line-height:1.2;">
   <h4 style="margin:6px;">
-    <a href="Assets/CodeReview_transcript.srt" download> ☞ Download the Video Transcript </a>
+    <a href="Assets/CodeReview_transcript.srt" download style="display:inline-flex; align-items:center; gap:6px; justify-content:center; text-decoration:none;">
+      <span class="material-symbols-outlined" style="font-size:20px;">link</span>
+      Download the Video Transcript
+    </a>
   </h4>
   <h4 style="margin:6px;">
-    <a href="https://github.com/Moises2121/moises2121.github.io/tree/originalartifact/app/src/main/java/com/example/weighttracker" target="_blank"> ☞ See Original Code (Original version) </a>
+   <a href="https://github.com/Moises2121/moises2121.github.io/tree/originalartifact/app/src/main/java/com/example/weighttracker" target="_blank" style="display:inline-flex; align-items:center; gap:6px; justify-content:center; text-decoration:none;">
+      <span class="material-symbols-outlined" style="font-size:20px;">link</span>
+      See Original Code (First version)
+    </a>
   </h4>
 </div>
       
