@@ -46,7 +46,15 @@
   border: 1px solid #eee;
 }
 .float-btn:hover {
-  transform: scale(1.1) translateY(-2px);
+  background: #159957;
+  color: white;
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+.float-btn:active {
+  background: #159957;
+  color: white;
+  border-color: #0f6d3e;
 }
 .darkmode-toggle {
   z-index: 1000 !important;
