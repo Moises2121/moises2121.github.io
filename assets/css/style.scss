@@ -65,7 +65,7 @@
   border-color: #159957;
   box-shadow: 0 4px 14px rgba(21,153,87,0.5);
 }
-// typing loop
+// typing loop styles
 #typing-wrapper {
   text-align: center;
   color: #159957;
@@ -79,7 +79,25 @@
 @keyframes blink {
   50% { opacity: 0; }
 }
+// floating styles
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
 
+.floating-img {
+  width: 280px;
+  animation: float 3s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.credit-small {
+  font-size: 10px;
+  color: #666;
+  margin-top: 5px;
+  text-align: center;
+}
 
 
 
