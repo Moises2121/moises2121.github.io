@@ -52,24 +52,25 @@ The application was developed as part of a project that required Android Studio 
 </p>
 ---
 ### Contact:
+### Contact:
+<div style="font-size:14px;">
 <b>Email:</b> moises.sanchez1@snhu.edu
-  <div style="margin-bottom:10px;">
-    <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2;">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="25" height="25" style="margin-right:8px;" />
+  <div style="margin-bottom:10px; margin-top:6px;">
+    <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:14px;">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="25" height="25" style="margin-right:8px; background:white; border-radius:50%; padding:2px;" />
       Follow me on GitHub
     </a>
   </div>
-  <div>
-    <a href="https://www.linkedin.com/in/moises-sanchez-9ab510361/" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2;">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" width="25" height="25" style="margin-right:8px;" />
+  <div style="margin-bottom:10px;">
+    <a href="https://www.linkedin.com/in/moises-sanchez-9ab510361/" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:14px;">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" width="20" height="20" style="margin-right:8px; background:white; border-radius:4px; padding:2px;" />
       Follow me on LinkedIn
     </a>
   </div>
-  <div style="margin-top:10px;">
-    <a href="https://www.youtube.com/@moisesgsg" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="25" height="25" style="margin-right:8px;" />
+    <a href="https://www.youtube.com/@moisesgsg" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:14px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="20" height="20" style="margin-right:8px;" />
       Follow me on YouTube
     </a>
   </div>
 
-{% include floating-menu.html %}
+  {% include floating-menu.html %}
