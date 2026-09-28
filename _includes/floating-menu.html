@@ -1,8 +1,12 @@
 <!-- Floating menu for easier access -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
   <div class="floating-menu">
+
+    <a href="{{ '/' | relative_url }}" class="float-btn" title="Home">
+    <span class="material-symbols-outlined">home</span>
+    </a>
     
-     <a href="{{ '/SoftwareEngineering.html' | relative_url }}" class="float-btn">
+    <a href="{{ '/SoftwareEngineering.html' | relative_url }}" class="float-btn">
     <span class="material-symbols-outlined">engineering</span>
      </a>
     
@@ -13,7 +17,10 @@
     <a href="{{ '/Databases.html' | relative_url }}" class="float-btn">
     <span class="material-symbols-outlined">database</span>
     </a>
-    
+
+    <button id="darkmode-btn" class="float-btn" title="Toggle Dark Mode" style="border:none; cursor:pointer;">
+      <span class="material-symbols-outlined" id="darkmode-icon">dark_mode</span>
+    </button>
   </div>
 
 <!-- Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License -->
@@ -24,7 +31,11 @@
 <script>
   const currentPage = window.location.pathname.split('/').pop();
   document.querySelectorAll('.floating-menu a.float-btn').forEach(btn => {
-    if (btn.href.includes(currentPage) && currentPage !== '') {
+    
+    if ((currentPage === '' || currentPage === 'index.html') && btn.title === 'Home') {
+      btn.classList.add('active');
+    }
+    if (btn.href.includes(currentPage) && currentPage !== '' && currentPage !== 'index.html') {
       btn.classList.add('active');
     }
   });
@@ -33,7 +44,7 @@
   const dmIcon = document.getElementById('darkmode-icon');
   
   function updateIcon() {
-    dmIcon.textContent = darkmode.isActivated() ? 'light_mode' : 'dark_mode';
+    dmIcon.textContent = window.darkmode.isActivated() ? 'light_mode' : 'dark_mode';
   }
 
   dmBtn.addEventListener('click', () => {
@@ -41,9 +52,7 @@
     updateIcon();
   });
 
-  // set correct icon on load
   updateIcon();
-  
 </script>
 
 
