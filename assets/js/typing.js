@@ -1,1 +1,28 @@
+const words = [
+  "Process Engineer",
+  "Full-stack development student",
+  "UI/UX designer"
+];
 
+let wordIndex = 0, charIndex = 0, isDeleting = false;
+const typingEl = document.getElementById("typing");
+
+function type() {
+  const current = words[wordIndex];
+  if (isDeleting) {
+    typingEl.textContent = current.substring(0, --charIndex);
+  } else {
+    typingEl.textContent = current.substring(0, ++charIndex);
+  }
+  
+  let speed = isDeleting? 40 : 80;
+  if (!isDeleting && charIndex === current.length) {
+    speed = 2000; isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+    speed = 500;
+  }
+  setTimeout(type, speed);
+}
+document.addEventListener("DOMContentLoaded", type);
