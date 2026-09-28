@@ -195,7 +195,6 @@ By applying best practices, all the UI text has been located under my <code clas
 <br>
   
 I removed the <code class="language-plaintext highlighter-rouge">showAddWeightDialog</code> class from the <code class="language-plaintext highlighter-rouge">HistoryActivity</code> module to have a cleaner code – making each screen handle the necessary functions without duplicating long lines of code that I had on the original artifact. Finally, I reviewed the classes from each module, along with pointers to BST sorting for history, <code class="language-plaintext highlighter-rouge">getLastEntry()</code> for O(log n) retrievals, permission for handling notifications, navigation flows and kept comments functional and brief, to ensure it explains the code properly without exposing implementation details.
-</p>
 
 ---
 <p align="center">
@@ -223,7 +222,7 @@ I removed the <code class="language-plaintext highlighter-rouge">showAddWeightDi
 
 ---
 ## Challenges
-<div style="text-align: justify;">
+<div style="text-align: normal;">
 <p><b>I. Unresolved reference.</b> I initially declared <code class="language-plaintext highlighter-rouge">val repository = WeightRepository</code> inside <code class="language-plaintext highlighter-rouge">onCreate</code>. Local variables such as this only exist within the function’s frame. The compiler didn't build when I tried to use <code class="language-plaintext highlighter-rouge">refreshHistory()</code> as it was out of scope.</p>
 
 <p><b>II. Suspend function error.</b> <code class="language-plaintext highlighter-rouge">getHistoryAsBST()</code> does Room database I/O which uses <code class="language-plaintext highlighter-rouge">withContext</code>. Kotlin didn’t allow me to call from a regular function because it could freeze my UI. I mitigated this by wrapping it inside <code class="language-plaintext highlighter-rouge">lifecycleScope.launch{}</code>.</p>
