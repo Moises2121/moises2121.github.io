@@ -45,3 +45,39 @@
   border-color: #159957;
   box-shadow: 0 4px 14px rgba(21,153,87,0.5);
 }
+// typing loop
+#typing-wrapper {
+  text-align: center;
+  color: #808080;
+  min-height: 24px;
+  margin: 10px 0;
+}
+#cursor {
+  animation: blink 0.5s infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
