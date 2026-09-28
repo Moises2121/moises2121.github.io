@@ -107,27 +107,8 @@ Initially, I developed the application using an arrayList that scans the entire 
   <a href="./Databases.html" style="display:inline-block; padding:10px 20px; background-color:#238636; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Go to Enhancement Three</a>
 </p>
 ---
-### Contact:
-<div style="font-size:14px;">
-<b>Email:</b> moises.sanchez1@snhu.edu
-  <div style="margin-bottom:10px; margin-top:6px;">
-    <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:14px;">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="25" height="25" style="margin-right:8px; background:white; border-radius:50%; padding:2px;" />
-      Follow me on GitHub
-    </a>
-  </div>
-  <div style="margin-bottom:10px;">
-    <a href="https://www.linkedin.com/in/moises-sanchez-9ab510361/" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:14px;">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" width="20" height="20" style="margin-right:8px; background:white; border-radius:4px; padding:2px;" />
-      Follow me on LinkedIn
-    </a>
-  </div>
-    <a href="https://www.youtube.com/@moisesgsg" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:14px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="20" height="20" style="margin-right:8px;" />
-      Follow me on YouTube
-    </a>
-  </div>
-
+  {% include contact.html %}
+  
   {% include floating-menu.html %}
   
   {% include typing.html %}
