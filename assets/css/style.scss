@@ -48,11 +48,12 @@
 // typing loop
 #typing-wrapper {
   text-align: center;
-  color: #808080;
+  color: #159957;
   min-height: 24px;
   margin: 10px 0;
 }
 #cursor {
+  color: #159957;
   animation: blink 0.5s infinite;
 }
 @keyframes blink {
