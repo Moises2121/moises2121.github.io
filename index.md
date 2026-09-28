@@ -5,7 +5,7 @@
   <img src="Assets/snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
 </div>
 ---
-<div id="typing-wrapper"><i><span id="typing"></span><span id="cursor">|</span></i></div>
+<div id="typing-wrapper"><span id="typing"></span><span id="cursor">|</span></div>
 ---
 ## Introduction
 <div style="text-align: justify;">
