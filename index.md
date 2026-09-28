@@ -46,7 +46,7 @@ First, my developer's code review. This video outlines the current structure of 
 
 <div align="center" style="line-height:1.2;">
   <h4 style="margin:6px;">
-    <a href="Assets/CodeReview_transcript.srt" download style="display:inline-flex; align-items:center; gap:6px; justify-content:center; text-decoration:none;">
+    <a href="Assets/CodeReview_transcript.srt" download id="downloadBtn" style="display:inline-flex; align-items:center; gap:6px; justify-content:center; text-decoration:none;">
       <span class="material-symbols-outlined" style="font-size:20px;">link</span>
       Download the Video Transcript
     </a>
