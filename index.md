@@ -5,7 +5,7 @@
   <img src="Assets/snhulogo.png" alt="SNHU Logo" width="110" style="display:block;">
 </div>
 ---
-<div style="text-align: center; color: #808080;"><i>"Good code can be improved. Great code taught me how" <br> -Moises</i> </div>
+<div id="typing-wrapper"><i><span id="typing"></span><span id="cursor">|</span></i></div>
 ---
 ## Introduction
 <div style="text-align: justify;">
@@ -127,3 +127,5 @@ Initially, I developed the application using an arrayList that scans the entire 
   </div>
 
   {% include floating-menu.html %}
+  
+  {% include typing.html %}
