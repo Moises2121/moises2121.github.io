@@ -207,7 +207,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 
 ---
 ## Challenges
-<div style="text-align: justify;">
+<div style="text-align: normal;">
 <p><b>I. Unknown references.</b> Some challenges included manifest errors when migrating all the activities modules to the ui folder. Android could not find the references at first because the mapping was modified. To mitigate this, I renamed the modules in manifest and fixed the imports in the Kotlin files.</p>
 
 <p><b>II. Exception errors.</b> I added a “Welcome, <i>User</i>” on every screen, however the build started failing with a <code class="language-plaintext highlighter-rouge">NullPointerException</code> at parseDebugLocalResources. After further debugging, found out that I had some illegal folders inside my mipmap. Deleting the entire folder and creating a new one via New then Image Asset created the correct mipmap-hdpi.</p>
