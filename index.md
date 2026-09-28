@@ -50,6 +50,17 @@ First, my developer's code review. This video outlines the current structure of 
       <span class="material-symbols-outlined" style="font-size:20px;">link</span>
       Download the Video Transcript
     </a>
+    <script>
+  document.getElementById('downloadBtn').addEventListener('click', function(e){
+    e.preventDefault();
+    const url = this.href;
+    const ok = confirm("Are you sure you want to download?");
+    if(ok){
+      window.location.href = url;
+      }
+    });
+  </script>
+    
   </h4>
   <h4 style="margin:6px;">
    <a href="https://github.com/Moises2121/moises2121.github.io/tree/originalartifact/app/src/main/java/com/example/weighttracker" target="_blank" style="display:inline-flex; align-items:center; gap:6px; justify-content:center; text-decoration:none;">
