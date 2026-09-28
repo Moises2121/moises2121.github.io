@@ -1,4 +1,9 @@
 // Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License 
+
+const darkmode = new Darkmode({ label: '' });
+window.darkmode = darkmode;
+
+/* 
 function addDarkmodeWidget() {
   new Darkmode({
     bottom: '32px',
@@ -14,3 +19,4 @@ function addDarkmodeWidget() {
   }).showWidget();
 }
 window.addEventListener('load', addDarkmodeWidget);
+*/
