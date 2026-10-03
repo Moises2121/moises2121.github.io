@@ -126,7 +126,7 @@ interface UserDao {
 <p>Passwords are now stored as <code class="language-plaintext highlighter-rouge">BCrypt</code> hashes with salt (one-way) instead of plain text, the following image shows the result:</p>
 
 <p align="center">
-  <img width=100% alt="Hashing" class="ytimage-popup" src="Assets/HashAfter.gif" onclick="window.open(this.src, '_blank')"/>
+  <img width="100%" alt="Hashing" class="ytimage-popup" src="Assets/HashAfter.gif" onclick="window.open(this.src, '_blank')"/>
   <br>
     <em style="color:gray;"> Figure 7: Passwords stored as BCrypt Hash </em>
 </p>
@@ -216,7 +216,7 @@ abstract class AppDB : RoomDatabase() {
 
 ```
 <p align="center">
-  <img width=100% alt="DeleteUser" class="ytimage-popup" src="Assets/onDelete.gif" onclick="window.open(this.src, '_blank')"/>
+  <img width="100%" alt="DeleteUser" class="ytimage-popup" src="Assets/onDelete.gif" onclick="window.open(this.src, '_blank')"/>
   <br>
     <em style="color:gray;"> Figure 8: Deleting a username via ForeignKey </em>
 </p>
