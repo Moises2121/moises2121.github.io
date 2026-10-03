@@ -126,7 +126,7 @@ interface UserDao {
 <p>Passwords are now stored as <code class="language-plaintext highlighter-rouge">BCrypt</code> hashes with salt (one-way) instead of plain text, the following image shows the result:</p>
 
 <p align="center">
-  <img width="620" height="324" alt="Hashing" class="ytimage-popup" src="Assets/HashAfter.gif" onclick="window.open(this.src, '_blank')"/>
+  <img width=100% alt="Hashing" class="ytimage-popup" src="Assets/HashAfter.gif" onclick="window.open(this.src, '_blank')"/>
   <br>
     <em style="color:gray;"> Figure 7: Passwords stored as BCrypt Hash </em>
 </p>
@@ -134,7 +134,7 @@ interface UserDao {
 ><b>Note</b>
 ><p>The artifact exposed user's passwords. This enhancement prevents reverse hashing so the application can securely store passwords without compromising user's personal data.</p>
 
-<h3><u>Creating a weight table using <code class="language-plaintext highlighter-rouge">ForeignKey</code></u></h3>
+<h3><u>Creating a weight table using ForeignKey</u></h3>
 <p>The app now reinforces integrity between users and weights, so that every weight entry belongs to an existing user and deleting a user from the database will also delete their history. <code class="language-plaintext highlighter-rouge">ForeignKey with CASCADE</code> and index on username.</p>
 <br>
   
@@ -216,7 +216,7 @@ abstract class AppDB : RoomDatabase() {
 
 ```
 <p align="center">
-  <img width="620" height="324" alt="DeleteUser" class="ytimage-popup" src="Assets/onDelete.gif" onclick="window.open(this.src, '_blank')"/>
+  <img width=100% alt="DeleteUser" class="ytimage-popup" src="Assets/onDelete.gif" onclick="window.open(this.src, '_blank')"/>
   <br>
     <em style="color:gray;"> Figure 8: Deleting a username via ForeignKey </em>
 </p>
@@ -228,18 +228,15 @@ abstract class AppDB : RoomDatabase() {
 
 <p align="center">
   <a href="https://youtu.be/pI6mpolqfNA?si=C_DfGjL5LwqpLZpT" target="_blank">
-    Checkout the enhanced artifact on Youtube !
     <img src="Assets/ytThumbnail2.jpg" alt="Watch my initial code review" class="ytimage-popup">
   </a>
 </p>
 
----
 <p align="center">
     <a href="https://github.com/Moises2121/moises2121.github.io/tree/enhancementThreeartifact/app/src/main/java/com/example/weighttracker" target="_blank">
         View my Enhancement Three Code on Github
     </a>
 </p>
-
 
 ---
 ## Challenges
