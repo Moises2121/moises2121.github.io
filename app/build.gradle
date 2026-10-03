@@ -46,4 +46,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    // New dependencies for password hashing
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("at.favre.lib:bcrypt:0.10.2")
 }

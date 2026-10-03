@@ -113,18 +113,6 @@ class DashboardActivity : AppCompatActivity() {
     // Pop-up dialog to enter current weight into the database, saving it against the current goal
     private fun showAddWeightDialog() {
         lifecycleScope.launch {
-            val today = SimpleDateFormat("MM/dd/yyyy", Locale.US).format(Date())
-            val lastEntry = repository.getLastEntry(username)
-
-            // Restrict multiple entries on the same day
-            if (lastEntry?.date == today) {
-                AlertDialog.Builder(this@DashboardActivity)
-                    .setTitle(getString(R.string.oops))
-                    .setMessage(getString(R.string.already_logged, today))
-                    .setPositiveButton(getString(R.string.ok), null)
-                    .show()
-                return@launch
-            }
             val input = EditText(this@DashboardActivity)
             input.inputType =
                 android.text.InputType.TYPE_CLASS_NUMBER or android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
@@ -146,12 +134,12 @@ class DashboardActivity : AppCompatActivity() {
                             goalWeight = goalWeight
                         )
                         val prefs = getSharedPreferences("settings", MODE_PRIVATE)
-                        prefs.getBoolean("notifications_enabled", true)
-                        if (prefs.getBoolean(getString(R.string.notif_on), true)) {
+                        if (prefs.getBoolean(getString(R.string.notif_off), true)) {
                             // Check if goal has been reached to trigger notification
                             NotificationHelper.showGoalReachedIfNeeded(
                                 this@DashboardActivity,
                                 newEntry,
+                                //error*
                                 goalWeight.toInt()
                             )
                         }

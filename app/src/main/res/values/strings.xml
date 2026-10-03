@@ -16,12 +16,12 @@
     <string name="settings">Settings</string>
 
     <!-- Notifications -->
-    <string name="notif_on">Notifications: ON - We\'ll notify when you\'ve reached your goal</string>
+    <string name="notif_on">Notifications: ON</string>
     <string name="notif_off">Notifications: OFF</string>
     <string name="enable">ENABLE</string>
     <string name="disable">DISABLE</string>
     <string name="goal_reached_title">Goal Reached!</string>
-    <string name="goal_reached_body">You reached %1$.0f lbs! Goal was %2$d lbs</string>
+    <string name="goal_reached_body">You reached %1$d lbs! Goal was %2$d lbs</string>
 
     <!-- Logins -->
     <string name="please_login">Please login</string>

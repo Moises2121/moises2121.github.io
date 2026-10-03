@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Root layout, vertical alignment, centered -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/bck_gradient">
 
         <!-- App logo -->
         <ImageView
@@ -63,7 +65,10 @@
             android:layout_marginTop="24dp"
             android:text="ENABLE SMS "
             android:textColor="#000000"
-            android:backgroundTint="#90C4F0"/>
+            android:backgroundTint="#90C4F0"
+            app:icon="@drawable/notification_24"
+            app:iconGravity="start"
+            app:iconPadding="8dp"/>
 
 
         <!-- Navigation back to Home -->
@@ -74,7 +79,10 @@
             android:layout_marginTop="12dp"
             android:text="HOME"
             android:textColor="#000000"
-            android:backgroundTint="#90C4F0"/>
+            android:backgroundTint="#90C4F0"
+            app:icon="@drawable/home_24"
+            app:iconGravity="start"
+            app:iconPadding="8dp"/>
 
         <!-- Version Text -->
         <TextView
@@ -83,7 +91,7 @@
             android:layout_marginTop="300dp"
             android:layout_marginBottom="-20dp"
             android:gravity="right"
-            android:text="v2.0 (beta)"
+            android:text="v3.0 (beta)"
             android:textSize="15sp"
             android:textStyle="bold" />
 

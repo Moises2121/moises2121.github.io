@@ -30,7 +30,23 @@ class WeightRepository(context: Context) {
     // Creates new weight entry for logged-in user
     suspend fun addWeight(username: String, weight: Double, goal: Double) {
         withContext(Dispatchers.IO) {
-            dao.insert(WeightEntry(username = username, weight = weight, goalWeight = goal))
+            // Allow only one entry per day
+            val today = java.text.SimpleDateFormat("MM/dd/yyyy", java.util.Locale.US).format(java.util.Date())
+            val existing = dao.getEntryByDate(username, today)
+            if (existing != null) {
+                // Same day will update it, rather than blocking it
+                dao.updateEntry(existing.id, weight, goal)
+            } else {
+                dao.insert(WeightEntry(username = username, weight = weight, goalWeight = goal, date = today))
+            }
+            // Always update history goal display
+            dao.updateAllGoals(username, goal)
+        }
+    }
+    // set goal without creating 0.0 weight row in history
+    suspend fun setGoal(username: String, goal: Double) {
+        withContext(Dispatchers.IO) {
+            dao.updateAllGoals(username, goal)
         }
     }
 
@@ -49,14 +65,6 @@ class WeightRepository(context: Context) {
         return withContext(Dispatchers.IO) {
             val bst = getHistoryAsBST(username)
             bst.getLastNDays(n)
-        }
-    }
-
-    // Get recent weight entry via BST
-    suspend fun getLastEntry(username: String): WeightEntry? {
-        return withContext(Dispatchers.IO) {
-            val bst = getHistoryAsBST(username)
-            bst.getLastEntry()
         }
     }
 

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Root layout, vertical alignment, centered  -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/bck_gradient">
 
     <!-- App logo -->
     <ImageView
@@ -46,24 +48,58 @@
         android:layout_marginBottom="12dp"/>
 
     <!-- Username for login -->
-    <EditText
-        android:id="@+id/editLoginUser"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:hint="Username"
-        android:background="@android:drawable/editbox_background"
-        android:padding="16dp"/>
+        app:endIconMode="clear_text"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editLoginUser"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:padding="16dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Password input - hidden with "textPassword" -->
-    <EditText
-        android:id="@+id/editLoginPass"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Password"
-        android:inputType="textPassword"
-        android:background="@android:drawable/editbox_background"
-        android:padding="16dp"/>
+        app:endIconMode="clear_text"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editLoginPass"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="textPassword"
+            android:padding="16dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Login button -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="LOGIN"
+        android:textColor="#000000"
+        android:backgroundTint="#90C4F0"
+        app:icon="@drawable/login_24"
+        app:iconGravity="textEnd"
+        app:iconPadding="8dp"/>
 
     <!-- Divider for Login and Registration -->
     <LinearLayout
@@ -89,44 +125,58 @@
         android:layout_marginBottom="12dp"/>
 
     <!-- Username for registration -->
-    <EditText
-        android:id="@+id/editRegUser"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:hint="Username"
-        android:background="@android:drawable/editbox_background"
-        android:padding="16dp"/>
+        app:endIconMode="clear_text"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editRegUser"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:padding="16dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Password input - hidden with "textPassword" -->
-    <EditText
-        android:id="@+id/editRegPass"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Password"
-        android:inputType="textPassword"
-        android:background="@android:drawable/editbox_background"
-        android:padding="16dp"/>
+        app:endIconMode="clear_text"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusBottomEnd="8dp">
 
-    <!-- Login button -->
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-
-        android:text="LOGIN"
-        android:textColor="#000000"
-        android:backgroundTint="#90C4F0"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editRegPass"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:inputType="textPassword"
+            android:padding="16dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Register button -->
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-
         android:text="REGISTER"
         android:textColor="#000000"
-        android:backgroundTint="#90C4F0"/>
+        android:backgroundTint="#90C4F0"
+        app:icon="@drawable/register_24"
+        app:iconGravity="textEnd"
+        app:iconPadding="8dp"/>
 
     <!-- Version Text -->
     <TextView
@@ -135,7 +185,7 @@
         android:layout_marginTop="70dp"
         android:layout_marginBottom="0dp"
         android:gravity="right"
-        android:text="v2.0 (beta)"
+        android:text="v3.0 (beta)"
         android:textSize="15sp"
         android:textStyle="bold" />
 

@@ -67,8 +67,8 @@ class GoalActivity : AppCompatActivity() {
             }
                 val newGoal = goalText.toDouble()
                 lifecycleScope.launch {
-                    val currentWeight = repo.getLastEntry(username)?.weight ?: 0.0
-                    viewModel.addWeight(username, currentWeight, newGoal)
+                    // Only updates the goal field
+                    viewModel.setGoal(username, newGoal)
 
                     // Confirmation upon adding new goal
                     tvConfirmation.text = getString(R.string.goal_is_set, newGoal)

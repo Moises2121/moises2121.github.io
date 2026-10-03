@@ -26,13 +26,12 @@ object NotificationHelper {
 
     // // Now it takes BST instead of list for last entry check
     fun showGoalReachedIfNeeded(context: Context, lastEntry: WeightEntry, goal: Int) {
-        // gets current weight directly from BST
-        val currentWeight = lastEntry.weight.toInt()
-        // calculates progress using current and goal
-        val progress = (currentWeight.toDouble() / goal * 100).toInt()
-        //builds notification from WeightEntry
-        if (progress >= 100) {
-            showGoalReached(context, goal, currentWeight)
+        // Goal reach notification, checks if current exist the set goal
+        if (goal <= 0) return
+        val current = lastEntry.weight.toInt()
+        val reached = current >= goal
+        if (reached) {
+            showGoalReached(context, goal, lastEntry.weight.toInt())
         }
     }
 
@@ -40,7 +39,6 @@ object NotificationHelper {
     fun showGoalReached(context: Context, goal: Int, current: Int) {
         createChannel(context)
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setContentTitle(context.getString(R.string.goal_reached_title))

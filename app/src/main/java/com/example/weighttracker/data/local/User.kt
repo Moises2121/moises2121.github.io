@@ -8,6 +8,8 @@ import androidx.room.PrimaryKey
 data class User(
     // Unique username set as primary key and for the welcome user feature
     @PrimaryKey val username: String,
-    // Password storage for version 2 of the app
-    val password: String
+    // Password Hashing
+    val passwordHash: String,
+    // Weight Goal
+    val goalWeight: Double = 0.0
 )

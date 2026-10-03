@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Root layout, vertical alignment, centered -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/bck_gradient">
 
         <!-- App logo -->
         <ImageView
@@ -29,27 +31,28 @@
             android:text="SET TARGET WEIGHT"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="120dp"/>
 
         <!-- Weight input, by numbers only -->
-        <EditText
-            android:id="@+id/editTargetWeight"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@android:drawable/editbox_background"
-            android:hint="Enter value"
-            android:layout_marginBottom="100dp"
-            android:padding="16dp"
-            android:inputType="number"
-            android:textSize="13sp"/>
 
-        <!-- Confirmation display -->
-        <TextView
+    <!-- Confirmation display -->
+    <EditText
+        android:id="@+id/editTargetWeight"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="50dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Enter value"
+        android:inputType="number"
+        android:padding="16dp"
+        android:textSize="13sp" />
+
+    <TextView
             android:id="@+id/tvGoalConfirmation"
             android:layout_width="match_parent"
             android:layout_height="241dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
             android:lineSpacingExtra="4dp"
             android:text="No goal set yet"
@@ -63,16 +66,20 @@
             android:orientation="horizontal">
 
             <!-- navigation buttons -->
+
             <Button
                 android:id="@+id/btnBackGoal"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="56dp"
-                android:text="HOME"
+                android:layout_marginEnd="6dp"
                 android:layout_marginBottom="10dp"
-                android:textColor="#000000"
+                android:layout_weight="1"
                 android:backgroundTint="#90C4F0"
-                android:layout_marginEnd="6dp"/>
+                android:text="HOME"
+                android:textColor="#000000"
+                app:icon="@drawable/home_24"
+                app:iconGravity="start"
+                app:iconPadding="8dp"/>
 
             <Button
                 android:id="@+id/btnSaveGoal"
@@ -82,7 +89,11 @@
                 android:text="SAVE"
                 android:textColor="#000000"
                 android:backgroundTint="#90C4F0"
-                android:layout_marginStart="6dp"/>
+                android:layout_marginStart="6dp"
+                app:icon="@drawable/save_24"
+                app:iconGravity="textEnd"
+                app:iconPadding="8dp"/>
+
         </LinearLayout>
 
     </LinearLayout>

@@ -38,4 +38,13 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
             load(username)
         }
     }
+
+    // Sets goal without creating a 0.0 weight row
+    fun setGoal(username: String, goal: Double) {
+        viewModelScope.launch {
+            repo.setGoal(username, goal)
+            load(username)
+        }
+    }
+
 }

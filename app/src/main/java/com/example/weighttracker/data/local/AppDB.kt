@@ -5,8 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-// This class is now a Room database
-@Database(entities = [User::class, WeightEntry::class], version = 1, exportSchema = false)
+// This class is now a Room database, version bumped to 3 for the ForeignKey and Index comment*
+@Database(entities = [User::class, WeightEntry::class], version = 3, exportSchema = false)
 abstract class AppDB : RoomDatabase() {
     // User access to user queries
     abstract fun userDao(): UserDao
@@ -26,7 +26,8 @@ abstract class AppDB : RoomDatabase() {
                     context.applicationContext,
                     AppDB::class.java,
                     "weight-tracker.db"
-                ).build()
+                // Destroys old db and recreates with Foreign Key
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 instance
             }
