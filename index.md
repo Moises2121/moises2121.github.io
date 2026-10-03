@@ -103,7 +103,7 @@ Initially, I developed the application using an arrayList that scans the entire 
 ## <span class="material-symbols-outlined" style="vertical-align:middle; color:#159957; font-size:28px;">database</span> Databases
 
 <div style="text-align: justify;">
-<i>Under construction (Completion ETA 10.04.26)...</i>
+The first release was functional but stored plain text passwords within the database, risking user privacy. For this Databases enhancement, the database layer is strenghtened by storing user passwords as BCrypt hashes that help prevent credential leaks, and an additional reinforcement is using ForeignKey with onDelete CASCADE so that if a user is deleted, all their personal data including weight entries are removed from the records, thus preventing dangling data.
 </div>
 
 <p align="left">
