@@ -24,14 +24,14 @@ The application was developed as part of a project that required Android Studio 
 ---
 ## Justification
 <div style="text-align: justify;">
-<p>The original version had correct functionality for a history screen, however the architectural layer was inefficient and did not allow scalability. On the history screen, the application retrieves the entire weight history for a user with <code class="language-plaintext highlighter-rouge">ORDER BY id</code>, then parses within the loop to segregate only five queries. The current approach uses O(n) memory time where I only need O(k) where k=5. The history will eventually compound all entries, which in returns increases load times, slows down the application and risks memory leaks. The proposed enhancement includes refactoring the memory layer to use Binary Search Tree (<b>BST</b>) via <code class="language-plaintext highlighter-rouge">TreeMap</code> as it maintains sorting by date by eliminating loop parsing and full table scans. This approach reduces computing complexity, lowering resource consumption and adding logic to detect user progress, which improves the UI and UX for long term maintainability. 
+<p>The original version had correct functionality for a history screen, however the architectural layer was inefficient and did not allow scalability. On the history screen, the application retrieves the entire weight history for a user with <code>ORDER BY id</code>, then parses within the loop to segregate only five queries. The current approach uses O(n) memory time where I only need O(k) where k=5. The history will eventually compound all entries, which in returns increases load times, slows down the application and risks memory leaks. The proposed enhancement includes refactoring the memory layer to use Binary Search Tree (<b>BST</b>) via <code>TreeMap</code> as it maintains sorting by date by eliminating loop parsing and full table scans. This approach reduces computing complexity, lowering resource consumption and adding logic to detect user progress, which improves the UI and UX for long term maintainability. 
 </p>
 </div>
 ---
 ## Enhancement Steps
 <h3><u>Refactoring storage to use BST</u></h3>
 <div style="text-align: justify;">
-<p>I started by creating a new package and added a <code class="language-plaintext highlighter-rouge">weightBST.kt</code> inside. The class is a wrapper around <code class="language-plaintext highlighter-rouge">TreeMap<LocalDate, WeightEntry></code> which implements a balanced BST. This new structure stores weight entries sorted by timestamps providing insertion methods, retrieving last entry and range queries. Previously, I used a linear List with O(n) that sorts and scans the entire list, this enhanced approach reduces complexity down to O(log n) operations.</p>
+<p>I started by creating a new package and added a <code>weightBST.kt</code> inside. The class is a wrapper around <code>TreeMap<LocalDate, WeightEntry></code> which implements a balanced BST. This new structure stores weight entries sorted by timestamps providing insertion methods, retrieving last entry and range queries. Previously, I used a linear List with O(n) that sorts and scans the entire list, this enhanced approach reduces complexity down to O(log n) operations.</p>
 <br>
 </div>
 
@@ -50,7 +50,7 @@ class WeightBST {
 
     fun size(): Int = tree.size
 ```
-<p>Additionally, I added <code class="language-plaintext highlighter-rouge">getHistoryAsBST()</code> method within my existing <code class="language-plaintext highlighter-rouge">WeightRepository</code>. This method will retrieve user history from Room and will now build a <code class="language-plaintext highlighter-rouge">weightBST</code> instance. This method also uses Dispatchers.IO to maintain off-thread database access. Comparing in with the previous function that directly returned the list from DAO, this enhancement returns a sorted BST list which solves my chronological order concerns.</p>
+<p>Additionally, I added <code>getHistoryAsBST()</code> method within my existing <code>WeightRepository</code>. This method will retrieve user history from Room and will now build a <code>weightBST</code> instance. This method also uses Dispatchers.IO to maintain off-thread database access. Comparing in with the previous function that directly returned the list from DAO, this enhancement returns a sorted BST list which solves my chronological order concerns.</p>
 
 ```kotlin
 private suspend fun getHistoryAsBST(username: String): WeightBST {
@@ -63,7 +63,7 @@ private suspend fun getHistoryAsBST(username: String): WeightBST {
 }
 ```
 <h3><u>Adding range query for retrieval efficiency</u></h3>
-<p>I improved retrieval efficiency by using <code class="language-plaintext highlighter-rouge">TreeMap<LocalDate, WeightEntry></code> structure. Instead of a linear filtering O(n) over the entire list, I used <code class="language-plaintext highlighter-rouge">lastEntry()</code> to obtain the latest date in O(log n) and <code class="language-plaintext highlighter-rouge">descendingMap()</code> for the last N days. The new operation is O(log n + k) where k = the number of records return – avoiding a full scan.</p>
+<p>I improved retrieval efficiency by using <code>TreeMap<LocalDate, WeightEntry></code> structure. Instead of a linear filtering O(n) over the entire list, I used <code>lastEntry()</code> to obtain the latest date in O(log n) and <code>descendingMap()</code> for the last N days. The new operation is O(log n + k) where k = the number of records return – avoiding a full scan.</p>
 
 ```kotlin
 fun getLastEntry(): WeightEntry? = tree.lastEntry()?.value
@@ -78,7 +78,7 @@ fun getLastNDays(n: Int): List<WeightEntry> {
 }
 
 ```
-<p>The user interface will now reflect this since I added wrapper <code class="language-plaintext highlighter-rouge">getLastNDaysHistory()</code> within my <code class="language-plaintext highlighter-rouge">WeightRepository.</code></p>
+<p>The user interface will now reflect this since I added wrapper <code>getLastNDaysHistory()</code> within my <code>WeightRepository.</code></p>
 
 ```kotlin
     // Wrapper exposing range query to viewmodel
@@ -106,9 +106,9 @@ fun getLastNDays(n: Int): List<WeightEntry> {
 ```
 
 <h3><u>Updating weight calculations and modifying the notifications</u></h3>
-<p>For this step, I updated the weight calculations and modifying the notifications to take advantage of the new BST structure. In my original version, both of these features relied on scanning and sorting the entire history list resulting in O(n) complexity calculations. After refactoring them to use <code class="language-plaintext highlighter-rouge">weightBST</code> methods such as <code class="language-plaintext highlighter-rouge">getLastEntry()</code>, and <code class="language-plaintext highlighter-rouge">firstEntry()</code> , I already reduced operations to O(log n + k) which ensure fast calculations and provides efficient reminder checks.
+<p>For this step, I updated the weight calculations and modifying the notifications to take advantage of the new BST structure. In my original version, both of these features relied on scanning and sorting the entire history list resulting in O(n) complexity calculations. After refactoring them to use <code>weightBST</code> methods such as <code>getLastEntry()</code>, and <code>firstEntry()</code> , I already reduced operations to O(log n + k) which ensure fast calculations and provides efficient reminder checks.
 <br>
-In the <code class="language-plaintext highlighter-rouge">DashboardActivity</code> module, I replaced <code class="language-plaintext highlighter-rouge">history[0]</code> to <code class="language-plaintext highlighter-rouge">history.last()</code> since getLastNDays() is now returning data that is already sorted  in the BST. </p>
+In the <code>DashboardActivity</code> module, I replaced <code>history[0]</code> to <code>history.last()</code> since getLastNDays() is now returning data that is already sorted  in the BST. </p>
 
 ```kotlin
         // History from getLastNDays sorted by BST
@@ -117,7 +117,7 @@ In the <code class="language-plaintext highlighter-rouge">DashboardActivity</cod
     updateProgressBar()
 }
 ```
-<p>Adjusted the <code class="language-plaintext highlighter-rouge">getWeightDifference</code> to return float to match the <code class="language-plaintext highlighter-rouge">WeightEntry</code> type by adding a check that returns 0f if there are less that two entries. </p>
+<p>Adjusted the <code>getWeightDifference</code> to return float to match the <code>WeightEntry</code> type by adding a check that returns 0f if there are less that two entries. </p>
 
 ```kotlin
 fun getWeightDifference(): Float {
@@ -127,7 +127,7 @@ fun getWeightDifference(): Float {
     return lastWeight - firstWeight
 }
 ```
-<p>Refactored <code class="language-plaintext highlighter-rouge">showGoalReachedIfNeeded()</code> to accept <code class="language-plaintext highlighter-rouge">WeightEntry</code> instead of a list by using <code class="language-plaintext highlighter-rouge">lastEntry.Weight</code> to get the most recent weight</p>
+<p>Refactored <code>showGoalReachedIfNeeded()</code> to accept <code>WeightEntry</code> instead of a list by using <code>lastEntry.Weight</code> to get the most recent weight</p>
 
 ```kotlin
 // Now it takes BST instead of list for last entry check
@@ -142,7 +142,7 @@ fun showGoalReachedIfNeeded(context: Context, lastEntry: WeightEntry, goal: Int)
     }
 }
 ```
-<p>Updated the load() to build the BST and reuse for the history screen and <code class="language-plaintext highlighter-rouge">getWeightDifference</code> O(log n) instead of doing two separate scans</p>
+<p>Updated the load() to build the BST and reuse for the history screen and <code>getWeightDifference</code> O(log n) instead of doing two separate scans</p>
 
 ```kotlin
 fun load(username: String) {
@@ -160,7 +160,7 @@ fun load(username: String) {
 ```
 
 <h3><u>Updating the UI layer to display new records more efficiently</u></h3>
-<p>For this step, I updated the UI layer while maintaining my original five record layout. In my initial version <code class="language-plaintext highlighter-rouge">HistoryActivity</code> relied on the <code class="language-plaintext highlighter-rouge">repository.getHistory()</code> which caused the app to load the entire history list assuming the last entry was history[0] resulting in a full scan. After refactoring to use <code class="language-plaintext highlighter-rouge">WeightBST</code> structure, I can now use <code class="language-plaintext highlighter-rouge">getLastNDays(username, 5)</code> with O(log n + k) lookup to get only those five records that I want to display. At the end, I was able to optimize the <code class="language-plaintext highlighter-rouge">refreshHistory</code> method while maintaining my original layout.</p>
+<p>For this step, I updated the UI layer while maintaining my original five record layout. In my initial version <code>HistoryActivity</code> relied on the <code>repository.getHistory()</code> which caused the app to load the entire history list assuming the last entry was history[0] resulting in a full scan. After refactoring to use <code>WeightBST</code> structure, I can now use <code>getLastNDays(username, 5)</code> with O(log n + k) lookup to get only those five records that I want to display. At the end, I was able to optimize the <code>refreshHistory</code> method while maintaining my original layout.</p>
 <br>
   
 <p>Now using BST for efficient record display and safe techniques for memory use</p>
@@ -175,7 +175,7 @@ private fun refreshHistory() {
         val lastTarget = repository.getLastTarget(username)
 ```
 
-<p>O(log n) lookups gets newest entry directly from the BST via <code class="language-plaintext highlighter-rouge">getLastEntry()</code> without checking the full list.</p>
+<p>O(log n) lookups gets newest entry directly from the BST via <code>getLastEntry()</code> without checking the full list.</p>
 
 ```kotlin
 if (lastEntry != null) {
@@ -183,9 +183,9 @@ if (lastEntry != null) {
 }
 ```
 <h3><u>Additional features that apply Industry’s best practices</u></h3>
-<p>Some other features were based on eliminating the application’s warnings from string concatenations such as <code class="language-plaintext highlighter-rouge">“Welcome, $username”</code> , since format crashes when using percentages for a Double.
+<p>Some other features were based on eliminating the application’s warnings from string concatenations such as <code>“Welcome, $username”</code> , since format crashes when using percentages for a Double.
 <br>
-By applying best practices, all the UI text has been located under my <code class="language-plaintext highlighter-rouge">strings.xml</code> by using placeholders <code class="language-plaintext highlighter-rouge">%1$s</code> and <code class="language-plaintext highlighter-rouge">%1$.0f</code> being accessed via <code class="language-plaintext highlighter-rouge">getString(R.string.welcome, username)</code> for example. This removed the <i>`SetText`</i> warnings from the environment and enable a more structured architecture.</p>
+By applying best practices, all the UI text has been located under my <code>strings.xml</code> by using placeholders <code>%1$s</code> and <code>%1$.0f</code> being accessed via <code>getString(R.string.welcome, username)</code> for example. This removed the <i>`SetText`</i> warnings from the environment and enable a more structured architecture.</p>
 
 <p align="center">
   <img width="620" height="324" alt="image" class="ytimage-popup" src="Assets/Strings.gif" onclick="window.open(this.src, '_blank')"/>
@@ -194,7 +194,7 @@ By applying best practices, all the UI text has been located under my <code clas
 </p>
 <br>
   
-I removed the <code class="language-plaintext highlighter-rouge">showAddWeightDialog</code> class from the <code class="language-plaintext highlighter-rouge">HistoryActivity</code> module to have a cleaner code – making each screen handle the necessary functions without duplicating long lines of code that I had on the original artifact. Finally, I reviewed the classes from each module, along with pointers to BST sorting for history, <code class="language-plaintext highlighter-rouge">getLastEntry()</code> for O(log n) retrievals, permission for handling notifications, navigation flows and kept comments functional and brief, to ensure it explains the code properly without exposing implementation details.
+I removed the <code>showAddWeightDialog</code> class from the <code>HistoryActivity</code> module to have a cleaner code – making each screen handle the necessary functions without duplicating long lines of code that I had on the original artifact. Finally, I reviewed the classes from each module, along with pointers to BST sorting for history, <code>getLastEntry()</code> for O(log n) retrievals, permission for handling notifications, navigation flows and kept comments functional and brief, to ensure it explains the code properly without exposing implementation details.
 
 ---
 <p align="center">
@@ -223,23 +223,23 @@ I removed the <code class="language-plaintext highlighter-rouge">showAddWeightDi
 ---
 ## Challenges
 <div style="text-align: normal;">
-<p><b>I. Unresolved reference.</b> I initially declared <code class="language-plaintext highlighter-rouge">val repository = WeightRepository</code> inside <code class="language-plaintext highlighter-rouge">onCreate</code>. Local variables such as this only exist within the function’s frame. The compiler didn't build when I tried to use <code class="language-plaintext highlighter-rouge">refreshHistory()</code> as it was out of scope.</p>
+<p><b>I. Unresolved reference.</b> I initially declared <code>val repository = WeightRepository</code> inside <code>onCreate</code>. Local variables such as this only exist within the function’s frame. The compiler didn't build when I tried to use <code>refreshHistory()</code> as it was out of scope.</p>
 
-<p><b>II. Suspend function error.</b> <code class="language-plaintext highlighter-rouge">getHistoryAsBST()</code> does Room database I/O which uses <code class="language-plaintext highlighter-rouge">withContext</code>. Kotlin didn’t allow me to call from a regular function because it could freeze my UI. I mitigated this by wrapping it inside <code class="language-plaintext highlighter-rouge">lifecycleScope.launch{}</code>.</p>
+<p><b>II. Suspend function error.</b> <code>getHistoryAsBST()</code> does Room database I/O which uses <code>withContext</code>. Kotlin didn’t allow me to call from a regular function because it could freeze my UI. I mitigated this by wrapping it inside <code>lifecycleScope.launch{}</code>.</p>
 
 <p><b>III. Import error for WeightBST.</b> The BST file was located in <i>data.local.structure.WeightBST.kt.</i> But since Kotlin doesn't auto import from other packages after refactoring. I manually added it with as <i>import com.example.weighttracker.data.local.structure.WeightBST</i>. This reinforces the importance on carefully migrating files and modules, as small details as these can cause the compiler to fail.</p>
 
-<p><b>IV.Type mismatch error.</b> In <code class="language-plaintext highlighter-rouge">getWeightDifference() , firstEntry() , lastEntry()</code> all returned Map.Entry, not a Float. I extracted the weight .value from <code class="language-plaintext highlighter-rouge">tree.firstEntry()?.value?.weight?.toFloat() ?: 0f.</code></p>
+<p><b>IV.Type mismatch error.</b> In <code>getWeightDifference() , firstEntry() , lastEntry()</code> all returned Map.Entry, not a Float. I extracted the weight .value from <code>tree.firstEntry()?.value?.weight?.toFloat() ?: 0f.</code></p>
 
-<p><b>V. Private access error.</b> When I first added <code class="language-plaintext highlighter-rouge">getHistoryAsBST()</code> inside <code class="language-plaintext highlighter-rouge">WeightRepository</code>, I marked it as private suspend fun because it is an internal builder that converts Room <code class="language-plaintext highlighter-rouge">List<WeightEntry></WeightEntry></code> into a WeightBST. I kept <code class="language-plaintext highlighter-rouge">getHistoryAsBST()</code> private and exposed only what the UI needs through three public wrapper methods in the repository.</p>
+<p><b>V. Private access error.</b> When I first added <code>getHistoryAsBST()</code> inside <code>WeightRepository</code>, I marked it as private suspend fun because it is an internal builder that converts Room <code>List<WeightEntry></WeightEntry></code> into a WeightBST. I kept <code>getHistoryAsBST()</code> private and exposed only what the UI needs through three public wrapper methods in the repository.</p>
 </div>
 
-<p><b>VI. Type mismatch.</b> In <code class="language-plaintext highlighter-rouge">NotificationHelper</code> the old call passed a List, causing a compile type mismatch because the compiler was expecting one entry but got the entire list. After refactoring, I changed the signature to accept only the newest entry to achieve O(log n) lookup.</p>
+<p><b>VI. Type mismatch.</b> In <code>NotificationHelper</code> the old call passed a List, causing a compile type mismatch because the compiler was expecting one entry but got the entire list. After refactoring, I changed the signature to accept only the newest entry to achieve O(log n) lookup.</p>
 
 ---
 ## Outcomes
 <div style="text-align: justify;">
-<p>This enhanced version of my <b>weight tracking application</b> replaces full O(n) scans of the history list with a Binary Search Tree structure using <code class="language-plaintext highlighter-rouge">TreeMap</code> and reducing operations by using <code class="language-plaintext highlighter-rouge">firstEntry/lastEntry()</code> to O(log n + k). This shows design and evalution of computing solutions while managing trade-offs between memory overhead and access time. The updated Dashboard and notification system using <code class="language-plaintext highlighter-rouge">getLastNDays()</code> to display with a single <code class="language-plaintext highlighter-rouge">WeightEntry</code> providing timely visual feedback that supports user decision-making. Keeping <code class="language-plaintext highlighter-rouge">getHistoryAsBST()</code> private, and if <code class="language-plaintext highlighter-rouge">tree.isEmpty()</code> handling enforces encapsulation and anticipates empty data exploits to protect data integrity. Documenting all compilation errors and challenges such as the unresolved references and type mismatches after refactoring, represent professional quality written communication that adapts to a technical audience.</p>
+<p>This enhanced version of my <b>weight tracking application</b> replaces full O(n) scans of the history list with a Binary Search Tree structure using <code>TreeMap</code> and reducing operations by using <code>firstEntry/lastEntry()</code> to O(log n + k). This shows design and evalution of computing solutions while managing trade-offs between memory overhead and access time. The updated Dashboard and notification system using <code>getLastNDays()</code> to display with a single <code>WeightEntry</code> providing timely visual feedback that supports user decision-making. Keeping <code>getHistoryAsBST()</code> private, and if <code>tree.isEmpty()</code> handling enforces encapsulation and anticipates empty data exploits to protect data integrity. Documenting all compilation errors and challenges such as the unresolved references and type mismatches after refactoring, represent professional quality written communication that adapts to a technical audience.</p>
   
 <p>Overall, the updated version of this artifact does not add UI elements, rather, improves the lookup complexity to ensure scalability as data grows, thus ensuring that the functionalities and user experience improve, while maintaining the original architecture of the model and continuing aligning to best practices.</p>
 
