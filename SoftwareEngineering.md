@@ -24,7 +24,7 @@ The application was developed as part of a project that required Android Studio 
 ---
 ## Justification
 <div style="text-align: justify;">
-<p>The original version of this submission implemented an unstructured SQLite helper that verifies the user’s authentications but violates single responsibility principle. The <code class="language-plaintext highlighter-rouge">DashboardActivity</code> module handles most of the operations for the application’s functionalities and hardcoded <code class="language-plaintext highlighter-rouge">test</code> username breaks the multi-user support, which does not follow best practices.
+<p>The original version of this submission implemented an unstructured SQLite helper that verifies the user’s authentications but violates single responsibility principle. The <code>DashboardActivity</code> module handles most of the operations for the application’s functionalities and hardcoded <code>test</code> username breaks the multi-user support, which does not follow best practices.
 In the initial version of this artifact, the CRUD operations don't work properly without causing memory leaks, or accidentally exposing another user’s personal data. The modules don’t follow a structured architecture that can be used for improvements. Therefore, the enhancement includes refactoring the tree’s architecture in a professional manner, as well as adding accurate documentation with in-line comments to improve the application’s sustainability and readability. 
 </p>
 </div>
@@ -32,7 +32,7 @@ In the initial version of this artifact, the CRUD operations don't work properly
 ## Enhancement Steps
 <h3><u>Fixing the data layer by updating DAO queries</u></h3>
 <div style="text-align: justify;">
-<p>The data layer needed to be corrected first. By creating data/local package and implementing <code class="language-plaintext highlighter-rouge">WeightEntry</code> as the entity, <code class="language-plaintext highlighter-rouge">WeightDao</code> for SQL queries, and <code class="language-plaintext highlighter-rouge">AppDB</code> for the database, I already established a great foundation. Introducing <code class="language-plaintext highlighter-rouge">WeightRepository</code> and <code class="language-plaintext highlighter-rouge">UserRepository</code> as the single source of truth the UI of the application already improved as it was easier to maintain with a clear separation of my concerns for the data layer:</p>
+<p>The data layer needed to be corrected first. By creating data/local package and implementing <code>WeightEntry</code> as the entity, <code>WeightDao</code> for SQL queries, and <code>AppDB</code> for the database, I already established a great foundation. Introducing <code>WeightRepository</code> and <code>UserRepository</code> as the single source of truth the UI of the application already improved as it was easier to maintain with a clear separation of my concerns for the data layer:</p>
 <br>
 </div>
 <p align="center">
@@ -41,7 +41,7 @@ In the initial version of this artifact, the CRUD operations don't work properly
     <em style="color:gray;"> Figure 1: Updated DAO structure </em>
 </p>
 <br>
-<p><code class="language-plaintext highlighter-rouge">WeightDao</code> is now the only place that handles SQL, which enforce my separation concerns. Aditionally, the <code class="language-plaintext highlighter-rouge">ViewModel</code> no longer executes queries directly:</p>
+<p><code>WeightDao</code> is now the only place that handles SQL, which enforce my separation concerns. Aditionally, the <code>ViewModel</code> no longer executes queries directly:</p>
 
 ```kotlin
 @Dao
@@ -63,7 +63,7 @@ interface WeightDao {
     suspend fun getLastTarget(username: String): Double?
 }
 ```
-<p>No more harcoded <code class="language-plaintext highlighter-rouge">test</code> username, <code class="language-plaintext highlighter-rouge">UserRepository</code> has login and register and carry <code class="language-plaintext highlighter-rouge">USERNAME</code> via intent , so now each DAO query can filter by real username. Previously, the username was harcoded so the current’s user information was not carried between screens via Intent. This fix enforces user isolation and multi-user functionality, where the application now sees the real session rather than the generic <code class="language-plaintext highlighter-rouge">test</code> user:</p>
+<p>No more harcoded <code>test</code> username, <code>UserRepository</code> has login and register and carry <code>USERNAME</code> via intent , so now each DAO query can filter by real username. Previously, the username was harcoded so the current’s user information was not carried between screens via Intent. This fix enforces user isolation and multi-user functionality, where the application now sees the real session rather than the generic <code>test</code> user:</p>
 
 ```kotlin
 class DashboardActivity : AppCompatActivity() {
@@ -91,7 +91,7 @@ class DashboardActivity : AppCompatActivity() {
         val repository = WeightRepository(applicationContext)
 ```
 <h3><u>Creating a source of truth by creating a WeightRepository class</u></h3>
-<p>The first release of the application did not have a repository, therefore Activities called <code class="language-plaintext highlighter-rouge">DatabaseHelper</code> directly. There was no single place where all data was securely stored. By adding a <code class="language-plaintext highlighter-rouge">WeightRepository</code> as the single source of truth, both the viewmodel and UI don’t know where the data comes from, instead they just ask the repository.</p>
+<p>The first release of the application did not have a repository, therefore Activities called <code>DatabaseHelper</code> directly. There was no single place where all data was securely stored. By adding a <code>WeightRepository</code> as the single source of truth, both the viewmodel and UI don’t know where the data comes from, instead they just ask the repository.</p>
 
 ```kotlin
 class WeightRepository(context: Context) {
@@ -127,7 +127,7 @@ class WeightRepository(context: Context) {
 }
 ```
 <h3><u>Fixing the ViewModel layer</u></h3>
-<p>I did not have a viewmodel layer on my first release, therefore all states of current weight and goal weights resided within the Activity modules, and if the screen was rotated the information got cleared. By adding a <code class="language-plaintext highlighter-rouge">DashboardViewModel</code> module, the state is held regardless of screen rotation with <code class="language-plaintext highlighter-rouge">LiveData</code></p>
+<p>I did not have a viewmodel layer on my first release, therefore all states of current weight and goal weights resided within the Activity modules, and if the screen was rotated the information got cleared. By adding a <code>DashboardViewModel</code> module, the state is held regardless of screen rotation with <code>LiveData</code></p>
 
 ```kotlin
 class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
@@ -156,7 +156,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 }
 ```
 <h3><u>Updating the UI layer by refactoring the activities dashboard</u></h3>
-<p><code class="language-plaintext highlighter-rouge">DashboardActivity</code> module opened the database, queried the history as <i>O of n</i> (everything), calculated the user’s progress and updated the <code class="language-plaintext highlighter-rouge">TextViews</code>. This violated single responsibility principle as it had multiple functions with mixed data and UI logic. After the enhancement, <code class="language-plaintext highlighter-rouge">DashboardActivity</code> is now only responsible for observing the <code class="language-plaintext highlighter-rouge">ViewModel</code> and rendering the progress bar. </p>
+<p><code>DashboardActivity</code> module opened the database, queried the history as <i>O of n</i> (everything), calculated the user’s progress and updated the <code>TextViews</code>. This violated single responsibility principle as it had multiple functions with mixed data and UI logic. After the enhancement, <code>DashboardActivity</code> is now only responsible for observing the <code>ViewModel</code> and rendering the progress bar. </p>
 
 ```kotlin
         // Sets up viewmodel which handles the data logic
@@ -203,25 +203,25 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
 </div>
 
 ><b>Note</b>
-><p>My original application relied on harcoded <code class="language-plaintext highlighter-rouge">test</code> displaying the same data for all users. The enhanced version uses <code class="language-plaintext highlighter-rouge">Room</code> database with DAO to effectively show the current user's weight data.</p>
+><p>My original application relied on harcoded <code>test</code> displaying the same data for all users. The enhanced version uses <code>Room</code> database with DAO to effectively show the current user's weight data.</p>
 
 ---
 ## Challenges
 <div style="text-align: normal;">
 <p><b>I. Unknown references.</b> Some challenges included manifest errors when migrating all the activities modules to the ui folder. Android could not find the references at first because the mapping was modified. To mitigate this, I renamed the modules in manifest and fixed the imports in the Kotlin files.</p>
 
-<p><b>II. Exception errors.</b> I added a “Welcome, <i>User</i>” on every screen, however the build started failing with a <code class="language-plaintext highlighter-rouge">NullPointerException</code> at parseDebugLocalResources. After further debugging, found out that I had some illegal folders inside my mipmap. Deleting the entire folder and creating a new one via New then Image Asset created the correct mipmap-hdpi.</p>
+<p><b>II. Exception errors.</b> I added a “Welcome, <i>User</i>” on every screen, however the build started failing with a <code>NullPointerException</code> at parseDebugLocalResources. After further debugging, found out that I had some illegal folders inside my mipmap. Deleting the entire folder and creating a new one via New then Image Asset created the correct mipmap-hdpi.</p>
 
-<p><b>III. Syntax errors.</b> Some errors were encountered such as forgetting pointers and semicolons in this Kotlin logic, such as incorrect <code class="language-plaintext highlighter-rouge">layout_height</code> values that should have been <code class="language-plaintext highlighter-rouge">wrap_content</code> instead, and missing attributes such as <code class="language-plaintext highlighter-rouge">contentDescription</code> for accessibility.</p>
+<p><b>III. Syntax errors.</b> Some errors were encountered such as forgetting pointers and semicolons in this Kotlin logic, such as incorrect <code>layout_height</code> values that should have been <code>wrap_content</code> instead, and missing attributes such as <code>contentDescription</code> for accessibility.</p>
 
-<p><b>IV. Nulls and crashes.</b> I had the harcoded <i>test</i> username in version 1.0 of this application to test against the database. Once I removed it, I forgot to pass the USERNAME extra on all my navigations, therefore, <code class="language-plaintext highlighter-rouge">intent.getStringExtra(“USERNAME”)</code> returned null. After tracing back to the intent, I added the username to every intent that opens another screen, with a null check with <i>finish()</i> at the beginning of <code class="language-plaintext highlighter-rouge">onCreate</code>. At the end, the history screen stopped crashing and I was able to see the correct loaded data by unique username.</p>
+<p><b>IV. Nulls and crashes.</b> I had the harcoded <i>test</i> username in version 1.0 of this application to test against the database. Once I removed it, I forgot to pass the USERNAME extra on all my navigations, therefore, <code>intent.getStringExtra(“USERNAME”)</code> returned null. After tracing back to the intent, I added the username to every intent that opens another screen, with a null check with <i>finish()</i> at the beginning of <code>onCreate</code>. At the end, the history screen stopped crashing and I was able to see the correct loaded data by unique username.</p>
 
 <p><b>V. Adding more modules.</b> The first version was simple and effective, but not functional for a full-stack application. I was challenged to untangle old database calls and wiring new dependencies. I mitigated this by working one step at a time, structure migrating and verifying each screen loads correctly. This helped me strengthen my abilities to deliver proper separation, test and align with industry standards.</p>
 </div>
 ---
 ## Outcomes
 <div style="text-align: justify;">
-<p>I am confident that the outcomes came out as expected. The enhanced version will now evaluate computing solutions and manage trade-offs between architectural layers, by demonstrating abilities to use skills and tools for the purpose of implementing a solution to accomplish industry goals. It also implements industry tools such as <code class="language-plaintext highlighter-rouge">Room</code>, <code class="language-plaintext highlighter-rouge">LiveData</code> and repository to build a maintainable architecture, outlining the outcome on delivering a professional and coherent application to our weight tracking audience. Finally, it fixes collaborative failures where a different user might see the first user’s personal data due to having <code class="language-plaintext highlighter-rouge">test</code> user hardcoded in the application, which mitigates design flaws and ensures privacy and enhanced security of personal data.</p>
+<p>I am confident that the outcomes came out as expected. The enhanced version will now evaluate computing solutions and manage trade-offs between architectural layers, by demonstrating abilities to use skills and tools for the purpose of implementing a solution to accomplish industry goals. It also implements industry tools such as <code>Room</code>, <code>LiveData</code> and repository to build a maintainable architecture, outlining the outcome on delivering a professional and coherent application to our weight tracking audience. Finally, it fixes collaborative failures where a different user might see the first user’s personal data due to having <code>test</code> user hardcoded in the application, which mitigates design flaws and ensures privacy and enhanced security of personal data.</p>
   
 <p>Overall, this enhancement helped the functionality and reliability of the application’s usage. It does not break the overall architecture and core requirements, it simply improves the areas that needed more coverage from the first release.</p>
 
