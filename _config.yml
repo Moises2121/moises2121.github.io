@@ -6,7 +6,6 @@ markdown: kramdown
 kramdown:
   input: GFM
   toc:
-  auto_id: true
   auto_ids: true
 
 webrick: true
