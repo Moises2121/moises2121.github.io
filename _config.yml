@@ -1,3 +1,4 @@
+cat > _config.yml << 'EOF'
 title: Moises Sanchez, A.S
 description: CS499 ePortfolio | Southern New Hampshire University
 theme: jekyll-theme-cayman
@@ -5,7 +6,9 @@ theme: jekyll-theme-cayman
 markdown: kramdown
 kramdown:
   input: GFM
-  toc:
   auto_ids: true
 
 webrick: true
+EOF 
+
+cat _config.yml
