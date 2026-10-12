@@ -100,48 +100,36 @@
 }
 Self Assessment
 .details-dropdown {
-  margin: 1.5em 0;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 12px 16px;
+  margin: 2em 0;
+  border: 1px solid #dcedc8;
+  border-radius: 10px;
+  background: #fff;
+  padding: 0;
+  overflow: hidden;
 }
-
 .details-dropdown summary {
-  cursor: pointer;
   list-style: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.details-dropdown summary::-webkit-details-marker {
-  display: none;
-}
-
-.details-dropdown summary h2 {
-  display: inline;
-  margin: 0;
-  cursor: pointer;
-}
-.h2-style {
-  font-size: 2em;
+  padding: 0.8em 1.2em;
+  font-size: 1.6em;
   font-weight: 700;
-  margin: 0;
-  line-height: 1.2;
+  background: #f1f8e9;
+  &::-webkit-details-marker { display: none; }
 }
 .details-dropdown summary::before {
   content: "▸";
   transition: transform 0.2s;
-  font-size: 1.2em;
+  font-size: 0.8em;
 }
-
 .details-dropdown[open] summary::before {
   transform: rotate(90deg);
 }
-
 .details-content {
+  padding: 15px 20px;
   text-align: justify;
-  margin-top: 12px;
 }
 .sr-only {
   position: absolute;
