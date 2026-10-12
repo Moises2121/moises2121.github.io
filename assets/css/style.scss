@@ -123,7 +123,12 @@ Self Assessment
   margin: 0;
   cursor: pointer;
 }
-
+.h2-style {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
 .details-dropdown summary::before {
   content: "▸";
   transition: transform 0.2s;
