@@ -24,7 +24,6 @@ I’m aiming to develop a fully functional application that follows best practic
 
 </div>
 ---
-## Self Assesment
 <details>
 <summary style="cursor:pointer; font-weight:700; font-size:1.4em;">
 Self Assessment
@@ -48,6 +47,7 @@ Security was one of my major focus through all three enhancements. Enhancement o
 My three enhancements demonstrate a full-stack and secure software lifecycle. Enhancement one focusing on software engineering and fixing collaborative failures, enhancement two focusing on algorithmic efficiency and enhancement three prioritizing database normalization and security. Together, this updated <b>Weight Tracking Application</b> delivers a functional, professional and secure product that is ready for real users. This range demonstrates my strenghts in problem solving, clean and organized architecture practices and security-first mentality - preparing me to enter the computer science field as a strong and reliable contributor.
   </p>
 </div>
+</details>
 ---
 ## Code Review
 <div style="text-align: justify;">
