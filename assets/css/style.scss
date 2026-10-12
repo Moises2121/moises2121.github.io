@@ -1,12 +1,13 @@
 ---
 ---
 @import "{{ site.theme }}";
+
 .ytimage-popup {
-  width: 400px;
+  width: 300px;
   display: block;
-  border: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  border: 4px solid rgb(40, 228, 97);
+  border-radius: 15px;
+  transition: all 0.5s ease;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .ytimage-popup:hover {
@@ -50,11 +51,12 @@
   color: white;
   transform: translateY(-4px) scale(1.1);
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  text-decoration: none;
 }
 .float-btn:active {
   background: #159957;
   color: white;
-  border-color: #0f6d3e;
+  border-color: #54da97;
 }
 .darkmode-toggle {
   z-index: 1000 !important;
@@ -82,23 +84,23 @@
 // floating styles
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
 
 .floating-img {
-  width: 280px;
-  animation: float 3s ease-in-out infinite;
+  width: 220px;
+  animation: float 5s ease-in-out infinite;
   cursor: pointer;
 }
 
 .credit-small {
-  font-size: 10px;
+  font-size: 8px;
   color: #666;
   margin-top: 5px;
   text-align: center;
 }
-Self Assessment
+// Self Assessment
 .details-dropdown {
   margin: 2em 0;
   border: 1px solid #dcedc8;
@@ -112,17 +114,18 @@ Self Assessment
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
   padding: 0.8em 1.2em;
-  font-size: 1.6em;
+  border-radius: 12px;
+  font-size: 1.0em;
   font-weight: 700;
   background: #f1f8e9;
   &::-webkit-details-marker { display: none; }
 }
 .details-dropdown summary::before {
   content: "▸";
-  transition: transform 0.2s;
-  font-size: 0.8em;
+  transition: transform 0.7s;
+  font-size: 2.0em;
 }
 .details-dropdown[open] summary::before {
   transform: rotate(90deg);
@@ -141,6 +144,19 @@ Self Assessment
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+.enhancement-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+.enhancement-link .material-symbols-outlined {
+  font-size: 30px;
+  line-height: 1;
+  vertical-align: middle;
+  position: relative;
+  top: -1.0px;
 }
 
 

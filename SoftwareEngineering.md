@@ -12,6 +12,15 @@ title: Software Design & Engineering
 </div>
 
 ---
+
+<div class="h3-toc" markdown="1">
+## On this page
+{:.no_toc}
+
+* TOC
+{:toc}
+</div>
+
 ## Artifact's Origin
 <p> Artifact: CS360- Final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i><br>
 Developed on August 2026 for Mobile Architecture and Programming at SNHU
@@ -30,7 +39,8 @@ In the initial version of this artifact, the CRUD operations don't work properly
 </div>
 ---
 ## Enhancement Steps
-<h3><u>Fixing the data layer by updating DAO queries</u></h3>
+
+<h3><u>1. Fixing the data layer by updating DAO queries</u></h3>
 <div style="text-align: justify;">
 <p>The data layer needed to be corrected first. By creating data/local package and implementing <code>WeightEntry</code> as the entity, <code>WeightDao</code> for SQL queries, and <code>AppDB</code> for the database, I already established a great foundation. Introducing <code>WeightRepository</code> and <code>UserRepository</code> as the single source of truth the UI of the application already improved as it was easier to maintain with a clear separation of my concerns for the data layer:</p>
 <br>
@@ -90,7 +100,7 @@ class DashboardActivity : AppCompatActivity() {
 
         val repository = WeightRepository(applicationContext)
 ```
-<h3><u>Creating a source of truth by creating a WeightRepository class</u></h3>
+<h3><u>2. Creating a source of truth by creating a WeightRepository class</u></h3>
 <p>The first release of the application did not have a repository, therefore Activities called <code>DatabaseHelper</code> directly. There was no single place where all data was securely stored. By adding a <code>WeightRepository</code> as the single source of truth, both the viewmodel and UI don’t know where the data comes from, instead they just ask the repository.</p>
 
 ```kotlin
@@ -126,7 +136,7 @@ class WeightRepository(context: Context) {
     }
 }
 ```
-<h3><u>Fixing the ViewModel layer</u></h3>
+<h3><u>3. Fixing the ViewModel layer</u></h3>
 <p>I did not have a viewmodel layer on my first release, therefore all states of current weight and goal weights resided within the Activity modules, and if the screen was rotated the information got cleared. By adding a <code>DashboardViewModel</code> module, the state is held regardless of screen rotation with <code>LiveData</code></p>
 
 ```kotlin
@@ -155,7 +165,7 @@ class DashboardViewModel(private val repo: WeightRepository) : ViewModel() {
     }
 }
 ```
-<h3><u>Updating the UI layer by refactoring the activities dashboard</u></h3>
+<h3><u>4. Updating the UI layer by refactoring the activities dashboard</u></h3>
 <p><code>DashboardActivity</code> module opened the database, queried the history as <i>O of n</i> (everything), calculated the user’s progress and updated the <code>TextViews</code>. This violated single responsibility principle as it had multiple functions with mixed data and UI logic. After the enhancement, <code>DashboardActivity</code> is now only responsible for observing the <code>ViewModel</code> and rendering the progress bar. </p>
 
 ```kotlin

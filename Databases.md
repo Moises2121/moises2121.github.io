@@ -12,6 +12,15 @@ title: Databases
 </div>
 
 ---
+
+<div class="h3-toc" markdown="1">
+## On this page
+{:.no_toc}
+
+* TOC
+{:toc}
+</div>
+
 ## Artifact's Origin
 <p> Artifact: CS360- Final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i><br>
 Developed on August 2026 for Mobile Architecture and Programming at SNHU
@@ -29,7 +38,7 @@ The application was developed as part of a project that required Android Studio 
 </div>
 ---
 ## Enhancement Steps
-<h3><u>Refactoring data to normalized design using Room</u></h3>
+<h3><u>1. Refactoring data to normalized design using Room</u></h3>
 <div style="text-align: justify;">
 <p>In my previous enhancement I had already replaced the <code>SQLiteOpenHelper</code> with Room as my single source of truth. All UI modules now access data via <code>ViewModel</code> -> <code>Repository</code> -> <code>DAO</code>.
 This can be found in my <code>AppDB</code> module:</p>
@@ -46,7 +55,7 @@ abstract class AppDB : RoomDatabase() {
 
 ```
 
-<h3><u>Creating a users table that includes username as the Primary Key</u></h3>
+<h3><u>2. Creating a users table that includes username as the Primary Key</u></h3>
 <p>This step had also been performed in my previous enhancement for Software Engineering. This prevents duplicate registration, username_taken within <code>MainActivity</code> module reinforces duplicate handling:</p>
 
 ```kotlin
@@ -74,7 +83,7 @@ suspend fun register(user: User)
 
 ```
 
-<h3><u>Implementation of password hashing</u></h3>
+<h3><u>3. Implementation of password hashing</u></h3>
 <p>Currently, <code>UserRepository.kt</code> and <code>UserDao.kt</code> store the password exactly as the user types in in the registration form. This vulnerability uses plain text storage, if the Room database file is extracted, all usernames and passwords are exposed – failing the security requirements for an application. By using <code>BCrypt</code>, a user’s password is never stored, instead it becomes hashed and cannot be reverted back into plain text. It also auto generates random encryption for each user even if their username is the same. Finally, at log in, the user does <code>BCrypt</code> with plain text password while it stores as hash. 
 <br>
 New dependencies added for password hashing:</p>
@@ -134,7 +143,7 @@ interface UserDao {
 ><b>Note</b>
 ><p>The artifact exposed user's passwords. This enhancement prevents reverse hashing so the application can securely store passwords without compromising user's personal data.</p>
 
-<h3><u>Creating a weight table using ForeignKey</u></h3>
+<h3><u>4. Creating a weight table using ForeignKey</u></h3>
 <p>The app now reinforces integrity between users and weights, so that every weight entry belongs to an existing user and deleting a user from the database will also delete their history. <code>ForeignKey with CASCADE</code> and index on username.</p>
 <br>
   

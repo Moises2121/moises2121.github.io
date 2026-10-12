@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Databases | Moises Sanchez, A.S</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Databases" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS499 ePortfolio Southern New Hampshire University" />
+<meta property="og:description" content="CS499 ePortfolio Southern New Hampshire University" />
+<link rel="canonical" href="http://0.0.0.0:4000/Databases.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/Databases.html" />
+<meta property="og:site_name" content="Moises Sanchez, A.S" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Databases" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"CS499 ePortfolio Southern New Hampshire University","headline":"Databases","url":"http://0.0.0.0:4000/Databases.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=9520dd7847b1f952c72b993b24c41d84d44752bd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Databases</h1>
+      <h2 class="project-tagline">CS499 ePortfolio | Southern New Hampshire University</h2>
+      
+        <a href="https://github.com/Moises2121/moises2121.github.io" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p align="left">
+  <a href="/" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">
+    <span class="material-symbols-outlined" style="font-size:20px;">home</span> Home
+  </a>
+</p>
+
+<div class="note-box" style="background-color: #D6EFFF; border-left: 5px solid #2196F3; padding: 15px; margin: 10px 0;">
+  <strong>Info:</strong> Built with Kotlin 1.9.22 • compileSdk 34 • minSdk 26 • targetSdk 34 • Room 2.6.1.
+</div>
+
+<hr />
+
+<div class="h3-toc">
+  <h2 class="no_toc" id="on-this-page">On this page</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#artifacts-origin" id="markdown-toc-artifacts-origin">Artifact’s Origin</a></li>
+  <li><a href="#justification" id="markdown-toc-justification">Justification</a></li>
+  <li><a href="#enhancement-steps" id="markdown-toc-enhancement-steps">Enhancement Steps</a></li>
+  <li><a href="#challenges" id="markdown-toc-challenges">Challenges</a></li>
+  <li><a href="#outcomes" id="markdown-toc-outcomes">Outcomes</a></li>
+</ul>
+
+</div>
+
+<h2 id="artifacts-origin">Artifact’s Origin</h2>
+<p> Artifact: CS360- Final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i><br />
+Developed on August 2026 for Mobile Architecture and Programming at SNHU
+</p>
+<div style="text-align: justify;">
+<p>
+The application was developed as part of a project that required Android Studio environment. It’s original goal was to design an application that follows Android’s design foundations and best practices. The application’s core requirements were to provide CRUD operations and a trusted database, either local or online, where user data such as weight, username and passwords can be stored.
+</p>
+</div>
+<hr />
+<h2 id="justification">Justification</h2>
+<div style="text-align: justify;">
+<p>This enhancement improves my application by replacing the single SQLite from the original version that used plain text passwords, lacked foreign keys and indexes and allowed duplicate usernames. After refactoring to <code>Room</code> architecture, the application now ensures data integrity and security. The enhancement uses a natural primary key , and implements password hashing using <code>at.favre.lib:bcrypt:0.10.2</code> with <code>BCrypt.withDefaults()</code> and <code>BCrypt.verifyer()</code> for login verification. Logic fixes such as getEntryByDate enforce one entry per day without blocking the option or allowing to overflow the database. The overall structure demonstrates trade-offs between slightly more complex Room/DAO logic versus significant gain in security and relational correctness.
+</p>
+</div>
+<hr />
+<h2 id="enhancement-steps">Enhancement Steps</h2>
+<h3><u>1. Refactoring data to normalized design using Room</u></h3>
+<div style="text-align: justify;">
+<p>In my previous enhancement I had already replaced the <code>SQLiteOpenHelper</code> with Room as my single source of truth. All UI modules now access data via <code>ViewModel</code> -&gt; <code>Repository</code> -&gt; <code>DAO</code>.
+This can be found in my <code>AppDB</code> module:</p>
+<br />
+</div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Database</span><span class="p">(</span><span class="n">entities</span> <span class="p">=</span> <span class="p">[</span><span class="nc">User</span><span class="o">::</span><span class="k">class</span><span class="p">,</span> <span class="nc">WeightEntry</span><span class="o">::</span><span class="k">class</span><span class="p">],</span> <span class="n">version</span> <span class="p">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">exportSchema</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span>
+<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">AppDB</span> <span class="p">:</span> <span class="nc">RoomDatabase</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// User access to user queries</span>
+    <span class="k">abstract</span> <span class="k">fun</span> <span class="nf">userDao</span><span class="p">():</span> <span class="nc">UserDao</span>
+    <span class="c1">// User access to weight queries</span>
+    <span class="k">abstract</span> <span class="k">fun</span> <span class="nf">weightDao</span><span class="p">():</span> <span class="nc">WeightDao</span>
+
+</code></pre></div></div>
+
+<h3><u>2. Creating a users table that includes username as the Primary Key</u></h3>
+<p>This step had also been performed in my previous enhancement for Software Engineering. This prevents duplicate registration, username_taken within <code>MainActivity</code> module reinforces duplicate handling:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Toast</span><span class="p">.</span><span class="nf">makeText</span><span class="p">(</span><span class="k">this</span><span class="nd">@MainActivity</span><span class="p">,</span> <span class="nf">getString</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">username_taken</span><span class="p">),</span> <span class="nc">Toast</span><span class="p">.</span><span class="nc">LENGTH_SHORT</span><span class="p">).</span><span class="nf">show</span><span class="p">()</span>
+
+</code></pre></div></div>
+<p>Username set as the primary key</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// User table that handles the "Welcome, user" feature I added</span>
+<span class="nd">@Entity</span><span class="p">(</span><span class="n">tableName</span> <span class="p">=</span> <span class="s">"users"</span><span class="p">)</span>
+<span class="kd">data class</span> <span class="nc">User</span><span class="p">(</span>
+    <span class="c1">// Unique username set as primary key and for the welcome user feature</span>
+    <span class="nd">@PrimaryKey</span> <span class="kd">val</span> <span class="py">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+    <span class="c1">// Password storage for version 2 of the app</span>
+    <span class="kd">val</span> <span class="py">password</span><span class="p">:</span> <span class="nc">String</span>
+<span class="p">)</span>
+</code></pre></div></div>
+<p>And duplicate registration handling is found in <code>UserDao.kt</code></p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Insert new user to the database, ABORT if username already exists preventing duplicates</span>
+<span class="nd">@Insert</span><span class="p">(</span><span class="n">onConflict</span> <span class="p">=</span> <span class="n">androidx</span><span class="p">.</span><span class="n">room</span><span class="p">.</span><span class="nc">OnConflictStrategy</span><span class="p">.</span><span class="nc">ABORT</span><span class="p">)</span>
+<span class="k">suspend</span> <span class="k">fun</span> <span class="nf">register</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="nc">User</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h3><u>3. Implementation of password hashing</u></h3>
+<p>Currently, <code>UserRepository.kt</code> and <code>UserDao.kt</code> store the password exactly as the user types in in the registration form. This vulnerability uses plain text storage, if the Room database file is extracted, all usernames and passwords are exposed – failing the security requirements for an application. By using <code>BCrypt</code>, a user’s password is never stored, instead it becomes hashed and cannot be reverted back into plain text. It also auto generates random encryption for each user even if their username is the same. Finally, at log in, the user does <code>BCrypt</code> with plain text password while it stores as hash. 
+<br />
+New dependencies added for password hashing:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">implementation</span><span class="p">(</span><span class="s">"androidx.room:room-runtime:2.6.1"</span><span class="p">)</span>
+<span class="nf">implementation</span><span class="p">(</span><span class="s">"at.favre.lib:bcrypt:0.10.2"</span><span class="p">)</span>
+
+</code></pre></div></div>
+<p>Since the password will be hashed, the val passwordHash had to replace the existing val password within the User module:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@PrimaryKey</span> <span class="kd">val</span> <span class="py">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+<span class="c1">// Password Hashing</span>
+<span class="kd">val</span> <span class="py">passwordHash</span><span class="p">:</span> <span class="nc">String</span>
+
+</code></pre></div></div>
+<p>This new structure will now be querying by username rather than by password, the old method has been replaced with <code>getUserByUsername</code>:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Dao</span>
+<span class="kd">interface</span> <span class="nc">UserDao</span> <span class="p">{</span>
+    <span class="c1">// Searches for the match username, handling null if credentials are wrong</span>
+    <span class="nd">@Query</span><span class="p">(</span><span class="s">"SELECT * FROM users WHERE username = :username LIMIT 1"</span><span class="p">)</span>
+    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">getUserByUsername</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">User</span><span class="p">?</span>
+
+</code></pre></div></div>
+<p><code>UserRepository</code> has been updated accordingly to hash passwords and verifying them against plain text from user’s login entry:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// Returns true if registration is successful, false if user already exists</span>
+    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">registerUser</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">Boolean</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">try</span> <span class="p">{</span>
+            <span class="c1">// Hash password with BCrypt with auto generated salt, not reversible</span>
+            <span class="kd">val</span> <span class="py">hash</span> <span class="p">=</span> <span class="nc">BCrypt</span><span class="p">.</span><span class="nf">withDefaults</span><span class="p">().</span><span class="nf">hashToString</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">password</span><span class="p">.</span><span class="nf">toCharArray</span><span class="p">())</span>
+            <span class="n">dao</span><span class="p">.</span><span class="nf">register</span><span class="p">(</span><span class="nc">User</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">hash</span><span class="p">))</span>
+            <span class="k">true</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">_</span><span class="p">:</span> <span class="nc">Exception</span><span class="p">)</span> <span class="p">{</span> <span class="k">false</span> <span class="p">}</span>
+
+    <span class="p">}</span>
+    <span class="c1">// Verifies log in vy comparing plain text pwd with BCrypt hash</span>
+    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">loginUser</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">Boolean</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">user</span> <span class="p">=</span> <span class="n">dao</span><span class="p">.</span><span class="nf">getUserByUsername</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">?:</span> <span class="k">return</span> <span class="k">false</span>
+        <span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="nc">BCrypt</span><span class="p">.</span><span class="nf">verifyer</span><span class="p">().</span><span class="nf">verify</span><span class="p">(</span><span class="n">password</span><span class="p">.</span><span class="nf">toCharArray</span><span class="p">(),</span> <span class="n">user</span><span class="p">.</span><span class="n">passwordHash</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">.</span><span class="n">verified</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Passwords are now stored as <code>BCrypt</code> hashes with salt (one-way) instead of plain text, the following image shows the result:</p>
+
+<p align="center">
+  <img width="100%" alt="Hashing" class="ytimage-popup" src="Assets/HashAfter.gif" onclick="window.open(this.src, '_blank')" />
+  <br />
+    <em style="color:gray;"> Figure 7: Passwords stored as BCrypt Hash </em>
+</p>
+
+<blockquote>
+  <p><b>Note</b></p>
+  <p>The artifact exposed user's passwords. This enhancement prevents reverse hashing so the application can securely store passwords without compromising user's personal data.</p>
+</blockquote>
+
+<h3><u>4. Creating a weight table using ForeignKey</u></h3>
+<p>The app now reinforces integrity between users and weights, so that every weight entry belongs to an existing user and deleting a user from the database will also delete their history. <code>ForeignKey with CASCADE</code> and index on username.</p>
+<p><br /></p>
+
+<p>Parent table:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span><span class="p">(</span><span class="n">tableName</span> <span class="p">=</span> <span class="s">"users"</span><span class="p">)</span>
+<span class="kd">data class</span> <span class="nc">User</span><span class="p">(</span>
+    <span class="c1">// Unique username set as primary key and for the welcome user feature</span>
+    <span class="nd">@PrimaryKey</span> <span class="kd">val</span> <span class="py">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+    <span class="c1">// Password Hashing</span>
+    <span class="kd">val</span> <span class="py">passwordHash</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+    <span class="c1">// Weight Goal</span>
+    <span class="kd">val</span> <span class="py">goalWeight</span><span class="p">:</span> <span class="nc">Double</span> <span class="p">=</span> <span class="mf">0.0</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Child table:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Entity</span><span class="p">(</span>
+    <span class="n">tableName</span> <span class="p">=</span> <span class="s">"weights"</span><span class="p">,</span>
+    <span class="n">foreignKeys</span> <span class="p">=</span> <span class="p">[</span>
+        <span class="nc">ForeignKey</span><span class="p">(</span>
+            <span class="n">entity</span> <span class="p">=</span> <span class="nc">User</span><span class="o">::</span><span class="k">class</span><span class="p">,</span>
+            <span class="n">parentColumns</span> <span class="p">=</span> <span class="p">[</span><span class="s">"username"</span><span class="p">],</span>
+            <span class="n">childColumns</span> <span class="p">=</span> <span class="p">[</span><span class="s">"username"</span><span class="p">],</span>
+            <span class="n">onDelete</span> <span class="p">=</span> <span class="nc">ForeignKey</span><span class="p">.</span><span class="nc">CASCADE</span>
+        <span class="p">)</span>
+    <span class="p">],</span>
+    <span class="n">indices</span> <span class="p">=</span> <span class="p">[</span><span class="nc">Index</span><span class="p">(</span><span class="s">"username"</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="kd">data class</span> <span class="nc">WeightEntry</span><span class="p">(</span>
+    <span class="c1">// Generates unique ID for each weight entry, used to identify records to delete</span>
+    <span class="nd">@PrimaryKey</span><span class="p">(</span><span class="n">autoGenerate</span> <span class="p">=</span> <span class="k">true</span><span class="p">)</span> <span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="c1">// Current user</span>
+    <span class="kd">val</span> <span class="py">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+    <span class="c1">// Weight entered by user</span>
+    <span class="kd">val</span> <span class="py">weight</span><span class="p">:</span> <span class="nc">Double</span><span class="p">,</span>
+    <span class="c1">// Goal weight that serves to track progress and display history</span>
+    <span class="kd">val</span> <span class="py">goalWeight</span><span class="p">:</span> <span class="nc">Double</span><span class="p">,</span>
+    <span class="c1">// Generate the date for the entry, used to be displayed in history</span>
+    <span class="kd">val</span> <span class="py">date</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="n">java</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="nc">SimpleDateFormat</span><span class="p">(</span><span class="s">"MM/dd/yyyy"</span><span class="p">,</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="nc">Locale</span><span class="p">.</span><span class="nc">US</span><span class="p">).</span><span class="nf">format</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="nc">Date</span><span class="p">())</span>
+<span class="p">)</span>
+
+</code></pre></div></div>
+<p>Updated database at version 3:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Database</span><span class="p">(</span><span class="n">entities</span> <span class="p">=</span> <span class="p">[</span><span class="nc">User</span><span class="o">::</span><span class="k">class</span><span class="p">,</span> <span class="nc">WeightEntry</span><span class="o">::</span><span class="k">class</span><span class="p">],</span> <span class="n">version</span> <span class="p">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">exportSchema</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span>
+<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">AppDB</span> <span class="p">:</span> <span class="nc">RoomDatabase</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// User access to user queries</span>
+    <span class="k">abstract</span> <span class="k">fun</span> <span class="nf">userDao</span><span class="p">():</span> <span class="nc">UserDao</span>
+    <span class="c1">// User access to weight queries</span>
+    <span class="k">abstract</span> <span class="k">fun</span> <span class="nf">weightDao</span><span class="p">():</span> <span class="nc">WeightDao</span>
+
+    <span class="c1">// With companion object we only use a single db instance for the application</span>
+    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+        <span class="c1">// All instances are up to date</span>
+        <span class="nd">@Volatile</span>
+        <span class="k">private</span> <span class="kd">var</span> <span class="py">INSTANCE</span><span class="p">:</span> <span class="nc">AppDB</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
+
+        <span class="c1">// Retrieves database instance, and creates a db file if it doesn't exist yet</span>
+        <span class="k">fun</span> <span class="nf">getDatabase</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="nc">Context</span><span class="p">):</span> <span class="nc">AppDB</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nc">INSTANCE</span> <span class="o">?:</span> <span class="nf">synchronized</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">val</span> <span class="py">instance</span> <span class="p">=</span> <span class="nc">Room</span><span class="p">.</span><span class="nf">databaseBuilder</span><span class="p">(</span>
+                    <span class="n">context</span><span class="p">.</span><span class="n">applicationContext</span><span class="p">,</span>
+                    <span class="nc">AppDB</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">,</span>
+                    <span class="s">"weight-tracker.db"</span>
+                <span class="c1">// Destroys old db and recreates with Foreign Key</span>
+                <span class="p">).</span><span class="nf">fallbackToDestructiveMigration</span><span class="p">().</span><span class="nf">build</span><span class="p">()</span>
+                <span class="nc">INSTANCE</span> <span class="p">=</span> <span class="n">instance</span>
+                <span class="n">instance</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+<p align="center">
+  <img width="100%" alt="DeleteUser" class="ytimage-popup" src="Assets/onDelete.gif" onclick="window.open(this.src, '_blank')" />
+  <br />
+    <em style="color:gray;"> Figure 8: Deleting a username via ForeignKey </em>
+</p>
+<p><br /></p>
+
+<h3><u>Additional features that apply Industry’s best practices</u></h3>
+<p>UI enhancements were added in to improve the overall presentation of this enhanced artifact, including using android and google icons for app compatibility, and gradient background for a more presentable look.</p>
+<p><br /></p>
+
+<p align="center">
+  <a href="https://youtu.be/pI6mpolqfNA?si=C_DfGjL5LwqpLZpT" target="_blank">
+    <img src="Assets/ytThumbnail2.jpg" alt="Watch my initial code review" class="ytimage-popup" />
+  </a>
+</p>
+
+<p align="center">
+    <a href="https://github.com/Moises2121/moises2121.github.io/tree/enhancementThreeartifact/app/src/main/java/com/example/weighttracker" target="_blank">
+        View my Enhancement Three Code on Github
+    </a>
+</p>
+
+<hr />
+<h2 id="challenges">Challenges</h2>
+<div style="text-align: normal;">
+<p><b>I. Goal Reach Notification.</b> Even if progress was at 60%, the notification was called because current was bigger than goal , also showing every time I opened home. I adjusted the logic to trigger after a new weight is saved and check if progress == 100%, and avoided showing notification if the goal &lt;= 0 on screen load. </p>
+
+<p><b>II. Foreign Key crash.</b> When adding a ForeignKey to <code>weightEntry</code>, the app froze and failed when inserting before login or with an empty username. I made sure to pass the logged in username from <code>SharedPreferences</code> and added a <code>withContext</code> and null-check before checking if the goal has been reached.</p>
+
+<p><b>III. History showing 0.0. </b> When I set an initial goal I was inserting <code>WeightEntry = 0.0</code> as default, thus showing 0.0 and not allowing me to adjust unless the entry was deleted. By creating a new Dao method to <code>updateAllGoals()</code> that only does update weights without insert and adding a setGoal() in the viewmodel helped eliminate this vulnerability.</p>
+
+<p><b>IV.History not showing all results.</b> getAllEntries returned all rows from DB not filtered by user. I mitigated this by using queries where username =:username and used <code>dao.getEntriesForUser(username)</code> plus LiveData reload, proving Foreign Key implementation was successful.</p>
+
+<p><b>V. App crash on inserting new weight.</b> After adding multiple weighs for the same day, history got conflicted. I initially had this resolved but after refactoring the code for this enhancement I encountered this issue again. I added a <code>getEntryByDate(username, today)</code> check, therefore, if a user adds multiple weights in a day, in will overwrite existing weight rather than blocking the option or adding it to the database.</p>
+</div>
+
+<hr />
+<h2 id="outcomes">Outcomes</h2>
+<div style="text-align: justify;">
+<p>This enhancement implements a normalized database using Room with a primary key(id), foreign key(username referencing user table) and indexed queries, ensuring data integrity and improves performance by preventing full scan and duplicate rows. It also implements security best practices by hashing passwords with <code>BCrypt</code> before storage and enforce foreign fey constraints to prevent unauthorized access. I also evaluate databases solutions by  demonstrating the use of industry tools such as Room, DAO and SQLite and protecting user information prior to deployment, overall ensuring passwords don’t get stored in plain text and that each weight record is associated to a user.</p>
+  
+<p>Overall, the updated version of this artifact prevents data extraction by using <code>BCrypt</code> hashing, prevents crashes by allowing the user to modify current weight data, maintains previous enhancements, and upgrades the User Interface to follow Android's best practices.</p>
+
+</div>
+<p><br /></p>
+
+<hr />
+
+<p align="left">
+  <a href="/" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">
+    <span class="material-symbols-outlined" style="font-size:20px;">home</span> Home
+  </a>
+</p>
+<hr />
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+
+  <!--Contact Info-->
+  <div>
+  Contact:
+    <div style="font-size:15px;">
+    <b>Email:</b> moises.sanchez1@snhu.edu
+      <div style="margin-bottom:10px; margin-top:6px;">
+        <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:15px;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="25" height="25" style="margin-right:8px; background:white; border-radius:50%; padding:2px;" />
+          Follow me on GitHub
+        </a>
+      </div>
+      <div style="margin-bottom:10px;">
+        <a href="https://www.linkedin.com/in/moises-sanchez-9ab510361/" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:15px;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" width="20" height="20" style="margin-right:8px; background:white; border-radius:4px; padding:2px;" />
+          Follow me on LinkedIn
+        </a>
+      </div>
+        <a href="https://www.youtube.com/@moisesgsg" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:15px;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="20" height="20" style="margin-right:8px;" />
+          Follow me on YouTube
+        </a>
+      </div>
+    </div>
+</div>
+
+<p><!-- Floating menu for easier access --></p>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+<div class="floating-menu">
+
+    <a href="/" class="float-btn" title="Home">
+    <span class="material-symbols-outlined">home</span>
+    </a>
+    
+    <a href="/SoftwareEngineering.html" class="float-btn" title="Software Engineering">
+    <span class="material-symbols-outlined">engineering</span>
+     </a>
+    
+    <a href="/Algorithms.html" class="float-btn" title="Algorithms">
+    <span class="material-symbols-outlined">account_tree</span>
+    </a>
+    
+    <a href="/Databases.html" class="float-btn" title="Databases">
+    <span class="material-symbols-outlined">database</span>
+    </a>
+
+    <button id="darkmode-btn" class="float-btn" title="Toggle Light Mode" style="border:none; cursor:pointer;">
+      <span class="material-symbols-outlined" id="darkmode-icon">dark_mode</span>
+    </button>
+  </div>
+
+<!-- Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License -->
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script src="/assets/js/darkmode.js"></script>
+
+<!-- active button highlighted on currentPage -->
+<script>
+  const currentPage = window.location.pathname.split('/').pop();
+  document.querySelectorAll('.floating-menu a.float-btn').forEach(btn => {
+    
+    if ((currentPage === '' || currentPage === 'index.html') && btn.title === 'Home') {
+      btn.classList.add('active');
+    }
+    if (btn.href.includes(currentPage) && currentPage !== '' && currentPage !== 'index.html') {
+      btn.classList.add('active');
+    }
+  });
+
+  const dmBtn = document.getElementById('darkmode-btn');
+  const dmIcon = document.getElementById('darkmode-icon');
+  
+  function updateIcon() {
+    dmIcon.textContent = window.darkmode.isActivated() ? 'light_mode' : 'dark_mode';
+  }
+
+  dmBtn.addEventListener('click', () => {
+    window.darkmode.toggle();
+    updateIcon();
+  });
+
+  updateIcon();
+</script>
+
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Moises2121/moises2121.github.io">moises2121.github.io</a> is maintained by <a href="https://github.com/Moises2121">Moises2121</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

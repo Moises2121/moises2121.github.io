@@ -2,7 +2,7 @@
 const words = [
   "SMT Process Engineer",
   "Full-stack development student",
-  "UI/UX designer"
+  "UI/UX student"
 ];
 
 let wordIndex = 0, charIndex = 0, isDeleting = false;
@@ -16,13 +16,13 @@ function type() {
     typingEl.textContent = current.substring(0, ++charIndex);
   }
   
-  let speed = isDeleting? 40 : 80;
+  let speed = isDeleting? 15 : 70;
   if (!isDeleting && charIndex === current.length) {
-    speed = 2000; isDeleting = true;
+    speed = 1000; isDeleting = true;
   } else if (isDeleting && charIndex === 0) {
     isDeleting = false;
     wordIndex = (wordIndex + 1) % words.length;
-    speed = 500;
+    speed = 800;
   }
   setTimeout(type, speed);
 }

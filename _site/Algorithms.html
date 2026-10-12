@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Algorithms &amp; Data Structures | Moises Sanchez, A.S</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Algorithms &amp; Data Structures" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="CS499 ePortfolio Southern New Hampshire University" />
+<meta property="og:description" content="CS499 ePortfolio Southern New Hampshire University" />
+<link rel="canonical" href="http://0.0.0.0:4000/Algorithms.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/Algorithms.html" />
+<meta property="og:site_name" content="Moises Sanchez, A.S" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Algorithms &amp; Data Structures" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"CS499 ePortfolio Southern New Hampshire University","headline":"Algorithms &amp; Data Structures","url":"http://0.0.0.0:4000/Algorithms.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=9520dd7847b1f952c72b993b24c41d84d44752bd">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Algorithms & Data Structures</h1>
+      <h2 class="project-tagline">CS499 ePortfolio | Southern New Hampshire University</h2>
+      
+        <a href="https://github.com/Moises2121/moises2121.github.io" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p align="left">
+  <a href="/" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">
+    <span class="material-symbols-outlined" style="font-size:20px;">home</span> Home
+  </a>
+</p>
+
+<div class="note-box" style="background-color: #D6EFFF; border-left: 5px solid #2196F3; padding: 15px; margin: 10px 0;">
+  <strong>Info:</strong> Built with Kotlin 1.9.22 • compileSdk 34 • minSdk 26 • targetSdk 34 • Room 2.6.1.
+</div>
+
+<hr />
+
+<div class="h3-toc">
+  <h2 class="no_toc" id="on-this-page">On this page</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#artifacts-origin" id="markdown-toc-artifacts-origin">Artifact’s Origin</a></li>
+  <li><a href="#justification" id="markdown-toc-justification">Justification</a></li>
+  <li><a href="#enhancement-steps" id="markdown-toc-enhancement-steps">Enhancement Steps</a></li>
+  <li><a href="#challenges" id="markdown-toc-challenges">Challenges</a></li>
+  <li><a href="#outcomes" id="markdown-toc-outcomes">Outcomes</a></li>
+</ul>
+
+</div>
+
+<h2 id="artifacts-origin">Artifact’s Origin</h2>
+<p> Artifact: CS360- Final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i><br />
+Developed on August 2026 for Mobile Architecture and Programming at SNHU
+</p>
+<div style="text-align: justify;">
+<p>
+The application was developed as part of a project that required Android Studio environment. It’s original goal was to design an application that follows Android’s design foundations and best practices. The application’s core requirements were to provide CRUD operations and a trusted database, either local or online, where user data such as weight, username and passwords can be stored.
+</p>
+</div>
+<hr />
+<h2 id="justification">Justification</h2>
+<div style="text-align: justify;">
+<p>The original version had correct functionality for a history screen, however the architectural layer was inefficient and did not allow scalability. On the history screen, the application retrieves the entire weight history for a user with <code>ORDER BY id</code>, then parses within the loop to segregate only five queries. The current approach uses O(n) memory time where I only need O(k) where k=5. The history will eventually compound all entries, which in returns increases load times, slows down the application and risks memory leaks. The proposed enhancement includes refactoring the memory layer to use Binary Search Tree (<b>BST</b>) via <code>TreeMap</code> as it maintains sorting by date by eliminating loop parsing and full table scans. This approach reduces computing complexity, lowering resource consumption and adding logic to detect user progress, which improves the UI and UX for long term maintainability. 
+</p>
+</div>
+<hr />
+<h2 id="enhancement-steps">Enhancement Steps</h2>
+<h3><u>1. Refactoring storage to use BST</u></h3>
+<div style="text-align: justify;">
+<p>I started by creating a new package and added a <code>weightBST.kt</code> inside. The class is a wrapper around <code>TreeMap&lt;LocalDate, WeightEntry&gt;</code> which implements a balanced BST. This new structure stores weight entries sorted by timestamps providing insertion methods, retrieving last entry and range queries. Previously, I used a linear List with O(n) that sorts and scans the entire list, this enhanced approach reduces complexity down to O(log n) operations.</p>
+<br />
+</div>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">WeightBST</span> <span class="p">{</span>
+    <span class="c1">// Binary search tree sorted by date</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">tree</span> <span class="p">=</span> <span class="nc">TreeMap</span><span class="p">&lt;</span><span class="nc">LocalDate</span><span class="p">,</span> <span class="nc">WeightEntry</span><span class="p">&gt;()</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">formatter</span> <span class="p">=</span> <span class="nc">DateTimeFormatter</span><span class="p">.</span><span class="nf">ofPattern</span><span class="p">(</span><span class="s">"MM/dd/yyyy"</span><span class="p">)</span>
+
+    <span class="k">fun</span> <span class="nf">insert</span><span class="p">(</span><span class="n">entry</span><span class="p">:</span> <span class="nc">WeightEntry</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">localDate</span> <span class="p">=</span> <span class="nc">LocalDate</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="n">date</span><span class="p">,</span> <span class="n">formatter</span><span class="p">)</span>
+        <span class="n">tree</span><span class="p">[</span><span class="n">localDate</span><span class="p">]</span> <span class="p">=</span> <span class="n">entry</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">getLastEntry</span><span class="p">():</span> <span class="nc">WeightEntry</span><span class="p">?</span> <span class="p">=</span> <span class="n">tree</span><span class="p">.</span><span class="nf">lastEntry</span><span class="p">()</span><span class="o">?.</span><span class="n">value</span>
+
+    <span class="k">fun</span> <span class="nf">size</span><span class="p">():</span> <span class="nc">Int</span> <span class="p">=</span> <span class="n">tree</span><span class="p">.</span><span class="n">size</span>
+</code></pre></div></div>
+<p>Additionally, I added <code>getHistoryAsBST()</code> method within my existing <code>WeightRepository</code>. This method will retrieve user history from Room and will now build a <code>weightBST</code> instance. This method also uses Dispatchers.IO to maintain off-thread database access. Comparing in with the previous function that directly returned the list from DAO, this enhancement returns a sorted BST list which solves my chronological order concerns.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">getHistoryAsBST</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">WeightBST</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nf">withContext</span><span class="p">(</span><span class="nc">Dispatchers</span><span class="p">.</span><span class="nc">IO</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="n">dao</span><span class="p">.</span><span class="nf">getHistory</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">bst</span> <span class="p">=</span> <span class="nc">WeightBST</span><span class="p">()</span>
+        <span class="n">list</span><span class="p">.</span><span class="nf">forEach</span> <span class="p">{</span> <span class="n">bst</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">}</span>
+        <span class="n">bst</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3><u>2. Adding range query for retrieval efficiency</u></h3>
+<p>I improved retrieval efficiency by using <code>TreeMap&lt;LocalDate, WeightEntry&gt;</code> structure. Instead of a linear filtering O(n) over the entire list, I used <code>lastEntry()</code> to obtain the latest date in O(log n) and <code>descendingMap()</code> for the last N days. The new operation is O(log n + k) where k = the number of records return – avoiding a full scan.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">getLastEntry</span><span class="p">():</span> <span class="nc">WeightEntry</span><span class="p">?</span> <span class="p">=</span> <span class="n">tree</span><span class="p">.</span><span class="nf">lastEntry</span><span class="p">()</span><span class="o">?.</span><span class="n">value</span>
+
+<span class="k">fun</span> <span class="nf">size</span><span class="p">():</span> <span class="nc">Int</span> <span class="p">=</span> <span class="n">tree</span><span class="p">.</span><span class="n">size</span>
+
+<span class="c1">// Retrieve only last N days rather than doing a full history scan</span>
+<span class="k">fun</span> <span class="nf">getLastNDays</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">WeightEntry</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">tree</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">())</span> <span class="k">return</span> <span class="nf">emptyList</span><span class="p">()</span>
+    <span class="c1">// Get last N values from ordered map without full scan</span>
+    <span class="k">return</span> <span class="n">tree</span><span class="p">.</span><span class="nf">descendingMap</span><span class="p">().</span><span class="n">values</span><span class="p">.</span><span class="nf">take</span><span class="p">(</span><span class="n">n</span><span class="p">).</span><span class="nf">toList</span><span class="p">().</span><span class="nf">reversed</span><span class="p">()</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+<p>The user interface will now reflect this since I added wrapper <code>getLastNDaysHistory()</code> within my <code>WeightRepository.</code></p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// Wrapper exposing range query to viewmodel</span>
+    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">getLastNDaysHistory</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">WeightEntry</span><span class="p">&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nf">withContext</span><span class="p">(</span><span class="nc">Dispatchers</span><span class="p">.</span><span class="nc">IO</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">val</span> <span class="py">bst</span> <span class="p">=</span> <span class="nf">getHistoryAsBST</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+            <span class="n">bst</span><span class="p">.</span><span class="nf">getLastNDays</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Get recent weight entry via BST</span>
+    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">getLastEntry</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">WeightEntry</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nf">withContext</span><span class="p">(</span><span class="nc">Dispatchers</span><span class="p">.</span><span class="nc">IO</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">val</span> <span class="py">bst</span> <span class="p">=</span> <span class="nf">getHistoryAsBST</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+            <span class="n">bst</span><span class="p">.</span><span class="nf">getLastEntry</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Weight change calculation using BST structure</span>
+    <span class="k">suspend</span> <span class="k">fun</span> <span class="nf">getWeightDifference</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">Float</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nf">withContext</span><span class="p">(</span><span class="nc">Dispatchers</span><span class="p">.</span><span class="nc">IO</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nf">getHistoryAsBST</span><span class="p">(</span><span class="n">username</span><span class="p">).</span><span class="nf">getWeightDifference</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<h3><u>3. Updating weight calculations and modifying the notifications</u></h3>
+<p>For this step, I updated the weight calculations and modifying the notifications to take advantage of the new BST structure. In my original version, both of these features relied on scanning and sorting the entire history list resulting in O(n) complexity calculations. After refactoring them to use <code>weightBST</code> methods such as <code>getLastEntry()</code>, and <code>firstEntry()</code> , I already reduced operations to O(log n + k) which ensure fast calculations and provides efficient reminder checks.
+<br />
+In the <code>DashboardActivity</code> module, I replaced <code>history[0]</code> to <code>history.last()</code> since getLastNDays() is now returning data that is already sorted  in the BST. </p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="c1">// History from getLastNDays sorted by BST</span>
+        <span class="n">currentWeight</span> <span class="p">=</span> <span class="n">history</span><span class="p">.</span><span class="nf">last</span><span class="p">().</span><span class="n">weight</span>
+    <span class="p">}</span>
+    <span class="nf">updateProgressBar</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Adjusted the <code>getWeightDifference</code> to return float to match the <code>WeightEntry</code> type by adding a check that returns 0f if there are less that two entries. </p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">getWeightDifference</span><span class="p">():</span> <span class="nc">Float</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">tree</span><span class="p">.</span><span class="n">size</span> <span class="p">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="mf">0f</span>
+    <span class="kd">val</span> <span class="py">firstWeight</span> <span class="p">=</span> <span class="n">tree</span><span class="p">.</span><span class="nf">firstEntry</span><span class="p">()</span><span class="o">?.</span><span class="n">value</span><span class="o">?.</span><span class="n">weight</span><span class="o">?.</span><span class="nf">toFloat</span><span class="p">()</span> <span class="o">?:</span> <span class="mf">0f</span>
+    <span class="kd">val</span> <span class="py">lastWeight</span> <span class="p">=</span> <span class="n">tree</span><span class="p">.</span><span class="nf">lastEntry</span><span class="p">()</span><span class="o">?.</span><span class="n">value</span><span class="o">?.</span><span class="n">weight</span><span class="o">?.</span><span class="nf">toFloat</span><span class="p">()</span> <span class="o">?:</span> <span class="mf">0f</span>
+    <span class="k">return</span> <span class="n">lastWeight</span> <span class="p">-</span> <span class="n">firstWeight</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Refactored <code>showGoalReachedIfNeeded()</code> to accept <code>WeightEntry</code> instead of a list by using <code>lastEntry.Weight</code> to get the most recent weight</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Now it takes BST instead of list for last entry check</span>
+<span class="k">fun</span> <span class="nf">showGoalReachedIfNeeded</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="nc">Context</span><span class="p">,</span> <span class="n">lastEntry</span><span class="p">:</span> <span class="nc">WeightEntry</span><span class="p">,</span> <span class="n">goal</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// gets current weight directly from BST</span>
+    <span class="kd">val</span> <span class="py">currentWeight</span> <span class="p">=</span> <span class="n">lastEntry</span><span class="p">.</span><span class="n">weight</span><span class="p">.</span><span class="nf">toInt</span><span class="p">()</span>
+    <span class="c1">// calculates progress using current and goal</span>
+    <span class="kd">val</span> <span class="py">progress</span> <span class="p">=</span> <span class="p">(</span><span class="n">currentWeight</span><span class="p">.</span><span class="nf">toDouble</span><span class="p">()</span> <span class="p">/</span> <span class="n">goal</span> <span class="p">*</span> <span class="mi">100</span><span class="p">).</span><span class="nf">toInt</span><span class="p">()</span>
+    <span class="c1">//build notification from WeightEntry</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">progress</span> <span class="p">&gt;=</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">showGoalReached</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">goal</span><span class="p">,</span> <span class="n">currentWeight</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Updated the load() to build the BST and reuse for the history screen and <code>getWeightDifference</code> O(log n) instead of doing two separate scans</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">load</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">viewModelScope</span><span class="p">.</span><span class="nf">launch</span> <span class="p">{</span>
+
+        <span class="c1">// O(log n + k) for dashboard chart, not a full scan</span>
+        <span class="n">_history</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="n">repo</span><span class="p">.</span><span class="nf">getLastNDaysHistory</span><span class="p">(</span><span class="n">username</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+
+        <span class="c1">// O(log n) for access to last entry</span>
+        <span class="n">_weightDiff</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="n">repo</span><span class="p">.</span><span class="nf">getWeightDifference</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+
+        <span class="n">_goal</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="n">repo</span><span class="p">.</span><span class="nf">getLastTarget</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">?:</span> <span class="mf">0.0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3><u>4. Updating the UI layer to display new records more efficiently</u></h3>
+<p>For this step, I updated the UI layer while maintaining my original five record layout. In my initial version <code>HistoryActivity</code> relied on the <code>repository.getHistory()</code> which caused the app to load the entire history list assuming the last entry was history[0] resulting in a full scan. After refactoring to use <code>WeightBST</code> structure, I can now use <code>getLastNDays(username, 5)</code> with O(log n + k) lookup to get only those five records that I want to display. At the end, I was able to optimize the <code>refreshHistory</code> method while maintaining my original layout.</p>
+<p><br /></p>
+
+<p>Now using BST for efficient record display and safe techniques for memory use</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="k">fun</span> <span class="nf">refreshHistory</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">lifecycleScope</span><span class="p">.</span><span class="nf">launch</span> <span class="p">{</span>
+        <span class="c1">// Build BST from Room data to display last 5 entries from current user</span>
+        <span class="kd">val</span> <span class="py">last5</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="nf">getLastNDaysHistory</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="c1">// O(log n ) to get newest entry without scanning entire list</span>
+        <span class="kd">val</span> <span class="py">lastEntry</span> <span class="p">=</span> <span class="n">last5</span><span class="p">.</span><span class="nf">lastOrNull</span><span class="p">()</span>
+        <span class="kd">val</span> <span class="py">lastTarget</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="nf">getLastTarget</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>O(log n) lookups gets newest entry directly from the BST via <code>getLastEntry()</code> without checking the full list.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">lastEntry</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">currentWeight</span> <span class="p">=</span> <span class="n">lastEntry</span><span class="p">.</span><span class="n">weight</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3><u>Additional features that apply Industry’s best practices</u></h3>
+<p>Some other features were based on eliminating the application’s warnings from string concatenations such as <code>“Welcome, $username”</code> , since format crashes when using percentages for a Double.
+<br />
+By applying best practices, all the UI text has been located under my <code>strings.xml</code> by using placeholders <code>%1$s</code> and <code>%1$.0f</code> being accessed via <code>getString(R.string.welcome, username)</code> for example. This removed the <i>`SetText`</i> warnings from the environment and enable a more structured architecture.</p>
+
+<p align="center">
+  <img width="620" height="324" alt="image" class="ytimage-popup" src="Assets/Strings.gif" onclick="window.open(this.src, '_blank')" />
+  <br />
+    <em style="color:gray;"> Figure 4: Personalized Greeting + Strings placeholders </em>
+</p>
+<p><br /></p>
+
+<p>I removed the <code>showAddWeightDialog</code> class from the <code>HistoryActivity</code> module to have a cleaner code – making each screen handle the necessary functions without duplicating long lines of code that I had on the original artifact. Finally, I reviewed the classes from each module, along with pointers to BST sorting for history, <code>getLastEntry()</code> for O(log n) retrievals, permission for handling notifications, navigation flows and kept comments functional and brief, to ensure it explains the code properly without exposing implementation details.</p>
+
+<hr />
+<p align="center">
+    <a href="https://github.com/Moises2121/moises2121.github.io/tree/enhancementTwoartifact/app/src/main/java/com/example/weighttracker" target="_blank">
+        View my Enhancement Two Code on Github
+    </a>
+</p>
+
+<div style="display:flex; justify-content:center; gap:40px; text-align:center; flex-wrap:wrap;">
+  <div>
+    <img src="Assets/HistoryOld.gif" width="200" style="border:3px solid #003366; border-radius:8px;" />
+    <br />
+    <em style="color:gray;">Figure 5: Original - History Screen</em>
+  </div>
+
+  <div>
+    <img src="Assets/HistoryNew.gif" width="200" style="border:3px solid #003366; border-radius:8px;" />
+    <br />
+    <em style="color:gray;">Figure 6: Enhanced - History Screen</em>
+  </div>
+</div>
+
+<blockquote>
+  <p><b>Note</b></p>
+  <p>My original application allowed multiple weight entries for the same day, used O(n) lookups to search history, and allowed accidental entry deletions. Using a more structured BST and following best practices, the enhanced version offers faster load times and uses safety checks, thus handling user data securely.</p>
+</blockquote>
+
+<hr />
+<h2 id="challenges">Challenges</h2>
+<div style="text-align: normal;">
+<p><b>I. Unresolved reference.</b> I initially declared <code>val repository = WeightRepository</code> inside <code>onCreate</code>. Local variables such as this only exist within the function’s frame. The compiler didn't build when I tried to use <code>refreshHistory()</code> as it was out of scope.</p>
+
+<p><b>II. Suspend function error.</b> <code>getHistoryAsBST()</code> does Room database I/O which uses <code>withContext</code>. Kotlin didn’t allow me to call from a regular function because it could freeze my UI. I mitigated this by wrapping it inside <code>lifecycleScope.launch{}</code>.</p>
+
+<p><b>III. Import error for WeightBST.</b> The BST file was located in <i>data.local.structure.WeightBST.kt.</i> But since Kotlin doesn't auto import from other packages after refactoring. I manually added it with as <i>import com.example.weighttracker.data.local.structure.WeightBST</i>. This reinforces the importance on carefully migrating files and modules, as small details as these can cause the compiler to fail.</p>
+
+<p><b>IV.Type mismatch error.</b> In <code>getWeightDifference() , firstEntry() , lastEntry()</code> all returned Map.Entry, not a Float. I extracted the weight .value from <code>tree.firstEntry()?.value?.weight?.toFloat() ?: 0f.</code></p>
+
+<p><b>V. Private access error.</b> When I first added <code>getHistoryAsBST()</code> inside <code>WeightRepository</code>, I marked it as private suspend fun because it is an internal builder that converts Room <code>List<WeightEntry></WeightEntry></code> into a WeightBST. I kept <code>getHistoryAsBST()</code> private and exposed only what the UI needs through three public wrapper methods in the repository.</p>
+</div>
+
+<p><b>VI. Type mismatch.</b> In <code>NotificationHelper</code> the old call passed a List, causing a compile type mismatch because the compiler was expecting one entry but got the entire list. After refactoring, I changed the signature to accept only the newest entry to achieve O(log n) lookup.</p>
+
+<hr />
+<h2 id="outcomes">Outcomes</h2>
+<div style="text-align: justify;">
+<p>This enhanced version of my <b>weight tracking application</b> replaces full O(n) scans of the history list with a Binary Search Tree structure using <code>TreeMap</code> and reducing operations by using <code>firstEntry/lastEntry()</code> to O(log n + k). This shows design and evalution of computing solutions while managing trade-offs between memory overhead and access time. The updated Dashboard and notification system using <code>getLastNDays()</code> to display with a single <code>WeightEntry</code> providing timely visual feedback that supports user decision-making. Keeping <code>getHistoryAsBST()</code> private, and if <code>tree.isEmpty()</code> handling enforces encapsulation and anticipates empty data exploits to protect data integrity. Documenting all compilation errors and challenges such as the unresolved references and type mismatches after refactoring, represent professional quality written communication that adapts to a technical audience.</p>
+  
+<p>Overall, the updated version of this artifact does not add UI elements, rather, improves the lookup complexity to ensure scalability as data grows, thus ensuring that the functionalities and user experience improve, while maintaining the original architecture of the model and continuing aligning to best practices.</p>
+
+</div>
+<p><br /></p>
+
+<hr />
+
+<p>
+  <a href="/" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold;">
+    <span class="material-symbols-outlined" style="font-size:20px;">home</span> Home
+  </a>
+  <a href="/Databases.html" style="display:inline-flex; align-items:center; gap:6px; padding:8px 16px; background-color:#f6f8fa; color:#24292f; text-decoration:none; border-radius:6px; border:1px solid #d0d7de; font-weight:bold; float:right;">
+    Next <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+  </a>
+</p>
+
+<hr />
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+
+  <!--Contact Info-->
+  <div>
+  Contact:
+    <div style="font-size:15px;">
+    <b>Email:</b> moises.sanchez1@snhu.edu
+      <div style="margin-bottom:10px; margin-top:6px;">
+        <a href="https://github.com/moises2121" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:15px;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="25" height="25" style="margin-right:8px; background:white; border-radius:50%; padding:2px;" />
+          Follow me on GitHub
+        </a>
+      </div>
+      <div style="margin-bottom:10px;">
+        <a href="https://www.linkedin.com/in/moises-sanchez-9ab510361/" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:15px;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" width="20" height="20" style="margin-right:8px; background:white; border-radius:4px; padding:2px;" />
+          Follow me on LinkedIn
+        </a>
+      </div>
+        <a href="https://www.youtube.com/@moisesgsg" target="_blank" style="text-decoration:none; display:flex; align-items:center; font-weight:600; color:#0a66c2; font-size:15px;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="20" height="20" style="margin-right:8px;" />
+          Follow me on YouTube
+        </a>
+      </div>
+    </div>
+</div>
+
+<p><!-- Floating menu for easier access --></p>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+<div class="floating-menu">
+
+    <a href="/" class="float-btn" title="Home">
+    <span class="material-symbols-outlined">home</span>
+    </a>
+    
+    <a href="/SoftwareEngineering.html" class="float-btn" title="Software Engineering">
+    <span class="material-symbols-outlined">engineering</span>
+     </a>
+    
+    <a href="/Algorithms.html" class="float-btn" title="Algorithms">
+    <span class="material-symbols-outlined">account_tree</span>
+    </a>
+    
+    <a href="/Databases.html" class="float-btn" title="Databases">
+    <span class="material-symbols-outlined">database</span>
+    </a>
+
+    <button id="darkmode-btn" class="float-btn" title="Toggle Light Mode" style="border:none; cursor:pointer;">
+      <span class="material-symbols-outlined" id="darkmode-icon">dark_mode</span>
+    </button>
+  </div>
+
+<!-- Darkmode.js by Sandoche - https://github.com/sandoche/Darkmode.js - MIT License -->
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script src="/assets/js/darkmode.js"></script>
+
+<!-- active button highlighted on currentPage -->
+<script>
+  const currentPage = window.location.pathname.split('/').pop();
+  document.querySelectorAll('.floating-menu a.float-btn').forEach(btn => {
+    
+    if ((currentPage === '' || currentPage === 'index.html') && btn.title === 'Home') {
+      btn.classList.add('active');
+    }
+    if (btn.href.includes(currentPage) && currentPage !== '' && currentPage !== 'index.html') {
+      btn.classList.add('active');
+    }
+  });
+
+  const dmBtn = document.getElementById('darkmode-btn');
+  const dmIcon = document.getElementById('darkmode-icon');
+  
+  function updateIcon() {
+    dmIcon.textContent = window.darkmode.isActivated() ? 'light_mode' : 'dark_mode';
+  }
+
+  dmBtn.addEventListener('click', () => {
+    window.darkmode.toggle();
+    updateIcon();
+  });
+
+  updateIcon();
+</script>
+
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Moises2121/moises2121.github.io">moises2121.github.io</a> is maintained by <a href="https://github.com/Moises2121">Moises2121</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -12,6 +12,15 @@ title: Algorithms & Data Structures
 </div>
 
 ---
+
+<div class="h3-toc" markdown="1">
+## On this page
+{:.no_toc}
+
+* TOC
+{:toc}
+</div>
+
 ## Artifact's Origin
 <p> Artifact: CS360- Final project <b>Weight Tracking App</b> <i>(Kotlin, XML, SQLite)</i><br>
 Developed on August 2026 for Mobile Architecture and Programming at SNHU
@@ -29,7 +38,7 @@ The application was developed as part of a project that required Android Studio 
 </div>
 ---
 ## Enhancement Steps
-<h3><u>Refactoring storage to use BST</u></h3>
+<h3><u>1. Refactoring storage to use BST</u></h3>
 <div style="text-align: justify;">
 <p>I started by creating a new package and added a <code>weightBST.kt</code> inside. The class is a wrapper around <code>TreeMap<LocalDate, WeightEntry></code> which implements a balanced BST. This new structure stores weight entries sorted by timestamps providing insertion methods, retrieving last entry and range queries. Previously, I used a linear List with O(n) that sorts and scans the entire list, this enhanced approach reduces complexity down to O(log n) operations.</p>
 <br>
@@ -62,7 +71,7 @@ private suspend fun getHistoryAsBST(username: String): WeightBST {
     }
 }
 ```
-<h3><u>Adding range query for retrieval efficiency</u></h3>
+<h3><u>2. Adding range query for retrieval efficiency</u></h3>
 <p>I improved retrieval efficiency by using <code>TreeMap<LocalDate, WeightEntry></code> structure. Instead of a linear filtering O(n) over the entire list, I used <code>lastEntry()</code> to obtain the latest date in O(log n) and <code>descendingMap()</code> for the last N days. The new operation is O(log n + k) where k = the number of records return – avoiding a full scan.</p>
 
 ```kotlin
@@ -105,7 +114,7 @@ fun getLastNDays(n: Int): List<WeightEntry> {
     }
 ```
 
-<h3><u>Updating weight calculations and modifying the notifications</u></h3>
+<h3><u>3. Updating weight calculations and modifying the notifications</u></h3>
 <p>For this step, I updated the weight calculations and modifying the notifications to take advantage of the new BST structure. In my original version, both of these features relied on scanning and sorting the entire history list resulting in O(n) complexity calculations. After refactoring them to use <code>weightBST</code> methods such as <code>getLastEntry()</code>, and <code>firstEntry()</code> , I already reduced operations to O(log n + k) which ensure fast calculations and provides efficient reminder checks.
 <br>
 In the <code>DashboardActivity</code> module, I replaced <code>history[0]</code> to <code>history.last()</code> since getLastNDays() is now returning data that is already sorted  in the BST. </p>
@@ -159,7 +168,7 @@ fun load(username: String) {
 }
 ```
 
-<h3><u>Updating the UI layer to display new records more efficiently</u></h3>
+<h3><u>4. Updating the UI layer to display new records more efficiently</u></h3>
 <p>For this step, I updated the UI layer while maintaining my original five record layout. In my initial version <code>HistoryActivity</code> relied on the <code>repository.getHistory()</code> which caused the app to load the entire history list assuming the last entry was history[0] resulting in a full scan. After refactoring to use <code>WeightBST</code> structure, I can now use <code>getLastNDays(username, 5)</code> with O(log n + k) lookup to get only those five records that I want to display. At the end, I was able to optimize the <code>refreshHistory</code> method while maintaining my original layout.</p>
 <br>
   
