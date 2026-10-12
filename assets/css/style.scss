@@ -98,24 +98,46 @@
   margin-top: 5px;
   text-align: center;
 }
+Self Assessment
+.details-dropdown {
+  margin: 1.5em 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
 
+.details-dropdown summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
+.details-dropdown summary::-webkit-details-marker {
+  display: none;
+}
 
+.details-dropdown summary h2 {
+  display: inline;
+  margin: 0;
+  cursor: pointer;
+}
 
+.details-dropdown summary::before {
+  content: "▸";
+  transition: transform 0.2s;
+  font-size: 1.2em;
+}
 
+.details-dropdown[open] summary::before {
+  transform: rotate(90deg);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.details-content {
+  text-align: justify;
+  margin-top: 12px;
+}
 
 
 
