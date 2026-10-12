@@ -7,14 +7,6 @@
 ---
 <div id="typing-wrapper"><span id="typing"></span><span id="cursor">|</span></div>
 ---
-## Introduction
-<div style="text-align: justify;">
-  <p>
-Welcome to my CS499 ePortfolio. Here, I showcase my skills obtained throught the BS in CS degree in a professional and descriptive manner, along with mitigation steps for the challenges encountered. I will discuss and review improved elements for the enhancement of my <b>Weight Tracking Application</b>.
-I’m aiming to develop a fully functional application that follows best practices and enhances user experience, as well as ensuring database is properly handled. More specifically, ensuring the code is readable and sustainable, the UI and UX elements are adequate for the desired audience and using Room library for Android to handle database components. This page will include a self assesment, video code review, and the before and after artifact for each enhancement- each containing a descriptive narrative.
-  </p>
-</div>
----
 <div style="background:#f1f8e9; border:1px solid #dcedc8; border-radius:10px; padding:10px 20px;" markdown="1">
 
 ## Table of Contents
@@ -24,7 +16,16 @@ I’m aiming to develop a fully functional application that follows best practic
 
 </div>
 ---
-<h2 id="self-assesment" class="sr-only">Self Assesment</h2>
+## Introduction
+<div style="text-align: justify;">
+  <p>
+Welcome to my CS499 ePortfolio. Here, I showcase my skills obtained throught the BS in CS degree in a professional and descriptive manner, along with mitigation steps for the challenges encountered. I will discuss and review improved elements for the enhancement of my <b>Weight Tracking Application</b>.
+I’m aiming to develop a fully functional application that follows best practices and enhances user experience, as well as ensuring database is properly handled. More specifically, ensuring the code is readable and sustainable, the UI and UX elements are adequate for the desired audience and using Room library for Android to handle database components. This page will include a self assesment, video code review, and the before and after artifact for each enhancement- each containing a descriptive narrative.
+  </p>
+</div>
+---
+## Self Assessment
+{: #self-assessment .sr-only }
 
 <details class="details-dropdown">
 <summary><h2>Self Assessment</h2></summary>
