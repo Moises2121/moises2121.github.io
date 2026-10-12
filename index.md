@@ -28,7 +28,7 @@ I’m aiming to develop a fully functional application that follows best practic
 {: #self-assessment .sr-only }
 
 <details class="details-dropdown">
-<summary><h2>Self Assessment</h2></summary>
+<summary><span class="h2-style">Self Assessment</span></summary>
 <div class="details-content" markdown="1">
   <p>
     Completing the coursework in <code>CS499</code> helped me strenghten and highlight my technical growth and redefine my personal goals. Through iterative projects, code reviews, full-stack development techniques and project proposals, I was able to confortably produce a maintainable and secure software. This ePortfolio showcases these skills by presenting not only the final artifact, but the reasoning behind each decision - which helped me focus on becoming a responsible developer using secure and user-centered design. Aside from my ePortfolio, courses such as CS305 (Software Security), CS340 (Client Server Development), CS360 (Mobile Architecture & Programming), helped me develop Agile methodologies and accomplish industry' best practices, which overall helped strenghten my ability to work for production-like environment that make me a good candidate by aligning my skills to emerging trends.<br>
