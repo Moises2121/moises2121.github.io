@@ -25,7 +25,12 @@ I’m aiming to develop a fully functional application that follows best practic
 </div>
 ---
 ## Self Assesment
-<div style="text-align: justify;">
+<details>
+<summary style="cursor:pointer; font-weight:700; font-size:1.4em;">
+Self Assessment
+</summary>
+  
+<div markdown="1" style="text-align: justify; margin-top: 10px;">
   <p>
     Completing the coursework in <code>CS499</code> helped me strenghten and highlight my technical growth and redefine my personal goals. Through iterative projects, code reviews, full-stack development techniques and project proposals, I was able to confortably produce a maintainable and secure software. This ePortfolio showcases these skills by presenting not only the final artifact, but the reasoning behind each decision - which helped me focus on becoming a responsible developer using secure and user-centered design. Aside from my ePortfolio, courses such as CS305 (Software Security), CS340 (Client Server Development), CS360 (Mobile Architecture & Programming), helped me develop Agile methodologies and accomplish industry' best practices, which overall helped strenghten my ability to work for production-like environment that make me a good candidate by aligning my skills to emerging trends.<br>
 Outside of this ePortfolio, the <b>Grazioso Salvare*</b> project in CS340 demonstrated my ability to implement a normalized <code>MongoDB</code> solution with CRUD operations that indexed queries for a dog shelter organization, while maintaining stakeholder requirements on a functional dashboard. Aditionally, on CS305 I learned to identify vulnerabilities, enforcing secure coding standards and using static analysis tools. By applying these principles, I was able to enahance this artifact by implementing security hashing and providing a clean user interface. <br><i>*You can find these artifacts in my github repository</i><br>
