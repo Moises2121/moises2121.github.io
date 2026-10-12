@@ -24,8 +24,8 @@ I’m aiming to develop a fully functional application that follows best practic
 
 </div>
 ---
-##Self Assesment
-{: #self-assessment style="display:none; height:0; margin:0; overflow:hidden;"}
+<h2 id="self-assesment" class="sr-only">Self Assesment</h2>
+
 <details class="details-dropdown">
 <summary><h2>Self Assessment</h2></summary>
 <div class="details-content" markdown="1">
